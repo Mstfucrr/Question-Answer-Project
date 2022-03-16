@@ -31,9 +31,9 @@ namespace Question_Answer.user.StudentUserForm
 
         private void btn_SinavOl_Click(object sender, System.EventArgs e)
         {
-            QuestionGetForm questionGetForm = new QuestionGetForm(student);
+            QuizFrom questionGetForm = new QuizFrom(student);
             questionGetForm.Show();
-
+            this.Close();
         }
     }
 }
