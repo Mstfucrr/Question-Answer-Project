@@ -17,8 +17,18 @@ namespace Question_Answer.Questions
         [BsonElement("QuestionImage")]
         public string QuestionImage { get; set; }
         [BsonElement("Answers")]
-
         public List<Answers> Answers;
+
+        [BsonElement("AdminAccept")]
+        public bool AdminAccept { get; set; }
+        
+        [BsonElement("Unit")]
+        public int Unit { get; set; }
+
+        [BsonElement("Subject")]
+        public string Subject { get; set; }
+
+
         private Database.MongoDB mongoDB;
 
         public static string GetDirectoryName = Path.GetDirectoryName(Application.ExecutablePath);
