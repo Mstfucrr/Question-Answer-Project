@@ -17,7 +17,7 @@ namespace Question_Answer.Questions.QuestionForms
         private int _thisQuestionFalseAnswerCount;
         private Question randomQuestion;
         private RadioButton radioCevap;
-        private IsaretlenenCevaplarListesi studentCevaplarListesi;
+        private IsaretlenenCevaplarListesi _studentAnswerlist;
 
         public QuestionGetForm(Student student)
         {
@@ -27,7 +27,7 @@ namespace Question_Answer.Questions.QuestionForms
             _thisQuestionTrueAnswerCount = 0;
             _thisQuestionFalseAnswerCount = 0;
 
-            studentCevaplarListesi = new IsaretlenenCevaplarListesi();
+            _studentAnswerlist = new IsaretlenenCevaplarListesi();
             QuestionGetFunction(index);
             CvpPanel.Visible = true;
             this.student = student;
@@ -53,15 +53,15 @@ namespace Question_Answer.Questions.QuestionForms
         {
             var pnl = new Panel
             {
-                Width = panel2.Width,
-                Height = panel4.Height,
+                Width = optikPanel.Width,
+                Height = 84,
                 BorderStyle = BorderStyle.FixedSingle,
                 BackColor = color,
                 Name = questionId.ToString()
             };
 
-            pnl.Top += (panel2.Controls.Count - 1) * panel4.Height;
-            panel2.Controls.Add(pnl);
+            pnl.Top += (optikPanel.Controls.Count - 1) * 84;
+            optikPanel.Controls.Add(pnl);
             return pnl;
 
         }
@@ -72,15 +72,19 @@ namespace Question_Answer.Questions.QuestionForms
             {
                 CheckAlign = ContentAlignment.MiddleCenter,
                 Dock = DockStyle.Right,
-                Location = new Point(j * panel2.Width / 5, 0),
-                Size = new Size(panel2.Width / 5, 82),
+                Location = new Point(j * optikPanel.Width / 5, 0),
+                Size = new Size(optikPanel.Width / 5, 82),
                 Name = "optik_" + opAnswers.AnswerId,
                 TabStop = true,
                 TextAlign = ContentAlignment.MiddleCenter,
                 UseVisualStyleBackColor = true
             };
+            rBtn.CheckedChanged += radioBtnsCheckedChanged;
+
             return rBtn;
         }
+
+
 
         private List<RadioButton> CevapSecenekleriOlustur(List<Answers> answersList)
         {
@@ -112,7 +116,7 @@ namespace Question_Answer.Questions.QuestionForms
 
         }
 
-        private string _trueAnswer = "";
+        private ObjectId _trueAnswerId;
         private void btn_DigerSoru_Click(object sender, EventArgs e)
         {
             if (index < RandomQuestionList.Count - 1)
@@ -131,52 +135,29 @@ namespace Question_Answer.Questions.QuestionForms
         private void QuestionGetFunction(int index)
         {
 
-            while (index >= RandomQuestionList.Count)
-            {
-                if (index > 0)
-                    index--;
-                else
-                {
-                    student.TrueCount += _thisQuestionTrueAnswerCount;
-                    student.FalseCount += _thisQuestionFalseAnswerCount;
-
-                    MessageBox.Show($"Sınav Bitti!\nBu sınavın" +
-                                    $"\n  Doğru cevap sayısı : {_thisQuestionTrueAnswerCount}" +
-                                    $"\n  Yanlış cevap sayısı : {_thisQuestionFalseAnswerCount}");
-                    this.Close();
-                    return;
-                }
-
-            }
 
             randomQuestion = RandomQuestionList[index];
-
-            foreach (var randomQuestionAnswer in randomQuestion.Answers.Where(randomQuestionAnswer =>
-                         randomQuestionAnswer.TrueOrFalse))
-            {
-                _trueAnswer = randomQuestionAnswer.AnswerText; // Doğru cevabın texti
-            }
-
+            CvpPanel.Controls.Clear();
             foreach (var radioButton in CevapSecenekleriOlustur(randomQuestion.Answers))
             {
                 CvpPanel.Controls.Add(radioButton);
             }
 
-
             foreach (var radioButton in CvpPanel.Controls.OfType<RadioButton>())
             {
-                for (var ındex = 0; ındex < studentCevaplarListesi.İIsaretlenenCevapClasses.Count; ındex++)
+                for (var ındex = 0; ındex < _studentAnswerlist.SelectedAnswerIdList.Count; ındex++)
                 {
-                    var randomQuestionAnswer = studentCevaplarListesi.İIsaretlenenCevapClasses[ındex];
-                    if (randomQuestionAnswer.AnsweId.ToString() == radioButton.Name)
+                    var randomQuestionAnswer = _studentAnswerlist.SelectedAnswerIdList[ındex];
+                    if (randomQuestionAnswer.ToString() == radioButton.Name && !radioButton.Checked)
                     {
                         radioButton.Checked = true;
+                        MessageBox.Show(_studentAnswerlist.SelectedAnswerIdList.Count.ToString());//sorun burda
                     }
                 }
             }
 
 
-            Lbl_Soru.Text = randomQuestion.QuestionText;
+            Lbl_Soru.Text = (index + 1) + " ) " + randomQuestion.QuestionText;
 
             pictureBox1.ImageLocation = randomQuestion.QuestionImage != null
                 ? randomQuestion.QuestionImagesUploadLocation + @"\" + randomQuestion.QuestionImage
@@ -186,78 +167,99 @@ namespace Question_Answer.Questions.QuestionForms
         private void btn_Onayla_Click(object sender, EventArgs e)
         {
 
-            //foreach (var cntrl in Controls)
-            //{
-            //    if (cntrl is RadioButton { Checked: true } b)
-            //    {
-            //        if (b.Text == _trueAnswer)
-            //        {
-            //            MessageBox.Show(@"Cevabınız doğru tebrikler");
-            //            _thisQuestionTrueAnswerCount++;
-            //            student.AnsweredQuestionsList.Add(new AnsweredQuestions
-            //            {
-            //                TrueOrFalse = true,
-            //                AnsweredQuestionIds = randomQuestion.QuestionId,
-            //                AnsweredQuestionDate = DateTime.Now
-            //            });
+            for (var index = 0; index < RandomQuestionList.Count; index++)
+            {
+                foreach (var iIsaretlenenCevapClass in _studentAnswerlist.SelectedAnswerIdList)
+                {
+                    var questionListElement = RandomQuestionList[index];
+                    foreach (var questionListAnswerElement in questionListElement.Answers)
+                    {
+                        if (iIsaretlenenCevapClass == questionListAnswerElement.AnswerId)
+                        {
+                            foreach (Control optikPanelControl in optikPanel.Controls)
+                            {
+                                if (optikPanelControl.Name == questionListElement.QuestionId.ToString())
+                                {
+                                    if (questionListAnswerElement.TrueOrFalse)
+                                    {
+                                        optikPanelControl.BackColor = Color.Chartreuse;
+                                        _thisQuestionTrueAnswerCount++;
+                                        student.AnsweredQuestionsList.Add(new AnsweredQuestions
+                                        {
+                                            TrueOrFalse = true,
+                                            AnsweredQuestionIds = questionListElement.QuestionId,
+                                            AnsweredQuestionDate = DateTime.Now
 
-            //        }
-            //        else
-            //        {
-            //            MessageBox.Show(@"Cevabınız hatalı");
-            //            _thisQuestionFalseAnswerCount++;
-            //            student.AnsweredQuestionsList.Add(new AnsweredQuestions
-            //            {
-            //                TrueOrFalse = false,
-            //                AnsweredQuestionIds = randomQuestion.QuestionId,
-            //                AnsweredQuestionDate = DateTime.Now
-            //            });
-            //        }
+                                        });
+                                    }
+                                    else
+                                    {
+                                        optikPanelControl.BackColor = Color.Red;
+                                        _thisQuestionFalseAnswerCount++;
+                                        student.AnsweredQuestionsList.Add(new AnsweredQuestions
+                                        {
+                                            TrueOrFalse = false,
+                                            AnsweredQuestionIds = questionListElement.QuestionId,
+                                            AnsweredQuestionDate = DateTime.Now
+                                        });
+                                    }
+                                }
+                            }
 
-
-            //    }
-            //}
-
-            //RandomQuestionList.Remove(randomQuestion);
-            //if (RandomQuestionList.Count == 1)
-            //{
-            //    btn_DigerSoru.Enabled = false;
-            //    btn_OncekiSoru.Enabled = false;
-            //}
-            //QuestionGetFunction(index);
-
-            //student.Save();
+                        }
+                    }
+                }
+            }
+            student.TrueCount += _thisQuestionTrueAnswerCount;
+            student.FalseCount += _thisQuestionFalseAnswerCount;
+            student.Save();
+            MessageBox.Show("Bu testin " +
+                            $"\nDoğru cevap sayısı : {_thisQuestionTrueAnswerCount}" +
+                            $"\nYanlış cevap sayısı : {_thisQuestionFalseAnswerCount}");
+            optikPanel.Enabled = false;
+            CvpPanel.Enabled = false;
+            //btn_Onayla.Enabled = false;
 
         }
-
 
         private void radioBtnsCheckedChanged(object sender, EventArgs e)
         {
             var isaretlenenCevap = sender as RadioButton;
-
-            var isCevapClass = new IsaretlenenCevapClass();
+            var IsaretlenenCevapId = new ObjectId();
             if (isaretlenenCevap is { Checked: true })
             {
-                isCevapClass.AnsweId = new ObjectId(isaretlenenCevap.Name);
-                studentCevaplarListesi.İIsaretlenenCevapClasses.Add(isCevapClass);
-
-                foreach (var panel in panel2.Controls.OfType<Panel>())
+                try
                 {
-                    if (panel.Name == randomQuestion.QuestionId.ToString())
-                        foreach (var radio in panel.Controls.OfType<RadioButton>())
+                    IsaretlenenCevapId = new ObjectId(isaretlenenCevap.Name);
+                }
+                catch
+                {
+                    IsaretlenenCevapId = new ObjectId(isaretlenenCevap.Name.Split('_')[1]);
+                }
+                _studentAnswerlist.SelectedAnswerIdList.Add(IsaretlenenCevapId);
+                
+                foreach (var panel in optikPanel.Controls.OfType<Panel>())//optik panel
+                {
+                    if (panel.Name == randomQuestion.QuestionId.ToString())//optik panel içindeki soru id ile görüntülenen soru id karşılaştırma
+                    {
+                        foreach (var radio in panel.Controls.OfType<RadioButton>()) // optik panel > soru id panel > radiobuttonlar
                         {
-                            if (radio.Name == "optik_" + isCevapClass.AnsweId)
+                            if (radio.Name == "optik_" + IsaretlenenCevapId)
                             {
                                 radio.Checked = true;
+
                             }
                         }
+                    }
                 }
             }
 
-            if (!isaretlenenCevap.Checked)
+            if (isaretlenenCevap is { Checked: false })
             {
-                studentCevaplarListesi.İIsaretlenenCevapClasses.Remove(isCevapClass);
+                _studentAnswerlist.SelectedAnswerIdList.Remove(IsaretlenenCevapId);
+                
             }
         }
+
     }
 }
