@@ -37,6 +37,21 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ComponentFactory.Krypton.Docking">
+      <HintPath>..\..\..\Uı\Krypton-master\Bin\ComponentFactory.Krypton.Docking.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Navigator">
+      <HintPath>..\..\..\Uı\Krypton-master\Bin\ComponentFactory.Krypton.Navigator.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Ribbon">
+      <HintPath>..\..\..\Uı\Krypton-master\Bin\ComponentFactory.Krypton.Ribbon.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Toolkit">
+      <HintPath>..\..\..\Uı\Krypton-master\Bin\ComponentFactory.Krypton.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Workspace">
+      <HintPath>..\..\..\Uı\Krypton-master\Bin\ComponentFactory.Krypton.Workspace.dll</HintPath>
+    </Reference>
     <Reference Include="DnsClient, Version=1.6.0.0, Culture=neutral, PublicKeyToken=4574bb5573c51424, processorArchitecture=MSIL">
       <HintPath>packages\DnsClient.1.6.0\lib\net471\DnsClient.dll</HintPath>
     </Reference>
@@ -166,6 +181,7 @@
     </Compile>
     <Compile Include="user\UserClasses\AnsweredQuestions.cs" />
     <Compile Include="user\UserClasses\Student.cs" />
+    <Compile Include="user\UserClasses\Teacher.cs" />
     <Compile Include="user\UserClasses\User.cs" />
     <Compile Include="user\UserForms\UserLoginForm.cs">
       <SubType>Form</SubType>
@@ -202,9 +218,11 @@
     </EmbeddedResource>
     <EmbeddedResource Include="user\UserForms\UserLoginForm.resx">
       <DependentUpon>UserLoginForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="user\UserForms\UserRegisterForm.resx">
       <DependentUpon>UserRegisterForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="Core\Compression\Snappy\lib\linux\libsnappy64.so" />
     <None Include="Core\Compression\Snappy\lib\osx\libsnappy64.dylib" />
