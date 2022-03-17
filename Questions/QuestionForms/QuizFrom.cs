@@ -2,51 +2,87 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Timers;
 using System.Windows.Forms;
 using MongoDB.Bson;
 using Question_Answer.user.StudentUserForm;
 using Question_Answer.user.UserClasses;
+using Timer = System.Windows.Forms.Timer;
+
 
 namespace Question_Answer.Questions.QuestionForms
 {
     public partial class QuizFrom : Form
     {
         public List<Question> RandomQuestionList;
-        public int SoruNum;
-        public Student student;
+        public int QuestionNum;
+        public Student Student;
         private int _thisQuestionTrueAnswerCount;
         private int _thisQuestionFalseAnswerCount;
-        private Question randomQuestion;
-        private RadioButton radioCevap;
+        private Question _randomQuestion;
+        private RadioButton _radioCevap;
         private IsaretlenenCevaplarListesi _studentAnswerlist;
-
+        private int _quizTime;
+        private Timer _timer;
         public QuizFrom(Student student)
         {
             InitializeComponent();
             RandomQuestionList = new Question().Rastgele10SoruGetir<Question>();
-            SoruNum = 0;
+            QuestionNum = 0;
             _thisQuestionTrueAnswerCount = 0;
             _thisQuestionFalseAnswerCount = 0;
 
             _studentAnswerlist = new IsaretlenenCevaplarListesi();
-            SorularıGetir(SoruNum);
+            SorularıGetir(QuestionNum);
             OptionsPanel.Visible = true;
-            this.student = student;
+            this.Student = student;
 
+        }
+        private void QuizFrom_Load(object sender, EventArgs e)
+        {
+
+            _timer = new Timer();
+            _timer.Interval = 1000;
+            _timer.Tick += TimerOnTick;
+            _timer.Start();
 
             // yeni panel yan optik
-            for (int i = 0; i < RandomQuestionList.Count; i++)
+            for (var i = 0; i < RandomQuestionList.Count; i++)
             {
-                var questionpanel = OptikIcinPanelOlustur(RandomQuestionList[i].QuestionId, i % 2 == 1 ? Color.Turquoise : Color.Aquamarine);
-                for (int j = 0; j < 5; j++)
+                var questionpanel = OptikIcinPanelOlustur(RandomQuestionList[i].QuestionId, i % 2 == 1
+                    ? Color.Turquoise : Color.Aquamarine);
+                for (var j = 0; j < 5; j++) // soru cevap sayısı
                 {
                     questionpanel.Controls.Add(OptikIcinRadioButtonOlustur(RandomQuestionList[i].Answers[j], j));
                 }
-            }
 
+                _quizTime += RandomQuestionList[i].QuestionTime;//sınav toplam süresi hesapla
+            }
             //////////////////////////
 
+        }
 
+        private void TimerOnTick(object sender, EventArgs e)
+        {
+
+            if (_quizTime > 0)
+            {
+                _quizTime--;
+                TimeSpan secToTimeSpan = TimeSpan.FromSeconds(_quizTime);
+                txtTime.Text = $@"{secToTimeSpan.Hours}:{secToTimeSpan.Minutes}:{secToTimeSpan.Seconds}";
+                if (_quizTime < 10)
+                {
+                    txtTime.BackColor = Color.Red;
+                    txtTime.ForeColor = Color.White;
+                }
+            }
+            else
+            {
+                _timer.Stop();
+                MessageBox.Show("Süre doldu !!!");
+                QuizFinished();
+
+            }
         }
 
         private Panel OptikIcinPanelOlustur(ObjectId questionId, Color color)//Optir bar için panel
@@ -89,7 +125,7 @@ namespace Question_Answer.Questions.QuestionForms
             var RadioButtonList = new List<RadioButton>();
             foreach (var answer in answersList)
             {
-                radioCevap = new RadioButton
+                _radioCevap = new RadioButton
                 {
                     BackColor = Color.White,
                     Dock = DockStyle.Bottom,
@@ -103,9 +139,9 @@ namespace Question_Answer.Questions.QuestionForms
                     TabIndex = 2,
                     UseVisualStyleBackColor = false,
                 };
-                radioCevap.CheckedChanged += radioBtnsCheckedChanged;
-                OptionsPanel.Controls.Add(radioCevap);
-                RadioButtonList.Add(radioCevap);
+                _radioCevap.CheckedChanged += radioBtnsCheckedChanged;
+                OptionsPanel.Controls.Add(_radioCevap);
+                RadioButtonList.Add(_radioCevap);
             }
 
             return RadioButtonList;
@@ -115,26 +151,25 @@ namespace Question_Answer.Questions.QuestionForms
         private ObjectId _trueAnswerId;
         private void btn_DigerSoru_Click(object sender, EventArgs e)
         {
-            if (SoruNum < RandomQuestionList.Count - 1)
-                SoruNum++;
-            SorularıGetir(SoruNum);
+            if (QuestionNum < RandomQuestionList.Count - 1)
+                QuestionNum++;
+            SorularıGetir(QuestionNum);
 
         }
         private void btn_OncekiSoru_Click(object sender, EventArgs e)
         {
-            if (SoruNum > 0)
-                SoruNum--;
-            SorularıGetir(SoruNum);
+            if (QuestionNum > 0)
+                QuestionNum--;
+            SorularıGetir(QuestionNum);
 
         }
-
         private void SorularıGetir(int index)
         {
 
 
-            randomQuestion = RandomQuestionList[index];
+            _randomQuestion = RandomQuestionList[index];
             OptionsPanel.Controls.Clear();
-            foreach (var radioButton in CevapSecenekleriOlustur(randomQuestion.Answers))
+            foreach (var radioButton in CevapSecenekleriOlustur(_randomQuestion.Answers))
                 OptionsPanel.Controls.Add(radioButton);
 
             foreach (var radioButton in OptionsPanel.Controls.OfType<RadioButton>())
@@ -149,17 +184,21 @@ namespace Question_Answer.Questions.QuestionForms
             }
 
 
-            Lbl_Soru.Text = (index + 1) + " ) " + randomQuestion.QuestionText;
+            Lbl_Soru.Text = (index + 1) + " ) " + _randomQuestion.QuestionText;
 
-            pictureBox1.ImageLocation = randomQuestion.QuestionImage != null
-                ? randomQuestion.QuestionImagesUploadLocation + @"\" + randomQuestion.QuestionImage
+            pictureBox1.ImageLocation = _randomQuestion.QuestionImage != null
+                ? _randomQuestion.QuestionImagesUploadLocation + @"\" + _randomQuestion.QuestionImage
                 : null;
         }
 
 
         private void btn_Onayla_Click(object sender, EventArgs e)
         {
+            QuizFinished();
+        }
 
+        private void QuizFinished()
+        {
             for (var index = 0; index < RandomQuestionList.Count; index++)// sorulan soru for'u
             {
                 var questionListElement = RandomQuestionList[index];
@@ -177,7 +216,7 @@ namespace Question_Answer.Questions.QuestionForms
                                     {
                                         optikPanelControl.BackColor = Color.Chartreuse;
                                         _thisQuestionTrueAnswerCount++;
-                                        student.AnsweredQuestionsList.Add(new AnsweredQuestions
+                                        Student.AnsweredQuestionsList.Add(new AnsweredQuestions
                                         {
                                             TrueOrFalse = true,
                                             AnsweredQuestionIds = questionListElement.QuestionId,
@@ -189,7 +228,7 @@ namespace Question_Answer.Questions.QuestionForms
                                     {
                                         optikPanelControl.BackColor = Color.Red;
                                         _thisQuestionFalseAnswerCount++;
-                                        student.AnsweredQuestionsList.Add(new AnsweredQuestions
+                                        Student.AnsweredQuestionsList.Add(new AnsweredQuestions
                                         {
                                             TrueOrFalse = false,
                                             AnsweredQuestionIds = questionListElement.QuestionId,
@@ -203,35 +242,34 @@ namespace Question_Answer.Questions.QuestionForms
                     }
                 }
             }
-            student.TrueCount += _thisQuestionTrueAnswerCount;
-            student.FalseCount += _thisQuestionFalseAnswerCount;
-            student.Save();
+            Student.TrueCount += _thisQuestionTrueAnswerCount;
+            Student.FalseCount += _thisQuestionFalseAnswerCount;
+            //Student.Save();
             MessageBox.Show("Bu testin " +
                             $"\nDoğru cevap sayısı : {_thisQuestionTrueAnswerCount}" +
                             $"\nYanlış cevap sayısı : {_thisQuestionFalseAnswerCount}");
             optikPanel.Enabled = false;
             OptionsPanel.Enabled = false;
-            StudentDashboardForm dashboardForm = new StudentDashboardForm(student);
+            StudentDashboardForm dashboardForm = new StudentDashboardForm(Student);
             dashboardForm.Show();
             //btn_Onayla.Enabled = false;
-
         }
 
         public void radioBtnsCheckedChanged(object sender, EventArgs e)
         {
-            var SelectedRadioButton = sender as RadioButton;
+            var selectedRadioButton = sender as RadioButton;
 
-            if (SelectedRadioButton is { Checked: false })
+            if (selectedRadioButton is { Checked: false })
             {
-                _studentAnswerlist.SelectedAnswerIdList.Remove(SelectedRadioButton.Text == ""
-                    ? new ObjectId(SelectedRadioButton.Name.Split('_')[1])
-                    : new ObjectId(SelectedRadioButton.Name));
+                _studentAnswerlist.SelectedAnswerIdList.Remove(selectedRadioButton.Text == ""
+                    ? new ObjectId(selectedRadioButton.Name.Split('_')[1])
+                    : new ObjectId(selectedRadioButton.Name));
             }
-            if (SelectedRadioButton is { Checked: true })
+            if (selectedRadioButton is { Checked: true })
             {
-                var ısaretlenenCevapId = (SelectedRadioButton.Text == ""
-                    ? new ObjectId(SelectedRadioButton.Name.Split('_')[1])
-                    : new ObjectId(SelectedRadioButton.Name));
+                var ısaretlenenCevapId = (selectedRadioButton.Text == ""
+                    ? new ObjectId(selectedRadioButton.Name.Split('_')[1])
+                    : new ObjectId(selectedRadioButton.Name));
 
                 if (_studentAnswerlist.SelectedAnswerIdList.Count == 0)
                 {
@@ -239,26 +277,14 @@ namespace Question_Answer.Questions.QuestionForms
                 }
 
                 //Aynı answerid eklememek için döngü
-                var confirmation = true;
-                for (var ındex = 0; ındex < _studentAnswerlist.SelectedAnswerIdList.Count; ındex++)
-                {
-                    var objectId = _studentAnswerlist.SelectedAnswerIdList[ındex];
-                    if (ısaretlenenCevapId == objectId) // son eleman
-                    {
-                        confirmation = false;
-                        break;
-                    }
-                }
+                var confirmation = _studentAnswerlist.SelectedAnswerIdList.All(objectId => ısaretlenenCevapId != objectId);
 
                 if (confirmation)
-                {
                     _studentAnswerlist.SelectedAnswerIdList.Add(ısaretlenenCevapId);
-
-                }
 
                 foreach (var panel in optikPanel.Controls.OfType<Panel>())//optik panel
                 {
-                    if (panel.Name == randomQuestion.QuestionId.ToString())//optik panel içindeki soru id ile görüntülenen soru id karşılaştırma
+                    if (panel.Name == _randomQuestion.QuestionId.ToString())//optik panel içindeki soru id ile görüntülenen soru id karşılaştırma
                     {
                         foreach (var radio in panel.Controls.OfType<RadioButton>()) // optik panel > soru id panel > radiobuttonlar
                         {
@@ -272,5 +298,7 @@ namespace Question_Answer.Questions.QuestionForms
                 }
             }
         }
+
+
     }
 }

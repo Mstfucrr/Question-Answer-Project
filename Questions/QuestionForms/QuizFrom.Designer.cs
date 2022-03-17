@@ -39,16 +39,17 @@
             this.btn_Onayla = new System.Windows.Forms.Button();
             this.btn_OncekiSoru = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.OptionsPanel = new System.Windows.Forms.Panel();
             this.optikPanel = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.txtTime = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.OptionsPanel.SuspendLayout();
             this.optikPanel.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // Lbl_Soru
@@ -208,6 +209,17 @@
             this.panel1.Size = new System.Drawing.Size(798, 925);
             this.panel1.TabIndex = 15;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.txtTime);
+            this.panel2.Controls.Add(this.btn_OncekiSoru);
+            this.panel2.Controls.Add(this.btn_DigerSoru);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(0, 860);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(798, 65);
+            this.panel2.TabIndex = 16;
+            // 
             // OptionsPanel
             // 
             this.OptionsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -249,17 +261,18 @@
             this.panel3.Size = new System.Drawing.Size(351, 64);
             this.panel3.TabIndex = 14;
             // 
-            // panel2
+            // txtTime
             // 
-            this.panel2.Controls.Add(this.btn_OncekiSoru);
-            this.panel2.Controls.Add(this.btn_DigerSoru);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 860);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(798, 65);
-            this.panel2.TabIndex = 16;
+            this.txtTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtTime.Location = new System.Drawing.Point(29, 21);
+            this.txtTime.Name = "txtTime";
+            this.txtTime.ReadOnly = true;
+            this.txtTime.Size = new System.Drawing.Size(153, 28);
+            this.txtTime.TabIndex = 15;
+            this.txtTime.Text = "00:00:00";
+            this.txtTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // QuestionGetForm
+            // QuizFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -268,15 +281,17 @@
             this.Controls.Add(this.optikPanel);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "QuestionGetForm";
+            this.Name = "QuizFrom";
             this.Text = "QuestionGetForm";
+            this.Load += new System.EventHandler(this.QuizFrom_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.OptionsPanel.ResumeLayout(false);
             this.optikPanel.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -298,5 +313,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel OptionsPanel;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TextBox txtTime;
     }
 }

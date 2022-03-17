@@ -145,7 +145,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Questions\QuestionClasses\Answers.cs" />
     <Compile Include="Questions\QuestionClasses\Question.cs" />
-    <Compile Include="Questions\QuestionClasses\IsaretlenenCevapClass.cs" />
     <Compile Include="Questions\QuestionClasses\IsaretlenenCevaplarListesi.cs" />
     <Compile Include="Questions\QuestionForms\QuestionAddForm.cs">
       <SubType>Form</SubType>
@@ -153,11 +152,11 @@
     <Compile Include="Questions\QuestionForms\QuestionAddForm.Designer.cs">
       <DependentUpon>QuestionAddForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Questions\QuestionForms\QuestionGetForm.cs">
+    <Compile Include="Questions\QuestionForms\QuizFrom.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Questions\QuestionForms\QuestionGetForm.Designer.cs">
-      <DependentUpon>QuestionGetForm.cs</DependentUpon>
+    <Compile Include="Questions\QuestionForms\QuizFrom.Designer.cs">
+      <DependentUpon>QuizFrom.cs</DependentUpon>
     </Compile>
     <Compile Include="user\StudentUserForm\StudentDashboardForm.cs">
       <SubType>Form</SubType>
@@ -195,8 +194,8 @@
     <EmbeddedResource Include="Questions\QuestionForms\QuestionAddForm.resx">
       <DependentUpon>QuestionAddForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Questions\QuestionForms\QuestionGetForm.resx">
-      <DependentUpon>QuestionGetForm.cs</DependentUpon>
+    <EmbeddedResource Include="Questions\QuestionForms\QuizFrom.resx">
+      <DependentUpon>QuizFrom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="user\StudentUserForm\StudentDashboardForm.resx">
       <DependentUpon>StudentDashboardForm.cs</DependentUpon>

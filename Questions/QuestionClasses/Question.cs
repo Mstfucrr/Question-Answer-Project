@@ -28,6 +28,8 @@ namespace Question_Answer.Questions
         [BsonElement("Subject")]
         public string Subject { get; set; }
 
+        [BsonElement("QuestionTime")]
+        public int QuestionTime { get; set; }
 
         private Database.MongoDB mongoDB;
 

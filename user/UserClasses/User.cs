@@ -34,22 +34,6 @@ namespace Question_Answer.user.UserClass
             mongoDB = new Database.MongoDB();
         }
 
-        public User Login(string KullaniciAdi,string Parola)
-        {
-            return mongoDB.LoadRecordByFilter<User>("User",new BsonDocument
-            {
-                { "Username", KullaniciAdi },
-                { "Password", Parola }
-            }).FirstOrDefault();
-        }
-
-        public List<T> GetRole<T>(string role)
-        {
-            return mongoDB.LoadRecordByFilter<T>("User", new BsonDocument
-            {
-                { "Role", role }
-            });
-        }
 
         public User GetPassword<T>(string KullaniciAdi, string Eposta)
         {
