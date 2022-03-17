@@ -40,10 +40,10 @@
             this.btn_OncekiSoru = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtTime = new System.Windows.Forms.TextBox();
             this.OptionsPanel = new System.Windows.Forms.Panel();
             this.optikPanel = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.txtTime = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -220,6 +220,17 @@
             this.panel2.Size = new System.Drawing.Size(798, 65);
             this.panel2.TabIndex = 16;
             // 
+            // txtTime
+            // 
+            this.txtTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtTime.Location = new System.Drawing.Point(29, 21);
+            this.txtTime.Name = "txtTime";
+            this.txtTime.ReadOnly = true;
+            this.txtTime.Size = new System.Drawing.Size(153, 28);
+            this.txtTime.TabIndex = 15;
+            this.txtTime.Text = "00:00:00";
+            this.txtTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // OptionsPanel
             // 
             this.OptionsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -260,17 +271,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(351, 64);
             this.panel3.TabIndex = 14;
-            // 
-            // txtTime
-            // 
-            this.txtTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtTime.Location = new System.Drawing.Point(29, 21);
-            this.txtTime.Name = "txtTime";
-            this.txtTime.ReadOnly = true;
-            this.txtTime.Size = new System.Drawing.Size(153, 28);
-            this.txtTime.TabIndex = 15;
-            this.txtTime.Text = "00:00:00";
-            this.txtTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // QuizFrom
             // 
