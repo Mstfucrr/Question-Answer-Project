@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Windows.Forms;
+using ComponentFactory.Krypton.Toolkit;
 using Question_Answer.user.StudentUserForm;
 using Question_Answer.user.UserClass;
 using Question_Answer.user.UserClasses;
 
 namespace Question_Answer.user.UserForms
 {
-    public partial class UserLoginForm : Form
+    public partial class UserLoginForm : KryptonForm
     {
         public UserLoginForm()
         {
@@ -16,66 +17,55 @@ namespace Question_Answer.user.UserForms
 
         private void btn_GirisYap_Click(object sender, EventArgs e)
         {
-            var usr = new Student().Login("mhmt", "mhmt");
-
-            if (usr != null)
+            if (ParolaPanel.Visible)
             {
-                MessageBox.Show("Başarıyla giriş yaptın");
-                switch (usr.Role)
+                if (rBtn_ogrenci.Checked)
                 {
-                    case "Öğrenci":
+                    var student = new Student().Login(text_KullaniciAdi.Text, text_Parola.Text);
+                    if (student != null)
                     {
-                        StudentDashboardForm form = new StudentDashboardForm(usr);
+                        var form = new StudentDashboardForm(student);
                         form.Show();
                         this.Close();
-                        break;
                     }
-                    case "Öğrentmen":
+                    else
                     {
-
+                        MessageBox.Show("Hatalı giriş");
                     }
-                        break;
-                    case "Admin":
-                    {
-                
-                    }
-                        break;
                 }
+                else if (rBtn_ogretmen.Checked)
+                {
+                    //soru ekleme formu gelecek
+                }
+                else if (rBtn_Admin.Checked)
+                {
+                    //sınav sorumlusunun eklemek istediği soruların onaylanması
+                }
+
             }
             else
             {
-                MessageBox.Show("Hatalı giriş");
-            }
+                if (rBtn_ogrenci.Checked)
+                {
+                    var student = new Student().GetPassword<Student>("Students",text_KullaniciAdi.Text, text_Eposta.Text);
+                    MessageBox.Show(student != null ? $"Şifreniz : {student.Password}" : "Hatalı kullanıcı adı veya eposta");
+                }
+                else
+                {
+                    var teacher = new Teacher().GetPassword<Teacher>("Teachers",text_KullaniciAdi.Text, text_Eposta.Text);
 
+                }
+
+            }
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            label2.Text = "Email Adresiniz :";
-            btn_GirisYap.Visible = false;
-            btn_SifreGetir.Visible = true;
-            textParola.Visible = false;
-            textEposta.Visible = true;
+            btn_GirisYap.Text = @"Şifremi göster";
             linkLabel1.Visible = false;
-            linkLabel2.Visible = true;
+            EpostaPanel.Visible = true;
+            ParolaPanel.Visible = false;
         }
 
-        private void btn_SifreGetir_Click(object sender, EventArgs e)
-        {
-            var user = new User().GetPassword<User>(textKullaniciAdi.Text,textEposta.Text);
-            MessageBox.Show(user != null ? $"Şifreniz : {user.Password}" : "Hatalı kullanıcı adı veya eposta");
-            
-        }
-
-        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            label2.Text = "Password :";
-            btn_GirisYap.Visible = true;
-            btn_SifreGetir.Visible = false;
-            textParola.Visible = true;
-            textEposta.Visible = false;
-            linkLabel1.Visible = true;
-            linkLabel2.Visible = false;
-        }
     }
 }
