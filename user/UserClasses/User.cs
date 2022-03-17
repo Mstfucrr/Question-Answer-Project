@@ -45,6 +45,15 @@ namespace Question_Answer.user.UserClass
             }).FirstOrDefault();
         }
 
+        public T Login<T>(string table, string KullaniciAdi, string parola)
+        {
+            return mongoDB.LoadRecordByFilter<T>(table, new BsonDocument
+            {
+                { "Username", KullaniciAdi },
+                { "Password", parola }
+            }).FirstOrDefault();
+        }
+
         public bool UsersUsernameAndEmailCheck(string kullaniciadi)
         {
             foreach (var kullanici in mongoDB.LoadRecords<Student>("Students"))
