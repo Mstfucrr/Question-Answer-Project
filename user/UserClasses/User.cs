@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using Question_Answer.user.UserClasses;
 
 namespace Question_Answer.user.UserClass
 {
@@ -25,7 +26,7 @@ namespace Question_Answer.user.UserClass
         public string Role { get; set; }
         [BsonElement("Created_Date")]
         public DateTime Created_Date { get; set; }
-
+        [BsonIgnore]
         public Database.MongoDB mongoDB;
 
         public User()
@@ -35,13 +36,28 @@ namespace Question_Answer.user.UserClass
         }
 
 
-        public User GetPassword<T>(string KullaniciAdi, string Eposta)
+        public T GetPassword<T>(string table,string KullaniciAdi, string Eposta)
         {
-            return mongoDB.LoadRecordByFilter<User>("User", new BsonDocument
+            return mongoDB.LoadRecordByFilter<T>(table, new BsonDocument
             {
                 { "Username", KullaniciAdi },
                 { "Email", Eposta }
             }).FirstOrDefault();
+        }
+
+        public bool UsersUsernameAndEmailCheck(string kullaniciadi)
+        {
+            foreach (var kullanici in mongoDB.LoadRecords<Student>("Students"))
+            {
+                if (kullanici.Username == kullaniciadi) return false;
+            }
+
+            foreach (var kullanici in mongoDB.LoadRecords<Teacher>("Teachers"))
+            {
+                if (kullanici.Username == kullaniciadi) return false;
+            }
+
+            return true;
         }
 
     }
