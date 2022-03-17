@@ -21,7 +21,7 @@ namespace Question_Answer.user.UserForms
             {
                 if (rBtn_ogrenci.Checked)
                 {
-                    var student = new Student().Login(text_KullaniciAdi.Text, text_Parola.Text);
+                    var student = new User().Login<Student>("Students",text_KullaniciAdi.Text, text_Parola.Text);
                     if (student != null)
                     {
                         var form = new StudentDashboardForm(student);
@@ -35,6 +35,16 @@ namespace Question_Answer.user.UserForms
                 }
                 else if (rBtn_ogretmen.Checked)
                 {
+                    var teacher = new User().Login<Teacher>("Teachers",text_KullaniciAdi.Text, text_Parola.Text);
+                    if (teacher != null)
+                    {
+                        // soru ekleme formu gelecek
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Hatalı giriş");
+                    }
                     //soru ekleme formu gelecek
                 }
                 else if (rBtn_Admin.Checked)
