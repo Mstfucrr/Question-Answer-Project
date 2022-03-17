@@ -33,7 +33,7 @@ namespace Question_Answer.Questions.QuestionForms
             _thisQuestionFalseAnswerCount = 0;
 
             _studentAnswerlist = new IsaretlenenCevaplarListesi();
-            SorularıGetir(QuestionNum);
+            GetQuestion(QuestionNum);
             OptionsPanel.Visible = true;
             this.Student = student;
 
@@ -49,11 +49,11 @@ namespace Question_Answer.Questions.QuestionForms
             // yeni panel yan optik
             for (var i = 0; i < RandomQuestionList.Count; i++)
             {
-                var questionpanel = OptikIcinPanelOlustur(RandomQuestionList[i].QuestionId, i % 2 == 1
+                var questionpanel = CreatePanelForOptic(RandomQuestionList[i].QuestionId, i % 2 == 1
                     ? Color.Turquoise : Color.Aquamarine);
                 for (var j = 0; j < 5; j++) // soru cevap sayısı
                 {
-                    questionpanel.Controls.Add(OptikIcinRadioButtonOlustur(RandomQuestionList[i].Answers[j], j));
+                    questionpanel.Controls.Add(CreateRadioButtonForOpticPanel(RandomQuestionList[i].Answers[j], j));
                 }
 
                 _quizTime += RandomQuestionList[i].QuestionTime;//sınav toplam süresi hesapla
@@ -85,7 +85,7 @@ namespace Question_Answer.Questions.QuestionForms
             }
         }
 
-        private Panel OptikIcinPanelOlustur(ObjectId questionId, Color color)//Optir bar için panel
+        private Panel CreatePanelForOptic(ObjectId questionId, Color color)//Optir bar için panel
         {
             var pnl = new Panel
             {
@@ -102,7 +102,7 @@ namespace Question_Answer.Questions.QuestionForms
 
         }
 
-        private RadioButton OptikIcinRadioButtonOlustur(Answers opAnswers, int j)
+        private RadioButton CreateRadioButtonForOpticPanel(Answers opAnswers, int j)
         {
             var rBtn = new RadioButton
             {
@@ -120,7 +120,7 @@ namespace Question_Answer.Questions.QuestionForms
             return rBtn;
         }
 
-        private List<RadioButton> CevapSecenekleriOlustur(List<Answers> answersList)
+        private List<RadioButton> CreateOtionsforAnswers(List<Answers> answersList)
         {
             var RadioButtonList = new List<RadioButton>();
             foreach (var answer in answersList)
@@ -153,23 +153,23 @@ namespace Question_Answer.Questions.QuestionForms
         {
             if (QuestionNum < RandomQuestionList.Count - 1)
                 QuestionNum++;
-            SorularıGetir(QuestionNum);
+            GetQuestion(QuestionNum);
 
         }
         private void btn_OncekiSoru_Click(object sender, EventArgs e)
         {
             if (QuestionNum > 0)
                 QuestionNum--;
-            SorularıGetir(QuestionNum);
+            GetQuestion(QuestionNum);
 
         }
-        private void SorularıGetir(int index)
+        private void GetQuestion(int index)
         {
 
 
             _randomQuestion = RandomQuestionList[index];
             OptionsPanel.Controls.Clear();
-            foreach (var radioButton in CevapSecenekleriOlustur(_randomQuestion.Answers))
+            foreach (var radioButton in CreateOtionsforAnswers(_randomQuestion.Answers))
                 OptionsPanel.Controls.Add(radioButton);
 
             foreach (var radioButton in OptionsPanel.Controls.OfType<RadioButton>())
