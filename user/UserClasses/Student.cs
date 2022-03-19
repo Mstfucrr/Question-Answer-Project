@@ -16,18 +16,6 @@ namespace Question_Answer.user.UserClasses
         [BsonElement("AnsweredQuestionsList")]
         public List<AnsweredQuestions> AnsweredQuestionsList;
 
-        public Student Login(string KullaniciAdi, string Parola)
-        {
-            return mongoDB.LoadRecordByFilter<Student>("Students", new BsonDocument
-            {
-                { "Username", KullaniciAdi },
-                { "Password", Parola }
-            }).FirstOrDefault();
-        }
 
-        public void Save()
-        {
-            mongoDB.UpdateRecord("Students", this.UserId, this);
-        }
     }
 }
