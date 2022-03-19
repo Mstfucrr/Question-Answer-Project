@@ -152,10 +152,10 @@
             this.btn_GirisYap.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.White;
             this.btn_GirisYap.StatePressed.Content.ShortText.Color2 = System.Drawing.Color.White;
             this.btn_GirisYap.StatePressed.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btn_GirisYap.StateTracking.Back.Color1 = System.Drawing.Color.MediumSeaGreen;
-            this.btn_GirisYap.StateTracking.Back.Color2 = System.Drawing.Color.Black;
-            this.btn_GirisYap.StateTracking.Border.Color1 = System.Drawing.Color.MediumSeaGreen;
-            this.btn_GirisYap.StateTracking.Border.Color2 = System.Drawing.Color.Black;
+            this.btn_GirisYap.StateTracking.Back.Color1 = System.Drawing.Color.MediumSpringGreen;
+            this.btn_GirisYap.StateTracking.Back.Color2 = System.Drawing.Color.MediumSpringGreen;
+            this.btn_GirisYap.StateTracking.Border.Color1 = System.Drawing.Color.MediumSpringGreen;
+            this.btn_GirisYap.StateTracking.Border.Color2 = System.Drawing.Color.MediumSpringGreen;
             this.btn_GirisYap.StateTracking.Border.ColorAngle = 130F;
             this.btn_GirisYap.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
@@ -278,7 +278,7 @@
             this.kryptonPanel1.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonCustom1;
             this.kryptonPanel1.Size = new System.Drawing.Size(575, 499);
             this.kryptonPanel1.StateCommon.Color1 = System.Drawing.Color.SeaGreen;
-            this.kryptonPanel1.StateCommon.Color2 = System.Drawing.Color.Black;
+            this.kryptonPanel1.StateCommon.Color2 = System.Drawing.Color.CornflowerBlue;
             this.kryptonPanel1.TabIndex = 27;
             // 
             // btn_KayitOl
@@ -333,9 +333,10 @@
             // 
             // kryptonLinkLabel1
             // 
+            this.kryptonLinkLabel1.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldPanel;
             this.kryptonLinkLabel1.Location = new System.Drawing.Point(222, 427);
             this.kryptonLinkLabel1.Name = "kryptonLinkLabel1";
-            this.kryptonLinkLabel1.Size = new System.Drawing.Size(122, 24);
+            this.kryptonLinkLabel1.Size = new System.Drawing.Size(131, 24);
             this.kryptonLinkLabel1.TabIndex = 27;
             this.kryptonLinkLabel1.Values.Text = "Şifremi unuttum";
             this.kryptonLinkLabel1.LinkClicked += new System.EventHandler(this.kryptonLinkLabel1_LinkClicked);
@@ -346,9 +347,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(575, 499);
             this.Controls.Add(this.kryptonPanel1);
+            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "UserLoginForm";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UserLoginForm";
+            this.TextExtra = "";
             ((System.ComponentModel.ISupportInitialize)(this.EpostaPanel)).EndInit();
             this.EpostaPanel.ResumeLayout(false);
             this.EpostaPanel.PerformLayout();
