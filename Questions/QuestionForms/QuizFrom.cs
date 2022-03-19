@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Timers;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 using MongoDB.Bson;

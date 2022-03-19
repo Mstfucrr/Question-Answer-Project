@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
-using Question_Answer.Questions.QuestionForms;
 using Question_Answer.user.StudentUserForm;
 using Question_Answer.user.TeacherForm;
 using Question_Answer.user.UserClass;
