@@ -39,7 +39,6 @@ namespace Question_Answer.Questions
         [BsonIgnore]
         public static string GetDirectoryName = Path.GetDirectoryName(Application.ExecutablePath);
         [BsonIgnore]
-        
         public string QuestionImagesUploadLocation = GetDirectoryName.Remove(GetDirectoryName.Length - (@"\bin\Debug").Length) + @"\Images\QuestionImagesUpload";
 
 
