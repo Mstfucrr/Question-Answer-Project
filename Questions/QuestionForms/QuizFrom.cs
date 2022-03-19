@@ -243,7 +243,7 @@ namespace Question_Answer.Questions.QuestionForms
             }
             Student.TrueCount += _thisQuestionTrueAnswerCount;
             Student.FalseCount += _thisQuestionFalseAnswerCount;
-            Student.Save("Students");
+            Student.Update("Students");
             MessageBox.Show("Bu testin " +
                             $"\nDoğru cevap sayısı : {_thisQuestionTrueAnswerCount}" +
                             $"\nYanlış cevap sayısı : {_thisQuestionFalseAnswerCount}");

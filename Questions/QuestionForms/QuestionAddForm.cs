@@ -49,7 +49,7 @@ namespace Question_Answer.Questions.QuestionForms
             question.Save();
             adderTeacher.AddedQuestionsIds.Add(question.QuestionId);
             adderTeacher.AddedQuestionCount += 1;
-            adderTeacher.Save("Teachers");
+            adderTeacher.Update("Teachers");
             MessageBox.Show(@"Soru başarıyla kaydedildi");
         }
 
