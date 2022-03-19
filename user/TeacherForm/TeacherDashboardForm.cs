@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
+using Question_Answer.Questions;
 using Question_Answer.Questions.QuestionForms;
 using Question_Answer.user.UserClasses;
 using Question_Answer.user.UserForms;
@@ -40,7 +41,8 @@ namespace Question_Answer.user.TeacherForm
 
         private void Btn_added_question_Click(object sender, EventArgs e)
         {
-            
+            var OwnQuestions = _teacher.GetAddedQuestions();
+
         }
         
         private void Btn_Logout_Click(object sender, EventArgs e)
