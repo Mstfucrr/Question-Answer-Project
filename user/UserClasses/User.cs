@@ -54,6 +54,16 @@ namespace Question_Answer.user.UserClass
             }).FirstOrDefault();
         }
 
+        public void RegisterSave(string table)
+        {
+            mongoDB.InsertRecord(table, this);
+        }
+
+        public void Update(string table)
+        {
+            mongoDB.UpdateRecord(table, this.UserId, this);
+        }
+
         public bool UsersUsernameAndEmailCheck(string kullaniciadi)
         {
             foreach (var kullanici in mongoDB.LoadRecords<Student>("Students"))
