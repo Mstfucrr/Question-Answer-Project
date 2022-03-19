@@ -2,32 +2,25 @@
 using System.Linq;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using Question_Answer.Questions;
 using Question_Answer.user.UserClass;
 
 namespace Question_Answer.user.UserClasses
 {
-    internal class Teacher : User
+    public class Teacher : User
     {
         [BsonElement("AddedQuestionsIds")]
         public List<ObjectId> AddedQuestionsIds { get; set; }
         [BsonElement("AddedQuestionCount")]
         public int AddedQuestionCount { get; set; }
-
-
-        public Teacher Login(string KullaniciAdi, string Parola)
+        
+        public List<Question> GetAddedQuestions()
         {
-            
-            return mongoDB.LoadRecordByFilter<Teacher>("Teachers", new BsonDocument
-            {
-                { "Username", KullaniciAdi },
-                { "Password", Parola }
-            }).FirstOrDefault();
+            return AddedQuestionsIds
+                .Select(addedQuestionsId => mongoDB.LoadRecordById<Question>("Questions", addedQuestionsId))
+                .ToList();
         }
 
-        public void Save()
-        {
-            mongoDB.UpdateRecord("Teachers", this.UserId, this);
-        }
 
     }
 }
