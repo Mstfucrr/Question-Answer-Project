@@ -1,53 +1,61 @@
 ﻿using System;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using ComponentFactory.Krypton.Toolkit;
+using MongoDB.Bson;
+using Question_Answer.user.UserClasses;
 
 namespace Question_Answer.Questions.QuestionForms
 {
-    public partial class QuestionAddForm : Form
+    public partial class QuestionAddForm : KryptonForm
     {
-        public QuestionAddForm()
+        private readonly Teacher adderTeacher;
+        public QuestionAddForm(Teacher adderTeacher)
         {
             InitializeComponent();
-
+            this.adderTeacher = adderTeacher;
         }
-
-
-        public Database.MongoDB db = new Database.MongoDB();
-
-        private void btn_kaydet_Click(object sender, System.EventArgs e)
+        private void btn_kaydet_Click(object sender, EventArgs e)
         {
 
             foreach (var cntrl in this.Controls)
             {
-                if (cntrl is TextBox box && box.Text == string.Empty)
+                if (cntrl is KryptonTextBox { Text: "" })
                 {
                     MessageBox.Show("Lütfen tüm boşlukları doldurduğunuzdan \nve bir seçeneği doğru olarak işaretlediğinizden emin olun!");
                     return;
                 }
             }
-            
-            Question question = new Question();
-            question.QuestionText = textSoru.Text;
+
+            var question = new Question
+            {
+                AdderTeacherId = adderTeacher.UserId,
+                QuestionUnit = textUnite.Text,
+                QuestionSubject = textKonu.Text,
+                QuestionText = textSoru.Text,
+            };
             question.Answers.Add(new Answers(radioButton1.Checked, textCevap1.Text));
             question.Answers.Add(new Answers(radioButton2.Checked, textCevap2.Text));
             question.Answers.Add(new Answers(radioButton3.Checked, textCevap3.Text));
             question.Answers.Add(new Answers(radioButton4.Checked, textCevap4.Text));
             question.Answers.Add(new Answers(radioButton5.Checked, textCevap5.Text));
-            db.InsertRecord("Questions", question);
             if (ImageLocation.Length != 0)
             {
                 question.QuestionImage = $"Image_{question.QuestionId}." + Path.GetFileName(ImageLocation).Split('.')[1];
                 File.Copy(ImageLocation,
-                    Path.Combine(question.QuestionImagesUploadLocation,question.QuestionImage), true);
-                db.UpdateRecord("Questions", question.QuestionId, question);
+                    Path.Combine(question.QuestionImagesUploadLocation, question.QuestionImage), true);
             }
-            MessageBox.Show(@"QuestionText başarıyla kaydedildi");
+            question.Save();
+            adderTeacher.AddedQuestionsIds.Add(question.QuestionId);
+            adderTeacher.AddedQuestionCount += 1;
+            adderTeacher.Save();
+            MessageBox.Show(@"Soru başarıyla kaydedildi");
         }
 
         private void QuestionAddForm_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         public string ImageLocation = "";
@@ -68,7 +76,7 @@ namespace Question_Answer.Questions.QuestionForms
                 {
                 }
             }
-            
+
         }
     }
 }
