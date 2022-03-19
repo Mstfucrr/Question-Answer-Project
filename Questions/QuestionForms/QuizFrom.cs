@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Timers;
 using System.Windows.Forms;
+using ComponentFactory.Krypton.Toolkit;
 using MongoDB.Bson;
 using Question_Answer.user.StudentUserForm;
 using Question_Answer.user.UserClasses;
@@ -12,7 +13,7 @@ using Timer = System.Windows.Forms.Timer;
 
 namespace Question_Answer.Questions.QuestionForms
 {
-    public partial class QuizFrom : Form
+    public partial class QuizFrom : KryptonForm
     {
         public List<Question> RandomQuestionList;
         public int QuestionNum;
@@ -21,13 +22,13 @@ namespace Question_Answer.Questions.QuestionForms
         private int _thisQuestionFalseAnswerCount;
         private Question _randomQuestion;
         private RadioButton _radioCevap;
-        private IsaretlenenCevaplarListesi _studentAnswerlist;
+        private readonly IsaretlenenCevaplarListesi _studentAnswerlist;
         private int _quizTime;
         private Timer _timer;
         public QuizFrom(Student student)
         {
             InitializeComponent();
-            RandomQuestionList = new Question().Rastgele10SoruGetir<Question>();
+            RandomQuestionList = new Question().Rastgele10SoruGetir();
             QuestionNum = 0;
             _thisQuestionTrueAnswerCount = 0;
             _thisQuestionFalseAnswerCount = 0;
@@ -40,23 +41,22 @@ namespace Question_Answer.Questions.QuestionForms
         }
         private void QuizFrom_Load(object sender, EventArgs e)
         {
-
             _timer = new Timer();
             _timer.Interval = 1000;
-            _timer.Tick += TimerOnTick;
-            _timer.Start();
+            //_timer.Tick += TimerOnTick;
+            //_timer.Start();
 
             // yeni panel yan optik
             for (var i = 0; i < RandomQuestionList.Count; i++)
             {
                 var questionpanel = CreatePanelForOptic(RandomQuestionList[i].QuestionId, i % 2 == 1
                     ? Color.Turquoise : Color.Aquamarine);
-                for (var j = 0; j < 5; j++) // soru cevap sayısı
+                for (var j = 0; j < RandomQuestionList[i].Answers.Count; j++) // soru cevap sayısı
                 {
                     questionpanel.Controls.Add(CreateRadioButtonForOpticPanel(RandomQuestionList[i].Answers[j], j));
                 }
 
-                _quizTime += RandomQuestionList[i].QuestionTime;//sınav toplam süresi hesapla
+                _quizTime += RandomQuestionList[i].QuestionTime;//sınav toplam süresi hesapla saniye
             }
             //////////////////////////
 
@@ -199,14 +199,13 @@ namespace Question_Answer.Questions.QuestionForms
 
         private void QuizFinished()
         {
-            for (var index = 0; index < RandomQuestionList.Count; index++)// sorulan soru for'u
+            foreach (var questionListElement in RandomQuestionList)
             {
-                var questionListElement = RandomQuestionList[index];
-                foreach (var SelectedAnswerIdListElement in _studentAnswerlist.SelectedAnswerIdList) // öğrencinin işaretlediği cevaplar
+                foreach (var selectedAnswerIdListElement in _studentAnswerlist.SelectedAnswerIdList) // öğrencinin işaretlediği cevaplar
                 {
                     foreach (var questionListAnswerElement in questionListElement.Answers)
                     {
-                        if (SelectedAnswerIdListElement == questionListAnswerElement.AnswerId)
+                        if (selectedAnswerIdListElement == questionListAnswerElement.AnswerId)
                         {
                             foreach (Control optikPanelControl in optikPanel.Controls)
                             {
@@ -244,7 +243,7 @@ namespace Question_Answer.Questions.QuestionForms
             }
             Student.TrueCount += _thisQuestionTrueAnswerCount;
             Student.FalseCount += _thisQuestionFalseAnswerCount;
-            //Student.Save();
+            Student.Save();
             MessageBox.Show("Bu testin " +
                             $"\nDoğru cevap sayısı : {_thisQuestionTrueAnswerCount}" +
                             $"\nYanlış cevap sayısı : {_thisQuestionFalseAnswerCount}");
