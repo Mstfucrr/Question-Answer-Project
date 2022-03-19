@@ -46,11 +46,11 @@ namespace Question_Answer.user.UserForms
                     : rBtn_ogretmen.Text;
                 var answeredQuestionsList = new List<AnsweredQuestions>();
                 var addedQuestionsIdList = new List<ObjectId>();
-                
+
+                UserLoginForm loginform;
                 switch (Role)
                 {
                     case "Öğrenci":
-                    {
                         var student = new Student
                         {
                             Username = text_KullaniciAdi.Text,
@@ -64,10 +64,14 @@ namespace Question_Answer.user.UserForms
                             AnsweredQuestionsList = answeredQuestionsList
 
                         };
-                        db.InsertRecord("Students", student);
+                        student.RegisterSave("Students");
                         MessageBox.Show($"Öğrenci başarıyla kayıt oldu hoş geldiniz {student.Name}");
+                        loginform = new UserLoginForm();
+                        loginform.Show();
+                        loginform.Closed += (o, args) => this.Close();
+                        this.Hide();
                         break;
-                    }
+
                     case "Öğretmen":
                         var teacher = new Teacher
                         {
@@ -80,9 +84,12 @@ namespace Question_Answer.user.UserForms
                             AddedQuestionCount = 0,
                             AddedQuestionsIds = addedQuestionsIdList
                         };
-                        db.InsertRecord("Teachers",teacher);
+                        teacher.RegisterSave("Teachers");
                         MessageBox.Show($"Öğretmen başarıyla kayıt oldu hoş geldiniz {teacher.Name}");
-
+                        loginform = new UserLoginForm();
+                        loginform.Show();
+                        loginform.Closed += (o, args) => this.Close();
+                        this.Hide();
                         break;
                 }
             }
@@ -103,5 +110,12 @@ namespace Question_Answer.user.UserForms
             }
         }
 
+        private void btn_GirisYap_Click(object sender, EventArgs e)
+        {
+            var loginform = new UserLoginForm();
+            loginform.Show();
+            loginform.Closed += (o, args) => this.Close();
+            this.Hide();
+        }
     }
 }
