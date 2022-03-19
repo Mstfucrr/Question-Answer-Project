@@ -21,19 +21,25 @@ namespace Question_Answer.Questions
 
         [BsonElement("AdminAccept")]
         public bool AdminAccept { get; set; }
-        
-        [BsonElement("Unit")]
-        public int Unit { get; set; }
 
-        [BsonElement("Subject")]
-        public string Subject { get; set; }
+        [BsonElement("AdderTeacherId")]
+        public ObjectId AdderTeacherId; 
+        
+        [BsonElement("QuestionUnit")]
+        public string QuestionUnit { get; set; }
+
+        [BsonElement("QuestionSubject")]
+        public string QuestionSubject { get; set; }
 
         [BsonElement("QuestionTime")]
         public int QuestionTime { get; set; }
 
+        [BsonIgnore]
         private Database.MongoDB mongoDB;
-
+        [BsonIgnore]
         public static string GetDirectoryName = Path.GetDirectoryName(Application.ExecutablePath);
+        [BsonIgnore]
+        
         public string QuestionImagesUploadLocation = GetDirectoryName.Remove(GetDirectoryName.Length - (@"\bin\Debug").Length) + @"\Images\QuestionImagesUpload";
 
 
@@ -43,11 +49,16 @@ namespace Question_Answer.Questions
             mongoDB = new Database.MongoDB();
         }
 
+        public void Save()
+        {
+            mongoDB.InsertRecord("Questions",this);
+        }
 
-        public List<Question> Rastgele10SoruGetir<T>()
+        public List<Question> Rastgele10SoruGetir()
         {
             var questions = mongoDB.LoadRecordRandomQuestion<Question>(10);
             return questions.ToList();
         }
+
     }
 }
