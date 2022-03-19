@@ -28,7 +28,7 @@ namespace Question_Answer.Database
 
         public IMongoQueryable<T> LoadRecordRandomQuestion<T>(int cout)
         {
-            var collection = db.GetCollection<T>("Questions");
+            var collection = db.GetCollection<T>("Confirmed_questions"); // Adminin onay verdiği sorulardan çeker
             return collection.AsQueryable().Sample(cout);
         }
 
