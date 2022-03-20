@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Lbl_Soru = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.radioA = new System.Windows.Forms.RadioButton();
             this.radioB = new System.Windows.Forms.RadioButton();
@@ -44,6 +43,7 @@
             this.OptionsPanel = new System.Windows.Forms.Panel();
             this.optikPanel = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.Lbl_Soru = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -51,18 +51,6 @@
             this.optikPanel.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // Lbl_Soru
-            // 
-            this.Lbl_Soru.AutoSize = true;
-            this.Lbl_Soru.BackColor = System.Drawing.Color.White;
-            this.Lbl_Soru.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.Lbl_Soru.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Lbl_Soru.Location = new System.Drawing.Point(29, 330);
-            this.Lbl_Soru.MaximumSize = new System.Drawing.Size(600, 199);
-            this.Lbl_Soru.Name = "Lbl_Soru";
-            this.Lbl_Soru.Size = new System.Drawing.Size(2, 27);
-            this.Lbl_Soru.TabIndex = 0;
             // 
             // pictureBox1
             // 
@@ -81,7 +69,7 @@
             this.radioA.BackColor = System.Drawing.Color.White;
             this.radioA.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.radioA.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.radioA.Location = new System.Drawing.Point(0, 8);
+            this.radioA.Location = new System.Drawing.Point(0, 10);
             this.radioA.Margin = new System.Windows.Forms.Padding(0);
             this.radioA.MaximumSize = new System.Drawing.Size(700, 123);
             this.radioA.Name = "radioA";
@@ -97,7 +85,7 @@
             this.radioB.BackColor = System.Drawing.Color.White;
             this.radioB.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.radioB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.radioB.Location = new System.Drawing.Point(0, 256);
+            this.radioB.Location = new System.Drawing.Point(0, 258);
             this.radioB.Margin = new System.Windows.Forms.Padding(0);
             this.radioB.MaximumSize = new System.Drawing.Size(700, 123);
             this.radioB.Name = "radioB";
@@ -112,7 +100,7 @@
             this.radioC.BackColor = System.Drawing.Color.White;
             this.radioC.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.radioC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.radioC.Location = new System.Drawing.Point(0, 194);
+            this.radioC.Location = new System.Drawing.Point(0, 196);
             this.radioC.Margin = new System.Windows.Forms.Padding(0);
             this.radioC.MaximumSize = new System.Drawing.Size(700, 123);
             this.radioC.Name = "radioC";
@@ -127,7 +115,7 @@
             this.radioD.BackColor = System.Drawing.Color.White;
             this.radioD.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.radioD.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.radioD.Location = new System.Drawing.Point(0, 132);
+            this.radioD.Location = new System.Drawing.Point(0, 134);
             this.radioD.Margin = new System.Windows.Forms.Padding(0);
             this.radioD.MaximumSize = new System.Drawing.Size(700, 123);
             this.radioD.Name = "radioD";
@@ -142,7 +130,7 @@
             this.radioE.BackColor = System.Drawing.Color.White;
             this.radioE.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.radioE.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.radioE.Location = new System.Drawing.Point(0, 70);
+            this.radioE.Location = new System.Drawing.Point(0, 72);
             this.radioE.Margin = new System.Windows.Forms.Padding(0);
             this.radioE.MaximumSize = new System.Drawing.Size(700, 123);
             this.radioE.Name = "radioE";
@@ -199,9 +187,9 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.Lbl_Soru);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.OptionsPanel);
-            this.panel1.Controls.Add(this.Lbl_Soru);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -235,13 +223,12 @@
             // 
             this.OptionsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.OptionsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.OptionsPanel.Controls.Add(this.radioA);
             this.OptionsPanel.Controls.Add(this.radioE);
             this.OptionsPanel.Controls.Add(this.radioD);
             this.OptionsPanel.Controls.Add(this.radioC);
             this.OptionsPanel.Controls.Add(this.radioB);
-            this.OptionsPanel.Location = new System.Drawing.Point(12, 499);
+            this.OptionsPanel.Location = new System.Drawing.Point(12, 518);
             this.OptionsPanel.MaximumSize = new System.Drawing.Size(783, 320);
             this.OptionsPanel.MinimumSize = new System.Drawing.Size(783, 320);
             this.OptionsPanel.Name = "OptionsPanel";
@@ -272,6 +259,15 @@
             this.panel3.Size = new System.Drawing.Size(351, 64);
             this.panel3.TabIndex = 14;
             // 
+            // Lbl_Soru
+            // 
+            this.Lbl_Soru.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.Lbl_Soru.Location = new System.Drawing.Point(13, 330);
+            this.Lbl_Soru.Name = "Lbl_Soru";
+            this.Lbl_Soru.Size = new System.Drawing.Size(771, 163);
+            this.Lbl_Soru.TabIndex = 17;
+            this.Lbl_Soru.Text = "";
+            // 
             // QuizFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -286,7 +282,6 @@
             this.Load += new System.EventHandler(this.QuizFrom_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.OptionsPanel.ResumeLayout(false);
@@ -297,8 +292,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label Lbl_Soru;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.RadioButton radioA;
         private System.Windows.Forms.RadioButton radioB;
@@ -314,5 +307,6 @@
         private System.Windows.Forms.Panel OptionsPanel;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox txtTime;
+        private System.Windows.Forms.RichTextBox Lbl_Soru;
     }
 }
