@@ -1,7 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms;
+using ComponentFactory.Krypton.Ribbon;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoDB.Driver.Linq;
+using Question_Answer.Questions;
 
 namespace Question_Answer.Database
 {
@@ -19,17 +24,20 @@ namespace Question_Answer.Database
             var collection = db.GetCollection<T>(table);
             collection.InsertOne(record);
         }
-        
+
         public List<T> LoadRecords<T>(string table)
         {
             var collection = db.GetCollection<T>(table);
             return collection.Find(new BsonDocument()).ToList();
         }
 
-        public IMongoQueryable<T> LoadRecordRandomQuestion<T>(int cout)
+        public IEnumerable<Question> LoadRecordRandomQuestion()
         {
-            var collection = db.GetCollection<T>("Confirmed_questions"); // Adminin onay verdiği sorulardan çeker
-            return collection.AsQueryable().Sample(cout);
+            var collection = db.GetCollection<Question>("Confirmed_questions");
+            var coll = collection.Find(new BsonDocument()).ToList();
+            var random10Questions = coll.OrderBy(_ => new Random().Next()).Take(10);
+            //enumerable listesine doğru çözdüğü sorular algoritmaya göre eklenecek (1gün 1 hafta 1 ay 3 ay vs)
+            return random10Questions;
         }
 
         public T LoadRecordById<T>(string table, ObjectId Id)
