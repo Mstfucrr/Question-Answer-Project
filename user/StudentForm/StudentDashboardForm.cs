@@ -1,10 +1,12 @@
 ﻿using System.Windows.Forms;
+using ComponentFactory.Krypton.Toolkit;
 using Question_Answer.Questions.QuestionForms;
 using Question_Answer.user.UserClasses;
+using Question_Answer.user.UserForms;
 
 namespace Question_Answer.user.StudentUserForm
 {
-    public partial class StudentDashboardForm : Form
+    public partial class StudentDashboardForm : KryptonForm
     {
         private Student student;
         public StudentDashboardForm(Student student)
@@ -18,18 +20,27 @@ namespace Question_Answer.user.StudentUserForm
             chart1.Series["DogruYanlisBos"].Points[0].YValues[0] = student.TrueCount;
             chart1.Series["DogruYanlisBos"].Points[1].YValues[0] = student.FalseCount;
 
-            lbl_Ad.Text = student.Name;
-            lbl_Soyad.Text = student.Lastname;
-            lbl_Eposta.Text = student.Email;
-            lbl_KullaniciAdi.Text = student.Username;
+            Lbl_Ad_Soyad.Text = student.Name + " " + student.Lastname;
+            Lbl_Eposta.Text = student.Email;
+            Lbl_KullaniciAdi.Text = student.Username;
+            Lbl_SoruSayisi.Text = (student.TrueCount + student.FalseCount).ToString();
+            Lbl_TestSayisi.Text = student.NumberOfQuiz.ToString();
 
         }
 
         private void btn_SinavOl_Click(object sender, System.EventArgs e)
         {
-            QuizFrom questionGetForm = new QuizFrom(student);
-            questionGetForm.Closed += (o, args) => this.Close();
-            questionGetForm.Show();
+            QuizFrom quizFrom = new QuizFrom(student);
+            quizFrom.Closed += (o, args) => this.Show();
+            quizFrom.Show();
+            this.Hide();
+        }
+
+        private void Btn_Logout_Click(object sender, System.EventArgs e)
+        {
+            UserLoginForm userLoginForm = new UserLoginForm();
+            userLoginForm.Closed += (o, args) => this.Close();
+            userLoginForm.Show();
             this.Hide();
         }
     }
