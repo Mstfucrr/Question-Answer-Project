@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
+using Question_Answer.user.AdminForm;
 using Question_Answer.user.StudentUserForm;
 using Question_Answer.user.TeacherForm;
 using Question_Answer.user.UserClass;
@@ -55,6 +56,10 @@ namespace Question_Answer.user.UserForms
                 }
                 else if (rBtn_Admin.Checked)
                 {
+                    AdminDashboardForm adminDashboardForm = new AdminDashboardForm();
+                    adminDashboardForm.Closed += (o, args) => this.Close();
+                    adminDashboardForm.Show();
+                    this.Hide();
                     //Öğretmenin eklemek istediği soruların onaylanması
 
                 }
