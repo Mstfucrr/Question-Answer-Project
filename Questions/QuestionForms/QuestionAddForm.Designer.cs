@@ -49,12 +49,14 @@
             this.textUnite = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.textKonu = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.Pnl_Question_content = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.textSure = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
-            this.kryptonPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Pnl_Question_content)).BeginInit();
+            this.Pnl_Question_content.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -406,7 +408,7 @@
             // 
             this.kryptonPanel1.AutoSize = true;
             this.kryptonPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.kryptonPanel1.Controls.Add(this.kryptonPanel2);
+            this.kryptonPanel1.Controls.Add(this.Pnl_Question_content);
             this.kryptonPanel1.Controls.Add(this.pictureBox1);
             this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonPanel1.Location = new System.Drawing.Point(0, 0);
@@ -418,33 +420,60 @@
             this.kryptonPanel1.StateCommon.ColorAngle = 45F;
             this.kryptonPanel1.TabIndex = 16;
             // 
-            // kryptonPanel2
+            // Pnl_Question_content
             // 
-            this.kryptonPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.kryptonPanel2.Controls.Add(this.radioButton1);
-            this.kryptonPanel2.Controls.Add(this.btnResim);
-            this.kryptonPanel2.Controls.Add(this.btn_kaydet);
-            this.kryptonPanel2.Controls.Add(this.label1);
-            this.kryptonPanel2.Controls.Add(this.label3);
-            this.kryptonPanel2.Controls.Add(this.textKonu);
-            this.kryptonPanel2.Controls.Add(this.label2);
-            this.kryptonPanel2.Controls.Add(this.textUnite);
-            this.kryptonPanel2.Controls.Add(this.radioButton5);
-            this.kryptonPanel2.Controls.Add(this.textSoru);
-            this.kryptonPanel2.Controls.Add(this.radioButton4);
-            this.kryptonPanel2.Controls.Add(this.textCevap1);
-            this.kryptonPanel2.Controls.Add(this.radioButton3);
-            this.kryptonPanel2.Controls.Add(this.textCevap2);
-            this.kryptonPanel2.Controls.Add(this.radioButton2);
-            this.kryptonPanel2.Controls.Add(this.textCevap3);
-            this.kryptonPanel2.Controls.Add(this.textCevap4);
-            this.kryptonPanel2.Controls.Add(this.textCevap5);
-            this.kryptonPanel2.Location = new System.Drawing.Point(3, 291);
-            this.kryptonPanel2.Name = "kryptonPanel2";
-            this.kryptonPanel2.Size = new System.Drawing.Size(679, 595);
-            this.kryptonPanel2.StateCommon.Color1 = System.Drawing.Color.Transparent;
-            this.kryptonPanel2.StateCommon.Color2 = System.Drawing.Color.Transparent;
-            this.kryptonPanel2.TabIndex = 16;
+            this.Pnl_Question_content.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Pnl_Question_content.Controls.Add(this.textSure);
+            this.Pnl_Question_content.Controls.Add(this.label4);
+            this.Pnl_Question_content.Controls.Add(this.radioButton1);
+            this.Pnl_Question_content.Controls.Add(this.btnResim);
+            this.Pnl_Question_content.Controls.Add(this.btn_kaydet);
+            this.Pnl_Question_content.Controls.Add(this.label1);
+            this.Pnl_Question_content.Controls.Add(this.label3);
+            this.Pnl_Question_content.Controls.Add(this.textKonu);
+            this.Pnl_Question_content.Controls.Add(this.label2);
+            this.Pnl_Question_content.Controls.Add(this.textUnite);
+            this.Pnl_Question_content.Controls.Add(this.radioButton5);
+            this.Pnl_Question_content.Controls.Add(this.textSoru);
+            this.Pnl_Question_content.Controls.Add(this.radioButton4);
+            this.Pnl_Question_content.Controls.Add(this.textCevap1);
+            this.Pnl_Question_content.Controls.Add(this.radioButton3);
+            this.Pnl_Question_content.Controls.Add(this.textCevap2);
+            this.Pnl_Question_content.Controls.Add(this.radioButton2);
+            this.Pnl_Question_content.Controls.Add(this.textCevap3);
+            this.Pnl_Question_content.Controls.Add(this.textCevap4);
+            this.Pnl_Question_content.Controls.Add(this.textCevap5);
+            this.Pnl_Question_content.Location = new System.Drawing.Point(3, 291);
+            this.Pnl_Question_content.Name = "Pnl_Question_content";
+            this.Pnl_Question_content.Size = new System.Drawing.Size(679, 595);
+            this.Pnl_Question_content.StateCommon.Color1 = System.Drawing.Color.Transparent;
+            this.Pnl_Question_content.StateCommon.Color2 = System.Drawing.Color.Transparent;
+            this.Pnl_Question_content.TabIndex = 16;
+            // 
+            // textSure
+            // 
+            this.textSure.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textSure.Location = new System.Drawing.Point(158, 540);
+            this.textSure.Name = "textSure";
+            this.textSure.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.textSure.Size = new System.Drawing.Size(95, 33);
+            this.textSure.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.textSure.StateCommon.Border.Rounding = 10;
+            this.textSure.TabIndex = 33;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label4.Location = new System.Drawing.Point(33, 540);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(129, 29);
+            this.label4.TabIndex = 32;
+            this.label4.Text = "Süre (sn) : ";
             // 
             // QuestionAddForm
             // 
@@ -465,9 +494,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
             this.kryptonPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).EndInit();
-            this.kryptonPanel2.ResumeLayout(false);
-            this.kryptonPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Pnl_Question_content)).EndInit();
+            this.Pnl_Question_content.ResumeLayout(false);
+            this.Pnl_Question_content.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -494,6 +523,8 @@
         private ComponentFactory.Krypton.Toolkit.KryptonButton btn_kaydet;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnResim;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel1;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel2;
+        private ComponentFactory.Krypton.Toolkit.KryptonPanel Pnl_Question_content;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox textSure;
+        private System.Windows.Forms.Label label4;
     }
 }
