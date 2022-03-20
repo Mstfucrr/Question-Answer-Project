@@ -4,7 +4,7 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace Question_Answer.user.UserClasses
 {
-    public class AnsweredQuestions
+    public class AnsweredQuestion
     {
         [BsonElement("TrueOrFalse")]
         public bool TrueOrFalse { get; set; }
