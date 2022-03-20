@@ -38,18 +38,21 @@
             this.btn_Onayla = new System.Windows.Forms.Button();
             this.btn_OncekiSoru = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Lbl_Soru = new System.Windows.Forms.RichTextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtTime = new System.Windows.Forms.TextBox();
             this.OptionsPanel = new System.Windows.Forms.Panel();
             this.optikPanel = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.Lbl_Soru = new System.Windows.Forms.RichTextBox();
+            this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.OptionsPanel.SuspendLayout();
             this.optikPanel.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
+            this.kryptonPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -187,6 +190,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.Lbl_Soru);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.OptionsPanel);
@@ -194,8 +198,17 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(798, 925);
+            this.panel1.Size = new System.Drawing.Size(798, 937);
             this.panel1.TabIndex = 15;
+            // 
+            // Lbl_Soru
+            // 
+            this.Lbl_Soru.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.Lbl_Soru.Location = new System.Drawing.Point(13, 330);
+            this.Lbl_Soru.Name = "Lbl_Soru";
+            this.Lbl_Soru.Size = new System.Drawing.Size(771, 163);
+            this.Lbl_Soru.TabIndex = 17;
+            this.Lbl_Soru.Text = "";
             // 
             // panel2
             // 
@@ -203,7 +216,7 @@
             this.panel2.Controls.Add(this.btn_OncekiSoru);
             this.panel2.Controls.Add(this.btn_DigerSoru);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 860);
+            this.panel2.Location = new System.Drawing.Point(0, 872);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(798, 65);
             this.panel2.TabIndex = 16;
@@ -239,14 +252,14 @@
             // optikPanel
             // 
             this.optikPanel.AutoScroll = true;
-            this.optikPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.optikPanel.BackColor = System.Drawing.Color.Transparent;
             this.optikPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.optikPanel.Controls.Add(this.panel3);
             this.optikPanel.Cursor = System.Windows.Forms.Cursors.Default;
-            this.optikPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.optikPanel.Location = new System.Drawing.Point(804, 0);
+            this.optikPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.optikPanel.Location = new System.Drawing.Point(0, 0);
             this.optikPanel.Name = "optikPanel";
-            this.optikPanel.Size = new System.Drawing.Size(353, 925);
+            this.optikPanel.Size = new System.Drawing.Size(353, 937);
             this.optikPanel.TabIndex = 16;
             // 
             // panel3
@@ -254,27 +267,30 @@
             this.panel3.Controls.Add(this.btn_Onayla);
             this.panel3.Cursor = System.Windows.Forms.Cursors.Default;
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 859);
+            this.panel3.Location = new System.Drawing.Point(0, 871);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(351, 64);
             this.panel3.TabIndex = 14;
             // 
-            // Lbl_Soru
+            // kryptonPanel1
             // 
-            this.Lbl_Soru.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.Lbl_Soru.Location = new System.Drawing.Point(13, 330);
-            this.Lbl_Soru.Name = "Lbl_Soru";
-            this.Lbl_Soru.Size = new System.Drawing.Size(771, 163);
-            this.Lbl_Soru.TabIndex = 17;
-            this.Lbl_Soru.Text = "";
+            this.kryptonPanel1.Controls.Add(this.optikPanel);
+            this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.kryptonPanel1.Location = new System.Drawing.Point(804, 0);
+            this.kryptonPanel1.Name = "kryptonPanel1";
+            this.kryptonPanel1.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.SeparatorHighProfile;
+            this.kryptonPanel1.Size = new System.Drawing.Size(353, 937);
+            this.kryptonPanel1.StateCommon.Color1 = System.Drawing.Color.SeaShell;
+            this.kryptonPanel1.StateCommon.Color2 = System.Drawing.Color.Tomato;
+            this.kryptonPanel1.TabIndex = 17;
             // 
             // QuizFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1157, 925);
-            this.Controls.Add(this.optikPanel);
+            this.ClientSize = new System.Drawing.Size(1157, 937);
+            this.Controls.Add(this.kryptonPanel1);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "QuizFrom";
@@ -287,6 +303,8 @@
             this.OptionsPanel.ResumeLayout(false);
             this.optikPanel.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
+            this.kryptonPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -308,5 +326,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox txtTime;
         private System.Windows.Forms.RichTextBox Lbl_Soru;
+        private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel1;
     }
 }
