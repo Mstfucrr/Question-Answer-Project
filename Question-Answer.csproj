@@ -171,6 +171,18 @@
     <Compile Include="Questions\QuestionForms\QuizFrom.Designer.cs">
       <DependentUpon>QuizFrom.cs</DependentUpon>
     </Compile>
+    <Compile Include="user\AdminForm\AdminDashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="user\AdminForm\AdminDashboardForm.Designer.cs">
+      <DependentUpon>AdminDashboardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="user\AdminForm\AdminQuestionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="user\AdminForm\AdminQuestionsForm.Designer.cs">
+      <DependentUpon>AdminQuestionsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="user\StudentForm\StudentDashboardForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,7 +195,14 @@
     <Compile Include="user\TeacherForm\TeacherDashboardForm.Designer.cs">
       <DependentUpon>TeacherDashboardForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="user\UserClasses\AnsweredQuestions.cs" />
+    <Compile Include="user\TeacherForm\TeacherOwnQuestionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="user\TeacherForm\TeacherOwnQuestionForm.Designer.cs">
+      <DependentUpon>TeacherOwnQuestionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="user\UserClasses\AdminDashboard.cs" />
+    <Compile Include="user\UserClasses\AnsweredQuestion.cs" />
     <Compile Include="user\UserClasses\Student.cs" />
     <Compile Include="user\UserClasses\Teacher.cs" />
     <Compile Include="user\UserClasses\User.cs" />
@@ -214,11 +233,20 @@
     <EmbeddedResource Include="Questions\QuestionForms\QuizFrom.resx">
       <DependentUpon>QuizFrom.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="user\AdminForm\AdminDashboardForm.resx">
+      <DependentUpon>AdminDashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="user\AdminForm\AdminQuestionsForm.resx">
+      <DependentUpon>AdminQuestionsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="user\StudentForm\StudentDashboardForm.resx">
       <DependentUpon>StudentDashboardForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="user\TeacherForm\TeacherDashboardForm.resx">
       <DependentUpon>TeacherDashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="user\TeacherForm\TeacherOwnQuestionForm.resx">
+      <DependentUpon>TeacherOwnQuestionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="user\UserForms\UserLoginForm.resx">
       <DependentUpon>UserLoginForm.cs</DependentUpon>
