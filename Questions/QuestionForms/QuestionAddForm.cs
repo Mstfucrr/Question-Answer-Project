@@ -16,14 +16,20 @@ namespace Question_Answer.Questions.QuestionForms
         }
         private void btn_kaydet_Click(object sender, EventArgs e)
         {
-
-            foreach (var cntrl in this.Controls)
+            try
             {
-                if (cntrl is KryptonTextBox { Text: "" })
-                {
-                    MessageBox.Show("Lütfen tüm boşlukları doldurduğunuzdan \nve bir seçeneği doğru olarak işaretlediğinizden emin olun!");
-                    return;
-                }
+                Convert.ToInt32(textSure.Text);
+            }
+            catch
+            {
+                MessageBox.Show(@"Lütfen süreyi kontrol ediniz 
+sayı türünde olduğuna emin olunuz.");
+                return;
+            }
+
+            if (textSoru.Text.Length == 0)
+            {
+                MessageBox.Show(@"Soru kutucuğu boş!!!");
             }
 
             var question = new Question
@@ -32,6 +38,7 @@ namespace Question_Answer.Questions.QuestionForms
                 QuestionUnit = textUnite.Text,
                 QuestionSubject = textKonu.Text,
                 QuestionText = textSoru.Text,
+                QuestionTime = Convert.ToInt32(textSure.Text)
             };
             question.Answers.Add(new Answers(radioButton1.Checked, textCevap1.Text));
             question.Answers.Add(new Answers(radioButton2.Checked, textCevap2.Text));
