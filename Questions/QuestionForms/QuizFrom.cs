@@ -36,6 +36,7 @@ namespace Question_Answer.Questions.QuestionForms
             GetQuestion(QuestionNum);
             OptionsPanel.Visible = true;
             this.Student = student;
+            //student.NumberOfQuiz += 1;
 
         }
         private void QuizFrom_Load(object sender, EventArgs e)
@@ -52,7 +53,11 @@ namespace Question_Answer.Questions.QuestionForms
                     ? Color.Turquoise : Color.Aquamarine);
                 for (var j = 0; j < RandomQuestionList[i].Answers.Count; j++) // soru cevap sayısı
                 {
-                    questionpanel.Controls.Add(CreateRadioButtonForOpticPanel(RandomQuestionList[i].Answers[j], j));
+                    if (RandomQuestionList[i].Answers[j].AnswerText.Length != 0)
+                    {
+                        questionpanel.Controls.Add(CreateRadioButtonForOpticPanel(RandomQuestionList[i].Answers[j], j));
+                    }
+
                 }
 
                 _quizTime += RandomQuestionList[i].QuestionTime;//sınav toplam süresi hesapla saniye
@@ -124,23 +129,26 @@ namespace Question_Answer.Questions.QuestionForms
             var RadioButtonList = new List<RadioButton>();
             foreach (var answer in answersList)
             {
-                _radioCevap = new RadioButton
+                if (answer.AnswerText.Length != 0)
                 {
-                    BackColor = Color.White,
-                    Dock = DockStyle.Bottom,
-                    Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(162))),
-                    Location = new Point(0, 6),
-                    Margin = new Padding(0),
-                    MaximumSize = new Size(700, 123),
-                    Name = answer.AnswerId.ToString(),
-                    Size = new Size(700, 50),
-                    Text = answer.AnswerText,
-                    TabIndex = 2,
-                    UseVisualStyleBackColor = false,
-                };
-                _radioCevap.CheckedChanged += radioBtnsCheckedChanged;
-                OptionsPanel.Controls.Add(_radioCevap);
-                RadioButtonList.Add(_radioCevap);
+                    _radioCevap = new RadioButton
+                    {
+                        BackColor = Color.White,
+                        Dock = DockStyle.Bottom,
+                        Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(162))),
+                        Location = new Point(0, 6),
+                        Margin = new Padding(0),
+                        MaximumSize = new Size(700, 123),
+                        Name = answer.AnswerId.ToString(),
+                        Size = new Size(700, 50),
+                        Text = answer.AnswerText,
+                        TabIndex = 2,
+                        UseVisualStyleBackColor = false,
+                    };
+                    _radioCevap.CheckedChanged += radioBtnsCheckedChanged;
+                    OptionsPanel.Controls.Add(_radioCevap);
+                    RadioButtonList.Add(_radioCevap);
+                }
             }
 
             return RadioButtonList;
