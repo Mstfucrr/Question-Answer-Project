@@ -14,6 +14,9 @@ namespace Question_Answer.user.UserClasses
         [BsonElement("AnsweredQuestionsList")]
         public List<AnsweredQuestions> AnsweredQuestionsList;
 
+        [BsonElement("NumberOfQuiz")]
+        public int NumberOfQuiz { get; set; }
+
 
     }
 }
