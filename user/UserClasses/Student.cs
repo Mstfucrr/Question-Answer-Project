@@ -12,7 +12,7 @@ namespace Question_Answer.user.UserClasses
         public int FalseCount { get; set; }
 
         [BsonElement("AnsweredQuestionsList")]
-        public List<AnsweredQuestions> AnsweredQuestionsList;
+        public List<AnsweredQuestion> AnsweredQuestionsList;
 
         [BsonElement("NumberOfQuiz")]
         public int NumberOfQuiz { get; set; }

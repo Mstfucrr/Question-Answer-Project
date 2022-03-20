@@ -43,7 +43,7 @@ namespace Question_Answer.user.UserForms
                 var Role = rBtn_ogrenci.Checked
                     ? rBtn_ogrenci.Text
                     : rBtn_ogretmen.Text;
-                var answeredQuestionsList = new List<AnsweredQuestions>();
+                var answeredQuestionsList = new List<AnsweredQuestion>();
                 var addedQuestionsIdList = new List<ObjectId>();
 
                 UserLoginForm loginform;
