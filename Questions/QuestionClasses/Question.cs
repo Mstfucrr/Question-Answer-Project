@@ -55,7 +55,7 @@ namespace Question_Answer.Questions
 
         public List<Question> Rastgele10SoruGetir()
         {
-            var questions = mongoDB.LoadRecordRandomQuestion<Question>(10);
+            var questions = mongoDB.LoadRecordRandomQuestion();
             return questions.ToList();
         }
 
