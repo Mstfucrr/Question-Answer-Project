@@ -31,7 +31,13 @@ namespace Question_Answer.user.StudentUserForm
         private void btn_SinavOl_Click(object sender, System.EventArgs e)
         {
             QuizFrom quizFrom = new QuizFrom(student);
-            quizFrom.Closed += (o, args) => this.Show();
+            quizFrom.Closed += (o, args) =>
+            {
+                var newdashboardfrom = new StudentDashboardForm(student);
+                newdashboardfrom.Closed += (sender1, eventArgs) => this.Close();
+                newdashboardfrom.Show();
+                quizFrom.Hide();
+            };
             quizFrom.Show();
             this.Hide();
         }
