@@ -17,6 +17,7 @@ namespace Question_Answer.Questions
         public bool TrueOrFalse { get; set; }
         public Answers(bool trueOrFalse, string answerText)
         {
+            Id = ObjectId.GenerateNewId();
             this.AnswerText = answerText;
             this.TrueOrFalse = trueOrFalse;
         }
