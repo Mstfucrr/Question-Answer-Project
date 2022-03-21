@@ -36,7 +36,7 @@ namespace Question_Answer.Database
             var collection = db.GetCollection<Question>("Confirmed_questions");
             var coll = collection.Find(new BsonDocument()).ToList();
             var random10Questions = coll.OrderBy(_ => new Random().Next()).Take(10);
-            //enumerable listesine doğru çözdüğü sorular algoritmaya göre eklenecek (1gün 1 hafta 1 ay 3 ay vs)
+            //random10Questions listesine doğru çözdüğü sorular algoritmaya göre eklenecek (1gün 1 hafta 1 ay 3 ay vs)
             return random10Questions;
         }
 
@@ -51,6 +51,14 @@ namespace Question_Answer.Database
         {
             var collection = db.GetCollection<T>(table);
             return collection.Find(document).ToList();
+        }
+
+        public void DeleteRecord<T>(string table, ObjectId Id)
+        {
+            var collection = db.GetCollection<T>(table);
+            var filter = Builders<T>.Filter.Eq("Id", Id);
+            collection.Find(filter).First();
+            collection.DeleteOne(filter);
         }
 
         public void UpdateRecord<T>(string table, ObjectId Id, T record)
