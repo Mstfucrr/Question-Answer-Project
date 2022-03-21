@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Driver;
 
 namespace Question_Answer.Questions
 {
@@ -23,8 +24,8 @@ namespace Question_Answer.Questions
         public bool AdminAccept { get; set; }
 
         [BsonElement("AdderTeacherId")]
-        public ObjectId AdderTeacherId; 
-        
+        public ObjectId AdderTeacherId;
+
         [BsonElement("QuestionUnit")]
         public string QuestionUnit { get; set; }
 
@@ -50,7 +51,12 @@ namespace Question_Answer.Questions
 
         public void Save()
         {
-            mongoDB.InsertRecord("Questions",this);
+            mongoDB.InsertRecord("Questions", this);
+        }
+
+        public void UpdateImage()
+        {
+            mongoDB.UpdateRecord("Questions", this.QuestionId, this);
         }
 
         public List<Question> Rastgele10SoruGetir()
