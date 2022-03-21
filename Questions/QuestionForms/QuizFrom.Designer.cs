@@ -236,6 +236,7 @@
             // 
             this.OptionsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.OptionsPanel.BackColor = System.Drawing.Color.White;
             this.OptionsPanel.Controls.Add(this.radioA);
             this.OptionsPanel.Controls.Add(this.radioE);
             this.OptionsPanel.Controls.Add(this.radioD);
