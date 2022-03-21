@@ -28,15 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint7 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 180D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint8 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 180D);
-            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint3 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 180D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint4 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 180D);
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentDashboardForm));
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.Pnd_TeacherInfo = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.Lbl_TestSayisi = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.Btn_Logout = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.Lbl_Ad_Soyad = new System.Windows.Forms.Label();
             this.Lbl_SoruSayisi = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
@@ -46,10 +48,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Pnl_Questions = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.Btn_added_question = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btn_SinavOl = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.Lbl_TestSayisi = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pnd_TeacherInfo)).BeginInit();
             this.Pnd_TeacherInfo.SuspendLayout();
@@ -63,45 +62,45 @@
             // chart1
             // 
             this.chart1.BackColor = System.Drawing.Color.Transparent;
-            chartArea4.Area3DStyle.Enable3D = true;
-            chartArea4.Area3DStyle.Inclination = 25;
-            chartArea4.BackColor = System.Drawing.Color.Transparent;
-            chartArea4.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea4);
-            legend4.BackColor = System.Drawing.Color.Transparent;
-            legend4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            legend4.IsTextAutoFit = false;
-            legend4.Name = "Legend1";
-            this.chart1.Legends.Add(legend4);
+            chartArea2.Area3DStyle.Enable3D = true;
+            chartArea2.Area3DStyle.Inclination = 25;
+            chartArea2.BackColor = System.Drawing.Color.Transparent;
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.BackColor = System.Drawing.Color.Transparent;
+            legend2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            legend2.IsTextAutoFit = false;
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(6, 3);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series4.Legend = "Legend1";
-            series4.Name = "DogruYanlisBos";
-            dataPoint7.Color = System.Drawing.Color.LawnGreen;
-            dataPoint7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataPoint7.IsValueShownAsLabel = false;
-            dataPoint7.Label = "Doğru";
-            dataPoint7.LabelAngle = 0;
-            dataPoint7.LabelFormat = "";
-            dataPoint7.LegendText = "Doğru";
-            dataPoint8.Color = System.Drawing.Color.Red;
-            dataPoint8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataPoint8.Label = "Yanlış";
-            dataPoint8.LabelForeColor = System.Drawing.Color.Black;
-            dataPoint8.LegendText = "Yanlış";
-            series4.Points.Add(dataPoint7);
-            series4.Points.Add(dataPoint8);
-            this.chart1.Series.Add(series4);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series2.Legend = "Legend1";
+            series2.Name = "DogruYanlisBos";
+            dataPoint3.Color = System.Drawing.Color.LawnGreen;
+            dataPoint3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataPoint3.IsValueShownAsLabel = false;
+            dataPoint3.Label = "Doğru";
+            dataPoint3.LabelAngle = 0;
+            dataPoint3.LabelFormat = "";
+            dataPoint3.LegendText = "Doğru";
+            dataPoint4.Color = System.Drawing.Color.Red;
+            dataPoint4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataPoint4.Label = "Yanlış";
+            dataPoint4.LabelForeColor = System.Drawing.Color.Black;
+            dataPoint4.LegendText = "Yanlış";
+            series2.Points.Add(dataPoint3);
+            series2.Points.Add(dataPoint4);
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(465, 320);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
-            title4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            title4.Name = "Title1";
-            title4.Text = "Toplam Doğru - Yanlış Grafiği";
-            this.chart1.Titles.Add(title4);
+            title2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            title2.Name = "Title1";
+            title2.Text = "Toplam Doğru - Yanlış Grafiği";
+            this.chart1.Titles.Add(title2);
             // 
             // Pnd_TeacherInfo
             // 
@@ -124,6 +123,28 @@
             this.Pnd_TeacherInfo.StateCommon.Color1 = System.Drawing.Color.Cyan;
             this.Pnd_TeacherInfo.StateCommon.Color2 = System.Drawing.Color.Black;
             this.Pnd_TeacherInfo.TabIndex = 6;
+            // 
+            // Lbl_TestSayisi
+            // 
+            this.Lbl_TestSayisi.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitleControl;
+            this.Lbl_TestSayisi.Location = new System.Drawing.Point(223, 435);
+            this.Lbl_TestSayisi.Name = "Lbl_TestSayisi";
+            this.Lbl_TestSayisi.Size = new System.Drawing.Size(114, 30);
+            this.Lbl_TestSayisi.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.Lbl_TestSayisi.StateCommon.ShortText.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_TestSayisi.TabIndex = 8;
+            this.Lbl_TestSayisi.Values.Text = "Test_sayısı";
+            // 
+            // kryptonLabel2
+            // 
+            this.kryptonLabel2.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitleControl;
+            this.kryptonLabel2.Location = new System.Drawing.Point(19, 435);
+            this.kryptonLabel2.Name = "kryptonLabel2";
+            this.kryptonLabel2.Size = new System.Drawing.Size(198, 30);
+            this.kryptonLabel2.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.kryptonLabel2.StateCommon.ShortText.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonLabel2.TabIndex = 7;
+            this.kryptonLabel2.Values.Text = "Girdiğin test sayısı :";
             // 
             // Btn_Logout
             // 
@@ -262,7 +283,6 @@
             // kryptonPanel2
             // 
             this.kryptonPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.kryptonPanel2.Controls.Add(this.Btn_added_question);
             this.kryptonPanel2.Controls.Add(this.btn_SinavOl);
             this.kryptonPanel2.Location = new System.Drawing.Point(318, 638);
             this.kryptonPanel2.Name = "kryptonPanel2";
@@ -270,57 +290,6 @@
             this.kryptonPanel2.StateCommon.Color1 = System.Drawing.Color.Cyan;
             this.kryptonPanel2.StateCommon.Color2 = System.Drawing.Color.Transparent;
             this.kryptonPanel2.TabIndex = 8;
-            // 
-            // Btn_added_question
-            // 
-            this.Btn_added_question.AutoSize = true;
-            this.Btn_added_question.Location = new System.Drawing.Point(0, 12);
-            this.Btn_added_question.Name = "Btn_added_question";
-            this.Btn_added_question.OverrideDefault.Back.Color1 = System.Drawing.Color.MediumVioletRed;
-            this.Btn_added_question.OverrideDefault.Back.Color2 = System.Drawing.Color.MediumVioletRed;
-            this.Btn_added_question.OverrideDefault.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.Btn_added_question.OverrideDefault.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.Btn_added_question.Size = new System.Drawing.Size(148, 41);
-            this.Btn_added_question.StateCommon.Back.Color1 = System.Drawing.Color.MediumVioletRed;
-            this.Btn_added_question.StateCommon.Back.Color2 = System.Drawing.Color.MediumVioletRed;
-            this.Btn_added_question.StateCommon.Border.Color1 = System.Drawing.Color.MediumVioletRed;
-            this.Btn_added_question.StateCommon.Border.Color2 = System.Drawing.Color.MediumVioletRed;
-            this.Btn_added_question.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.Btn_added_question.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.Btn_added_question.StateCommon.Border.Rounding = 10;
-            this.Btn_added_question.StateCommon.Border.Width = 2;
-            this.Btn_added_question.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.Btn_added_question.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.Btn_added_question.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Btn_added_question.StatePressed.Back.Color1 = System.Drawing.Color.HotPink;
-            this.Btn_added_question.StatePressed.Back.Color2 = System.Drawing.Color.HotPink;
-            this.Btn_added_question.StatePressed.Border.Color1 = System.Drawing.Color.HotPink;
-            this.Btn_added_question.StatePressed.Border.Color2 = System.Drawing.Color.HotPink;
-            this.Btn_added_question.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.Btn_added_question.StatePressed.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.Btn_added_question.StatePressed.Border.Rounding = 10;
-            this.Btn_added_question.StatePressed.Border.Width = 2;
-            this.Btn_added_question.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.Btn_added_question.StatePressed.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.Btn_added_question.StatePressed.Content.ShortText.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Btn_added_question.StateTracking.Back.Color1 = System.Drawing.Color.DeepPink;
-            this.Btn_added_question.StateTracking.Back.Color2 = System.Drawing.Color.DeepPink;
-            this.Btn_added_question.StateTracking.Border.Color1 = System.Drawing.Color.DeepPink;
-            this.Btn_added_question.StateTracking.Border.Color2 = System.Drawing.Color.DeepPink;
-            this.Btn_added_question.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.Btn_added_question.StateTracking.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.Btn_added_question.StateTracking.Border.Rounding = 10;
-            this.Btn_added_question.StateTracking.Border.Width = 2;
-            this.Btn_added_question.StateTracking.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.Btn_added_question.StateTracking.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.Btn_added_question.TabIndex = 3;
-            this.Btn_added_question.Values.Text = "ÇİZELGEM";
             // 
             // btn_SinavOl
             // 
@@ -373,28 +342,6 @@
             this.btn_SinavOl.Values.Text = "SINAV OL";
             this.btn_SinavOl.Click += new System.EventHandler(this.btn_SinavOl_Click);
             // 
-            // Lbl_TestSayisi
-            // 
-            this.Lbl_TestSayisi.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitleControl;
-            this.Lbl_TestSayisi.Location = new System.Drawing.Point(223, 435);
-            this.Lbl_TestSayisi.Name = "Lbl_TestSayisi";
-            this.Lbl_TestSayisi.Size = new System.Drawing.Size(114, 30);
-            this.Lbl_TestSayisi.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.Lbl_TestSayisi.StateCommon.ShortText.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_TestSayisi.TabIndex = 8;
-            this.Lbl_TestSayisi.Values.Text = "Test_sayısı";
-            // 
-            // kryptonLabel2
-            // 
-            this.kryptonLabel2.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitleControl;
-            this.kryptonLabel2.Location = new System.Drawing.Point(19, 435);
-            this.kryptonLabel2.Name = "kryptonLabel2";
-            this.kryptonLabel2.Size = new System.Drawing.Size(198, 30);
-            this.kryptonLabel2.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
-            this.kryptonLabel2.StateCommon.ShortText.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonLabel2.TabIndex = 7;
-            this.kryptonLabel2.Values.Text = "Girdiğin test sayısı :";
-            // 
             // StudentDashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -415,7 +362,6 @@
             this.Pnl_Questions.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).EndInit();
             this.kryptonPanel2.ResumeLayout(false);
-            this.kryptonPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -433,7 +379,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel Pnl_Questions;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel2;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton Btn_added_question;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btn_SinavOl;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel Lbl_TestSayisi;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel2;
