@@ -45,13 +45,14 @@ sayı türünde olduğuna emin olunuz.");
             question.Answers.Add(new Answers(radioButton3.Checked, textCevap3.Text));
             question.Answers.Add(new Answers(radioButton4.Checked, textCevap4.Text));
             question.Answers.Add(new Answers(radioButton5.Checked, textCevap5.Text));
+            question.Save();
             if (ImageLocation.Length != 0)
             {
                 question.QuestionImage = $"Image_{question.QuestionId}." + Path.GetFileName(ImageLocation).Split('.')[1];
                 File.Copy(ImageLocation,
                     Path.Combine(question.QuestionImagesUploadLocation, question.QuestionImage), true);
+                question.UpdateImage();
             }
-            question.Save();
             adderTeacher.AddedQuestionsIds.Add(question.QuestionId);
             adderTeacher.AddedQuestionCount += 1;
             adderTeacher.Update("Teachers");
