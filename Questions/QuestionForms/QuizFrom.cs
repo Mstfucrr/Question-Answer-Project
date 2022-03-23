@@ -15,12 +15,15 @@ namespace Question_Answer.Questions.QuestionForms
 {
     public partial class QuizFrom : KryptonForm
     {
+        private Question _randomQuestion;
+        private Question _solvedQuestion;
         public List<Question> RandomQuestionList;
-        public int QuestionNum;
+        public List<Question> CorrectlySolvedQuestionList;
         public Student Student;
+        public int RandomQuestionNum;
+        public int SolvedQuestionNum;
         private int _thisQuestionTrueAnswerCount;
         private int _thisQuestionFalseAnswerCount;
-        private Question _randomQuestion;
         private MaterialRadioButton _radioCevap;
         private readonly IsaretlenenCevaplarListesi _studentAnswerlist;
         private int _quizTime;
@@ -28,13 +31,25 @@ namespace Question_Answer.Questions.QuestionForms
         public QuizFrom(Student student)
         {
             InitializeComponent();
-            RandomQuestionList = new Question().Rastgele10SoruGetir();
-            QuestionNum = 0;
+            var getQuestion = new Question();
+            RandomQuestionList = getQuestion.GetRandom10Qeustions();
+            CorrectlySolvedQuestionList = getQuestion.GetQuestionsbyDay(student);
+
+            while (getQuestion.SameQuestionControl(RandomQuestionList, CorrectlySolvedQuestionList)) 
+                // RandomQuestionList ile CorrectlySolvedQuestionList içindeki sorular çakışmayana kadar tekardan random 10 soru çeker
+            {
+                RandomQuestionList = getQuestion.GetRandom10Qeustions();
+            }
+
+
+
+            RandomQuestionNum = 0;
+            SolvedQuestionNum = 0;
             _thisQuestionTrueAnswerCount = 0;
             _thisQuestionFalseAnswerCount = 0;
 
             _studentAnswerlist = new IsaretlenenCevaplarListesi();
-            GetQuestion(QuestionNum);
+            GetQuestion(RandomQuestionNum,true);
             OptionsPanel.Visible = true;
             this.Student = student;
             student.NumberOfQuiz += 1;
@@ -47,7 +62,7 @@ namespace Question_Answer.Questions.QuestionForms
             //_timer.Tick += TimerOnTick;
             //_timer.Start();
             this.Size = new Size(1000, 760);
-            // yeni panel yan optik
+            // Random quesiton listesi için panel yan optikleri
             for (var i = 0; i < RandomQuestionList.Count; i++)
             {
                 var questionpanel = CreatePanelForOptic(RandomQuestionList[i].QuestionId, i % 2 == 1
@@ -64,7 +79,23 @@ namespace Question_Answer.Questions.QuestionForms
                 _quizTime += RandomQuestionList[i].QuestionTime;//sınav toplam süresi hesapla saniye
             }
             //////////////////////////
+            //Daha önce çözülmüş sorular listesi için yan panel optikleri
+            for (var i = 0; i < CorrectlySolvedQuestionList.Count; i++)
+            {
+                var questionpanel = CreatePanelForOptic(CorrectlySolvedQuestionList[i].QuestionId, i % 2 == 1
+                    ? Color.Turquoise : Color.Aquamarine);
+                for (var j = 0; j < CorrectlySolvedQuestionList[i].Answers.Count; j++) // soru cevap sayısı
+                {
+                    if (CorrectlySolvedQuestionList[i].Answers[j].AnswerText.Length != 0)
+                    {
+                        questionpanel.Controls.Add(CreateRadioButtonForOpticPanel(CorrectlySolvedQuestionList[i].Answers[j], j));
+                    }
 
+                }
+
+                _quizTime += CorrectlySolvedQuestionList[i].QuestionTime;//sınav toplam süresi hesapla saniye
+            }
+            //////////////////////////
         }
 
         private void TimerOnTick(object sender, EventArgs e)
@@ -85,7 +116,8 @@ namespace Question_Answer.Questions.QuestionForms
             {
                 _timer.Stop();
                 MessageBox.Show("Süre doldu !!!");
-                QuizFinished();
+                QuizFinished(RandomQuestionList, true);
+                QuizFinished(CorrectlySolvedQuestionList, false);
 
             }
         }
@@ -156,27 +188,62 @@ namespace Question_Answer.Questions.QuestionForms
         private ObjectId _trueAnswerId;
         private void btn_DigerSoru_Click(object sender, EventArgs e)
         {
-            if (QuestionNum < RandomQuestionList.Count - 1)
-                QuestionNum++;
-            GetQuestion(QuestionNum);
+            if (RandomQuestionNum < RandomQuestionList.Count - 1)
+            {
+                RandomQuestionNum++;
+                GetQuestion(RandomQuestionNum, true);
 
+            }
+            else if (SolvedQuestionNum < CorrectlySolvedQuestionList.Count - 1)
+            {
+                SolvedQuestionNum++;
+                GetQuestion(SolvedQuestionNum, false);
+            }
         }
         private void btn_OncekiSoru_Click(object sender, EventArgs e)
         {
-            if (QuestionNum > 0)
-                QuestionNum--;
-            GetQuestion(QuestionNum);
+            if (SolvedQuestionNum > 0)
+            {
+                SolvedQuestionNum--;
+                GetQuestion(SolvedQuestionNum, false);
+            }
+            else if (RandomQuestionNum > 0)
+            {
+                RandomQuestionNum--;
+                GetQuestion(RandomQuestionNum, true);
+
+            }
+           
 
         }
-        private void GetQuestion(int index)
+        private void GetQuestion(int index, bool isRandomQuestionList)
         {
+            if (isRandomQuestionList)
+            {
+                _randomQuestion = RandomQuestionList[index];
+                OptionsPanel.Controls.Clear();
+                foreach (var materialRadioButton in CreateOtionsforAnswers(_randomQuestion.Answers))
+                    OptionsPanel.Controls.Add(materialRadioButton);
+                Lbl_Soru.Text = (index + 1) + " ) " + _randomQuestion.QuestionText;
 
+                pictureBox1.ImageLocation = _randomQuestion.QuestionImage != null
+                    ? _randomQuestion.QuestionImagesUploadLocation + @"\" + _randomQuestion.QuestionImage
+                    : null;
+            }
+            else
+            {
+                _solvedQuestion = CorrectlySolvedQuestionList[index];
+                OptionsPanel.Controls.Clear();
+                foreach (var materialRadioButton in CreateOtionsforAnswers(_solvedQuestion.Answers))
+                    OptionsPanel.Controls.Add(materialRadioButton);
+                Lbl_Soru.Text = (10 + index + 1) + " ) " + _solvedQuestion.QuestionText;
 
-            _randomQuestion = RandomQuestionList[index];
-            OptionsPanel.Controls.Clear();
-            foreach (var radioButton in CreateOtionsforAnswers(_randomQuestion.Answers))
-                OptionsPanel.Controls.Add(radioButton);
+                pictureBox1.ImageLocation = _solvedQuestion.QuestionImage != null
+                    ? _solvedQuestion.QuestionImagesUploadLocation + @"\" + _solvedQuestion.QuestionImage
+                    : null;
+            }
 
+            ///////////////////////////
             foreach (var radioButton in OptionsPanel.Controls.OfType<MaterialRadioButton>())
             {
                 foreach (var randomQuestionAnswer in _studentAnswerlist.SelectedAnswerIdList)
@@ -187,24 +254,20 @@ namespace Question_Answer.Questions.QuestionForms
                     }
                 }
             }
+            ///////////////////////////
 
-
-            Lbl_Soru.Text = (index + 1) + " ) " + _randomQuestion.QuestionText;
-
-            pictureBox1.ImageLocation = _randomQuestion.QuestionImage != null
-                ? _randomQuestion.QuestionImagesUploadLocation + @"\" + _randomQuestion.QuestionImage
-                : null;
         }
 
 
         private void btn_Onayla_Click(object sender, EventArgs e)
         {
-            QuizFinished();
+            QuizFinished(RandomQuestionList, true);
+            QuizFinished(CorrectlySolvedQuestionList, false);
         }
 
-        private void QuizFinished()
+        private void QuizFinished(List<Question> denetlemeQuestions, bool isRandomQuestionlistElement)
         {
-            foreach (var questionListElement in RandomQuestionList) // öğrenciye gösterilen sorular listesi foreach'ı
+            foreach (var questionListElement in denetlemeQuestions) // öğrenciye gösterilen sorular listesi foreach'ı
             {
                 foreach (var selectedAnswerIdListElement in _studentAnswerlist.SelectedAnswerIdList) // öğrencinin işaretlediği cevaplar
                 {
@@ -212,32 +275,49 @@ namespace Question_Answer.Questions.QuestionForms
                     {
                         if (selectedAnswerIdListElement == questionListAnswerElement.AnswerId) // öğrencinin işaretlediği cevabın idsi ile gösterilen soruların cevap idsi ni karşılaştırma
                         {
-                            foreach (Control optikPanelControl in optikPanel.Controls)
+                            foreach (Control optikPanelControl in optikPanel.Controls) // optik panel foreach'ı
                             {
                                 if (optikPanelControl.Name == questionListElement.QuestionId.ToString())
                                 {
                                     if (questionListAnswerElement.TrueOrFalse)
+                                    //eğer liste random listesi değilse o çözülmüş soruların içinde vardır o zaman eklenmesine veya tarihinin güncellenmesine gerek yok
                                     {
                                         optikPanelControl.BackColor = Color.Chartreuse;
                                         _thisQuestionTrueAnswerCount++;
-                                        Student.AnsweredQuestionsList.Add(new AnsweredQuestion
+                                        if (isRandomQuestionlistElement)
                                         {
-                                            TrueOrFalse = true,
-                                            AnsweredQuestionIds = questionListElement.QuestionId,
-                                            AnsweredQuestionDate = DateTime.Now
+                                            Student.AnsweredQuestionsList.Add(new AnsweredQuestion
+                                            {
+                                                TrueOrFalse = true,
+                                                AnsweredQuestionIds = questionListElement.QuestionId,
+                                                AnsweredQuestionDate = DateTime.Now // random sorular için date time olmalı
 
-                                        });
+                                            });
+
+                                        }
+
+
                                     }
                                     else
                                     {
                                         optikPanelControl.BackColor = Color.Red;
                                         _thisQuestionFalseAnswerCount++;
-                                        Student.AnsweredQuestionsList.Add(new AnsweredQuestion
+                                        if (isRandomQuestionlistElement)
                                         {
-                                            TrueOrFalse = false,
-                                            AnsweredQuestionIds = questionListElement.QuestionId,
-                                            AnsweredQuestionDate = DateTime.Now
-                                        });
+                                            Student.AnsweredQuestionsList.Add(new AnsweredQuestion
+                                            {
+                                                TrueOrFalse = false,
+                                                AnsweredQuestionIds = questionListElement.QuestionId,
+                                                AnsweredQuestionDate = DateTime.Now
+                                            });
+                                        }
+                                        else
+                                        {
+                                            Student.QuestionUpdate(questionListElement.QuestionId);
+                                            // eğer liste random listesi değilse o çözülmüş soruların içinde vardır 
+                                            // bu yüzden eklemek yerine güncellemek gerekir.
+                                        }
+
                                     }
                                 }
                             }

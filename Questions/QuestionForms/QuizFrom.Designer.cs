@@ -281,8 +281,8 @@
             this.kryptonPanel1.Name = "kryptonPanel1";
             this.kryptonPanel1.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.SeparatorHighProfile;
             this.kryptonPanel1.Size = new System.Drawing.Size(353, 937);
-            this.kryptonPanel1.StateCommon.Color1 = System.Drawing.Color.SeaShell;
-            this.kryptonPanel1.StateCommon.Color2 = System.Drawing.Color.Tomato;
+            this.kryptonPanel1.StateCommon.Color1 = System.Drawing.Color.SlateBlue;
+            this.kryptonPanel1.StateCommon.Color2 = System.Drawing.Color.Aquamarine;
             this.kryptonPanel1.TabIndex = 17;
             // 
             // QuizFrom
