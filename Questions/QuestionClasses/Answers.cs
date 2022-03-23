@@ -21,10 +21,5 @@ namespace Question_Answer.Questions
             this.AnswerText = answerText;
             this.TrueOrFalse = trueOrFalse;
         }
-
-        public IEnumerator GetEnumerator()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }
