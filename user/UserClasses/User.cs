@@ -53,7 +53,7 @@ namespace Question_Answer.user.UserClass
             }).FirstOrDefault();
         }
 
-        public void RegisterSave(string table)
+        public void Save(string table)
         {
             mongoDB.InsertRecord(table, this);
         }
