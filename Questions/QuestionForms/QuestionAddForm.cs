@@ -51,7 +51,7 @@ sayı türünde olduğuna emin olunuz.");
                 question.QuestionImage = $"Image_{question.QuestionId}." + Path.GetFileName(ImageLocation).Split('.')[1];
                 File.Copy(ImageLocation,
                     Path.Combine(question.QuestionImagesUploadLocation, question.QuestionImage), true);
-                question.UpdateImage();
+                question.Update();
             }
             adderTeacher.AddedQuestionsIds.Add(question.QuestionId);
             adderTeacher.AddedQuestionCount += 1;
