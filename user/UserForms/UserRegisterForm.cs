@@ -63,7 +63,7 @@ namespace Question_Answer.user.UserForms
                             AnsweredQuestionsList = answeredQuestionsList
 
                         };
-                        student.RegisterSave("Students");
+                        student.Save("Students");
                         MessageBox.Show($"Öğrenci başarıyla kayıt oldu hoş geldiniz {student.Name}");
                         loginform = new UserLoginForm();
                         loginform.Show();
@@ -83,7 +83,7 @@ namespace Question_Answer.user.UserForms
                             AddedQuestionCount = 0,
                             AddedQuestionsIds = addedQuestionsIdList
                         };
-                        teacher.RegisterSave("Teachers");
+                        teacher.Save("Teachers");
                         MessageBox.Show($"Öğretmen başarıyla kayıt oldu hoş geldiniz {teacher.Name}");
                         loginform = new UserLoginForm();
                         loginform.Show();
