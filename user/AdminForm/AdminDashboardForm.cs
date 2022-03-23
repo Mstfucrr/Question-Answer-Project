@@ -20,7 +20,7 @@ namespace Question_Answer.user.AdminForm
 
         private void Btn_Students_Click(object sender, EventArgs e)
         {
-            adminQuestionsForm.Hide();
+            if (adminQuestionsForm != null) adminQuestionsForm.Hide();
             Pnl_1.Controls.Clear();
             Pnl_1.Controls.Add(gridViewUsersInfo);
             Btn_back.Visible = false;
@@ -37,7 +37,7 @@ namespace Question_Answer.user.AdminForm
 
         private void Btn_Teachers_Click(object sender, EventArgs e)
         {
-            adminQuestionsForm.Hide();
+            if (adminQuestionsForm != null) adminQuestionsForm.Hide();
             Pnl_1.Controls.Clear();
             Pnl_1.Controls.Add(gridViewUsersInfo);
 
