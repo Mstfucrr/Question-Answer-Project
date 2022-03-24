@@ -53,9 +53,10 @@
             // 
             // text_Parola
             // 
-            this.text_Parola.Location = new System.Drawing.Point(8, 44);
+            this.text_Parola.Location = new System.Drawing.Point(6, 36);
+            this.text_Parola.Margin = new System.Windows.Forms.Padding(2);
             this.text_Parola.Name = "text_Parola";
-            this.text_Parola.Size = new System.Drawing.Size(320, 39);
+            this.text_Parola.Size = new System.Drawing.Size(240, 35);
             this.text_Parola.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
@@ -67,10 +68,11 @@
             // 
             this.kryptonLabel6.Cursor = System.Windows.Forms.Cursors.Default;
             this.kryptonLabel6.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitleControl;
-            this.kryptonLabel6.Location = new System.Drawing.Point(8, 3);
+            this.kryptonLabel6.Location = new System.Drawing.Point(6, 2);
+            this.kryptonLabel6.Margin = new System.Windows.Forms.Padding(2);
             this.kryptonLabel6.Name = "kryptonLabel6";
             this.kryptonLabel6.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.kryptonLabel6.Size = new System.Drawing.Size(85, 32);
+            this.kryptonLabel6.Size = new System.Drawing.Size(69, 27);
             this.kryptonLabel6.StateCommon.LongText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel6.StateCommon.LongText.Color2 = System.Drawing.Color.White;
             this.kryptonLabel6.StateCommon.LongText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -81,9 +83,10 @@
             // 
             // text_KullaniciAdi
             // 
-            this.text_KullaniciAdi.Location = new System.Drawing.Point(138, 99);
+            this.text_KullaniciAdi.Location = new System.Drawing.Point(104, 80);
+            this.text_KullaniciAdi.Margin = new System.Windows.Forms.Padding(2);
             this.text_KullaniciAdi.Name = "text_KullaniciAdi";
-            this.text_KullaniciAdi.Size = new System.Drawing.Size(320, 39);
+            this.text_KullaniciAdi.Size = new System.Drawing.Size(240, 35);
             this.text_KullaniciAdi.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
@@ -95,10 +98,11 @@
             // 
             this.kryptonLabel5.Cursor = System.Windows.Forms.Cursors.Default;
             this.kryptonLabel5.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitleControl;
-            this.kryptonLabel5.Location = new System.Drawing.Point(138, 61);
+            this.kryptonLabel5.Location = new System.Drawing.Point(104, 50);
+            this.kryptonLabel5.Margin = new System.Windows.Forms.Padding(2);
             this.kryptonLabel5.Name = "kryptonLabel5";
             this.kryptonLabel5.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.kryptonLabel5.Size = new System.Drawing.Size(154, 32);
+            this.kryptonLabel5.Size = new System.Drawing.Size(125, 27);
             this.kryptonLabel5.StateCommon.LongText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel5.StateCommon.LongText.Color2 = System.Drawing.Color.White;
             this.kryptonLabel5.StateCommon.LongText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -109,7 +113,8 @@
             // 
             // btn_GirisYap
             // 
-            this.btn_GirisYap.Location = new System.Drawing.Point(85, 348);
+            this.btn_GirisYap.Location = new System.Drawing.Point(64, 283);
+            this.btn_GirisYap.Margin = new System.Windows.Forms.Padding(2);
             this.btn_GirisYap.Name = "btn_GirisYap";
             this.btn_GirisYap.OverrideDefault.Back.Color1 = System.Drawing.Color.MediumSeaGreen;
             this.btn_GirisYap.OverrideDefault.Back.Color2 = System.Drawing.Color.MediumSeaGreen;
@@ -124,7 +129,7 @@
             this.btn_GirisYap.OverrideDefault.Border.Rounding = 20;
             this.btn_GirisYap.OverrideDefault.Border.Width = 1;
             this.btn_GirisYap.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.btn_GirisYap.Size = new System.Drawing.Size(185, 54);
+            this.btn_GirisYap.Size = new System.Drawing.Size(139, 44);
             this.btn_GirisYap.StateCommon.Back.Color1 = System.Drawing.Color.MediumSeaGreen;
             this.btn_GirisYap.StateCommon.Back.Color2 = System.Drawing.Color.MediumSeaGreen;
             this.btn_GirisYap.StateCommon.Border.Color1 = System.Drawing.Color.MediumSeaGreen;
@@ -175,18 +180,20 @@
             // 
             this.EpostaPanel.Controls.Add(this.text_Eposta);
             this.EpostaPanel.Controls.Add(this.kryptonLabel1);
-            this.EpostaPanel.Location = new System.Drawing.Point(125, 141);
+            this.EpostaPanel.Location = new System.Drawing.Point(94, 115);
+            this.EpostaPanel.Margin = new System.Windows.Forms.Padding(2);
             this.EpostaPanel.Name = "EpostaPanel";
             this.EpostaPanel.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.SeparatorLowProfile;
-            this.EpostaPanel.Size = new System.Drawing.Size(339, 94);
+            this.EpostaPanel.Size = new System.Drawing.Size(254, 76);
             this.EpostaPanel.TabIndex = 20;
             this.EpostaPanel.Visible = false;
             // 
             // text_Eposta
             // 
-            this.text_Eposta.Location = new System.Drawing.Point(10, 38);
+            this.text_Eposta.Location = new System.Drawing.Point(8, 31);
+            this.text_Eposta.Margin = new System.Windows.Forms.Padding(2);
             this.text_Eposta.Name = "text_Eposta";
-            this.text_Eposta.Size = new System.Drawing.Size(320, 39);
+            this.text_Eposta.Size = new System.Drawing.Size(240, 35);
             this.text_Eposta.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
@@ -198,10 +205,11 @@
             // 
             this.kryptonLabel1.Cursor = System.Windows.Forms.Cursors.Default;
             this.kryptonLabel1.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitleControl;
-            this.kryptonLabel1.Location = new System.Drawing.Point(10, 0);
+            this.kryptonLabel1.Location = new System.Drawing.Point(8, 0);
+            this.kryptonLabel1.Margin = new System.Windows.Forms.Padding(2);
             this.kryptonLabel1.Name = "kryptonLabel1";
             this.kryptonLabel1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.kryptonLabel1.Size = new System.Drawing.Size(91, 32);
+            this.kryptonLabel1.Size = new System.Drawing.Size(74, 27);
             this.kryptonLabel1.StateCommon.LongText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel1.StateCommon.LongText.Color2 = System.Drawing.Color.White;
             this.kryptonLabel1.StateCommon.LongText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -214,18 +222,20 @@
             // 
             this.ParolaPanel.Controls.Add(this.kryptonLabel6);
             this.ParolaPanel.Controls.Add(this.text_Parola);
-            this.ParolaPanel.Location = new System.Drawing.Point(128, 144);
+            this.ParolaPanel.Location = new System.Drawing.Point(96, 117);
+            this.ParolaPanel.Margin = new System.Windows.Forms.Padding(2);
             this.ParolaPanel.Name = "ParolaPanel";
             this.ParolaPanel.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.SeparatorLowProfile;
-            this.ParolaPanel.Size = new System.Drawing.Size(339, 94);
+            this.ParolaPanel.Size = new System.Drawing.Size(254, 76);
             this.ParolaPanel.TabIndex = 23;
             // 
             // rBtn_ogretmen
             // 
-            this.rBtn_ogretmen.Location = new System.Drawing.Point(248, 263);
+            this.rBtn_ogretmen.Location = new System.Drawing.Point(186, 214);
+            this.rBtn_ogretmen.Margin = new System.Windows.Forms.Padding(2);
             this.rBtn_ogretmen.Name = "rBtn_ogretmen";
             this.rBtn_ogretmen.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.rBtn_ogretmen.Size = new System.Drawing.Size(111, 27);
+            this.rBtn_ogretmen.Size = new System.Drawing.Size(90, 23);
             this.rBtn_ogretmen.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.rBtn_ogretmen.StateCommon.ShortText.Color2 = System.Drawing.Color.White;
             this.rBtn_ogretmen.StateCommon.ShortText.ColorAngle = 20F;
@@ -236,10 +246,11 @@
             // rBtn_ogrenci
             // 
             this.rBtn_ogrenci.Checked = true;
-            this.rBtn_ogrenci.Location = new System.Drawing.Point(85, 263);
+            this.rBtn_ogrenci.Location = new System.Drawing.Point(64, 214);
+            this.rBtn_ogrenci.Margin = new System.Windows.Forms.Padding(2);
             this.rBtn_ogrenci.Name = "rBtn_ogrenci";
             this.rBtn_ogrenci.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.rBtn_ogrenci.Size = new System.Drawing.Size(94, 27);
+            this.rBtn_ogrenci.Size = new System.Drawing.Size(76, 23);
             this.rBtn_ogrenci.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.rBtn_ogrenci.StateCommon.ShortText.Color2 = System.Drawing.Color.White;
             this.rBtn_ogrenci.StateCommon.ShortText.ColorAngle = 20F;
@@ -249,10 +260,11 @@
             // 
             // rBtn_Admin
             // 
-            this.rBtn_Admin.Location = new System.Drawing.Point(418, 263);
+            this.rBtn_Admin.Location = new System.Drawing.Point(314, 214);
+            this.rBtn_Admin.Margin = new System.Windows.Forms.Padding(2);
             this.rBtn_Admin.Name = "rBtn_Admin";
             this.rBtn_Admin.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.rBtn_Admin.Size = new System.Drawing.Size(81, 27);
+            this.rBtn_Admin.Size = new System.Drawing.Size(66, 23);
             this.rBtn_Admin.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.rBtn_Admin.StateCommon.ShortText.Color2 = System.Drawing.Color.White;
             this.rBtn_Admin.StateCommon.ShortText.ColorAngle = 20F;
@@ -274,23 +286,25 @@
             this.kryptonPanel1.Controls.Add(this.EpostaPanel);
             this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonPanel1.Location = new System.Drawing.Point(0, 0);
+            this.kryptonPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.kryptonPanel1.Name = "kryptonPanel1";
             this.kryptonPanel1.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonCustom1;
-            this.kryptonPanel1.Size = new System.Drawing.Size(575, 499);
+            this.kryptonPanel1.Size = new System.Drawing.Size(431, 405);
             this.kryptonPanel1.StateCommon.Color1 = System.Drawing.Color.SeaGreen;
             this.kryptonPanel1.StateCommon.Color2 = System.Drawing.Color.CornflowerBlue;
             this.kryptonPanel1.TabIndex = 27;
             // 
             // btn_KayitOl
             // 
-            this.btn_KayitOl.Location = new System.Drawing.Point(309, 348);
+            this.btn_KayitOl.Location = new System.Drawing.Point(232, 283);
+            this.btn_KayitOl.Margin = new System.Windows.Forms.Padding(2);
             this.btn_KayitOl.Name = "btn_KayitOl";
             this.btn_KayitOl.OverrideDefault.Back.Color1 = System.Drawing.Color.Blue;
             this.btn_KayitOl.OverrideDefault.Back.Color2 = System.Drawing.Color.Blue;
             this.btn_KayitOl.OverrideDefault.Content.ShortText.Color1 = System.Drawing.Color.White;
             this.btn_KayitOl.OverrideDefault.Content.ShortText.Color2 = System.Drawing.Color.White;
             this.btn_KayitOl.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.btn_KayitOl.Size = new System.Drawing.Size(185, 54);
+            this.btn_KayitOl.Size = new System.Drawing.Size(139, 44);
             this.btn_KayitOl.StateCommon.Back.Color1 = System.Drawing.Color.RoyalBlue;
             this.btn_KayitOl.StateCommon.Back.Color2 = System.Drawing.Color.RoyalBlue;
             this.btn_KayitOl.StateCommon.Border.Color1 = System.Drawing.Color.RoyalBlue;
@@ -334,21 +348,21 @@
             // kryptonLinkLabel1
             // 
             this.kryptonLinkLabel1.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldPanel;
-            this.kryptonLinkLabel1.Location = new System.Drawing.Point(222, 427);
+            this.kryptonLinkLabel1.Location = new System.Drawing.Point(166, 347);
+            this.kryptonLinkLabel1.Margin = new System.Windows.Forms.Padding(2);
             this.kryptonLinkLabel1.Name = "kryptonLinkLabel1";
-            this.kryptonLinkLabel1.Size = new System.Drawing.Size(131, 24);
+            this.kryptonLinkLabel1.Size = new System.Drawing.Size(106, 20);
             this.kryptonLinkLabel1.TabIndex = 27;
             this.kryptonLinkLabel1.Values.Text = "Şifremi unuttum";
             this.kryptonLinkLabel1.LinkClicked += new System.EventHandler(this.kryptonLinkLabel1_LinkClicked);
             // 
             // UserLoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(575, 499);
+            this.ClientSize = new System.Drawing.Size(431, 405);
             this.Controls.Add(this.kryptonPanel1);
-            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "UserLoginForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
