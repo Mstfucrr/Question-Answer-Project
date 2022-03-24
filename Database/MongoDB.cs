@@ -40,6 +40,15 @@ namespace Question_Answer.Database
             return random10Questions;
         }
 
+        public IMongoQueryable<Question> RandomQuestionsWithFilter()
+        {
+            var collection = db.GetCollection<Question>("Questions");
+            var coll = collection.AsQueryable()
+                .Where(q => q.AdminAccept)
+                .Sample(10);
+            return coll;
+        }
+
         public T LoadRecordById<T>(string table, ObjectId Id)
         {
             var collection = db.GetCollection<T>(table);
