@@ -90,7 +90,6 @@ namespace Question_Answer.Questions.QuestionForms
                     {
                         questionpanel.Controls.Add(CreateRadioButtonForOpticPanel(CorrectlySolvedQuestionList[i].Answers[j], j));
                     }
-
                 }
 
                 _quizTime += CorrectlySolvedQuestionList[i].QuestionTime;//sınav toplam süresi hesapla saniye
@@ -185,7 +184,6 @@ namespace Question_Answer.Questions.QuestionForms
 
         }
 
-        private ObjectId _trueAnswerId;
         private void btn_DigerSoru_Click(object sender, EventArgs e)
         {
             if (RandomQuestionNum < RandomQuestionList.Count - 1)
