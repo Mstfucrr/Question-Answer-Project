@@ -5,7 +5,6 @@ using System.Linq;
 using System.Windows.Forms;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
-using MongoDB.Driver;
 using Question_Answer.user.UserClasses;
 
 namespace Question_Answer.Questions
@@ -86,7 +85,7 @@ namespace Question_Answer.Questions
 
         public List<Question> GetRandom10Qeustions()
         {
-            var questions = mongoDB.LoadRecordRandomQuestion();
+            var questions = mongoDB.RandomQuestionsWithFilter();
             return questions.ToList();
         }
 
