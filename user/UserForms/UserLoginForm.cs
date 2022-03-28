@@ -42,7 +42,6 @@ namespace Question_Answer.user.UserForms
                     var teacher = new User().Login<Teacher>("Teachers","hlmi", "hlmi");
                     if (teacher != null)
                     {
-                        // soru ekleme formu gelecek
                         var teacherDashboard = new TeacherDashboardForm(teacher);
                         teacherDashboard.Closed += (o, args) => this.Close();
                         teacherDashboard.Show();
@@ -52,7 +51,6 @@ namespace Question_Answer.user.UserForms
                     {
                         MessageBox.Show("Hatalı giriş");
                     }
-                    //soru ekleme formu gelecek
                 }
                 else if (rBtn_Admin.Checked)
                 {
