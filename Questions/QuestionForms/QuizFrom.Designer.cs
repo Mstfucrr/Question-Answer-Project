@@ -168,7 +168,7 @@
             this.btn_Onayla.Location = new System.Drawing.Point(0, 0);
             this.btn_Onayla.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Onayla.Name = "btn_Onayla";
-            this.btn_Onayla.Size = new System.Drawing.Size(351, 64);
+            this.btn_Onayla.Size = new System.Drawing.Size(374, 64);
             this.btn_Onayla.TabIndex = 13;
             this.btn_Onayla.Text = "Testi bitir";
             this.btn_Onayla.UseVisualStyleBackColor = true;
@@ -260,7 +260,7 @@
             this.optikPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.optikPanel.Location = new System.Drawing.Point(0, 0);
             this.optikPanel.Name = "optikPanel";
-            this.optikPanel.Size = new System.Drawing.Size(353, 937);
+            this.optikPanel.Size = new System.Drawing.Size(376, 937);
             this.optikPanel.TabIndex = 16;
             // 
             // panel3
@@ -270,7 +270,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(0, 871);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(351, 64);
+            this.panel3.Size = new System.Drawing.Size(374, 64);
             this.panel3.TabIndex = 14;
             // 
             // kryptonPanel1
@@ -280,7 +280,7 @@
             this.kryptonPanel1.Location = new System.Drawing.Point(804, 0);
             this.kryptonPanel1.Name = "kryptonPanel1";
             this.kryptonPanel1.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.SeparatorHighProfile;
-            this.kryptonPanel1.Size = new System.Drawing.Size(353, 937);
+            this.kryptonPanel1.Size = new System.Drawing.Size(376, 937);
             this.kryptonPanel1.StateCommon.Color1 = System.Drawing.Color.SlateBlue;
             this.kryptonPanel1.StateCommon.Color2 = System.Drawing.Color.Aquamarine;
             this.kryptonPanel1.TabIndex = 17;
@@ -290,7 +290,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1157, 937);
+            this.ClientSize = new System.Drawing.Size(1180, 937);
             this.Controls.Add(this.kryptonPanel1);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
