@@ -52,7 +52,7 @@ namespace Question_Answer.Database
         public T LoadRecordById<T>(string table, ObjectId Id)
         {
             var collection = db.GetCollection<T>(table);
-            var filter = Builders<T>.Filter.Eq("Id", Id);
+            var filter = Builders<T>.Filter.Eq("_id", Id);
             return collection.Find(filter).First();
         }
 
