@@ -35,7 +35,7 @@ namespace Question_Answer.Questions.QuestionForms
             RandomQuestionList = getQuestion.GetRandom10Qeustions();
             CorrectlySolvedQuestionList = getQuestion.GetQuestionsbyDay(student);
 
-            while (getQuestion.SameQuestionControl(RandomQuestionList, CorrectlySolvedQuestionList)) 
+            while (!getQuestion.SameQuestionControl(RandomQuestionList, CorrectlySolvedQuestionList)) 
                 // RandomQuestionList ile CorrectlySolvedQuestionList içindeki sorular çakışmayana kadar tekardan random 10 soru çeker
             {
                 RandomQuestionList = getQuestion.GetRandom10Qeustions();
@@ -259,8 +259,22 @@ namespace Question_Answer.Questions.QuestionForms
 
         private void btn_Onayla_Click(object sender, EventArgs e)
         {
-            QuizFinished(RandomQuestionList, true);
             QuizFinished(CorrectlySolvedQuestionList, false);
+            QuizFinished(RandomQuestionList, true);
+            StudentQuizInfoUpdate();
+        }
+
+        private void StudentQuizInfoUpdate()
+        {
+            Student.TrueCount += _thisQuestionTrueAnswerCount;
+            Student.FalseCount += _thisQuestionFalseAnswerCount;
+            Student.Update("Students");
+            MessageBox.Show("Bu testin " +
+                            $"\nDoğru cevap sayısı : {_thisQuestionTrueAnswerCount}" +
+                            $"\nYanlış cevap sayısı : {_thisQuestionFalseAnswerCount}");
+            optikPanel.Enabled = false;
+            OptionsPanel.Enabled = false;
+
         }
 
         private void QuizFinished(List<Question> denetlemeQuestions, bool isRandomQuestionlistElement)
@@ -324,14 +338,6 @@ namespace Question_Answer.Questions.QuestionForms
                     }
                 }
             }
-            Student.TrueCount += _thisQuestionTrueAnswerCount;
-            Student.FalseCount += _thisQuestionFalseAnswerCount;
-            Student.Update("Students");
-            MessageBox.Show("Bu testin " +
-                            $"\nDoğru cevap sayısı : {_thisQuestionTrueAnswerCount}" +
-                            $"\nYanlış cevap sayısı : {_thisQuestionFalseAnswerCount}");
-            optikPanel.Enabled = false;
-            OptionsPanel.Enabled = false;
             //btn_Onayla.Enabled = false;
         }
 
