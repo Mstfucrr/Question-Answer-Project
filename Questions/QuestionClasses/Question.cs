@@ -74,12 +74,8 @@ namespace Question_Answer.Questions
             }
 
             AllGetQuestionList.Distinct();
-            if (AllGetQuestionList.Count != list1.Count + list2.Count)
-            {
-                return false;
-            }
-
-            return true;
+            return AllGetQuestionList.Count == list1.Count + list2.Count; 
+            // tüm sorulucak sorular == daha önce doğru cevapladığı sorular + rastgele 10 soru TRUE döndürür
         }
 
 
