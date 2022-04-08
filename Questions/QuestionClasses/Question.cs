@@ -95,7 +95,12 @@ namespace Question_Answer.Questions
                     var day = (DateTime.Now - answeredQuestion.AnsweredQuestionDate).Days;
                     if (day is 1 or 7 or 30 or 180 or 365)
                     {
-                        QuestionbyDay.Add(mongoDB.LoadRecordById<Question>("Confirmed_questions",answeredQuestion.AnsweredQuestionIds));
+                        
+                        QuestionbyDay.Add(mongoDB.LoadRecordByFilter<Question>("Questions",new BsonDocument
+                        {
+                            { "AdminAccept", true },
+                            { "id" , answeredQuestion.AnsweredQuestionIds}
+                        }).First());
                     }
                 }
             }

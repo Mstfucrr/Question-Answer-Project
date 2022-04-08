@@ -31,15 +31,6 @@ namespace Question_Answer.Database
             return collection.Find(new BsonDocument()).ToList();
         }
 
-        public IEnumerable<Question> LoadRecordRandomQuestion()
-        {
-            var collection = db.GetCollection<Question>("Confirmed_questions");
-            var coll = collection.Find(new BsonDocument()).ToList();
-            var random10Questions = coll.OrderBy(_ => new Random().Next()).Take(10);
-            //random10Questions listesine doğru çözdüğü sorular algoritmaya göre eklenecek (1gün 1 hafta 1 ay 3 ay vs)
-            return random10Questions;
-        }
-
         public IMongoQueryable<Question> RandomQuestionsWithFilter()
         {
             var collection = db.GetCollection<Question>("Questions");

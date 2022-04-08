@@ -36,7 +36,10 @@ namespace Question_Answer.user.UserClasses
 
         public List<Question> GetAllConfirmendQuestions()
         {
-            var collection = mongoDb.LoadRecords<Question>("Confirmed_questions");
+            var collection = mongoDb.LoadRecordByFilter<Question>("Questions", new BsonDocument
+            {
+                { "AdminAccept", true }
+            });
             return collection;
         }
 
@@ -44,7 +47,6 @@ namespace Question_Answer.user.UserClasses
         {
             question.AdminAccept = true;
             mongoDb.UpdateRecord("Questions",question.QuestionId,question);
-            mongoDb.InsertRecord("Confirmed_questions", question);
         }
 
 
