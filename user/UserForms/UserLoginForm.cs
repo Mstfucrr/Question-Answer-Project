@@ -38,8 +38,7 @@ namespace Question_Answer.user.UserForms
                 }
                 else if (rBtn_ogretmen.Checked)
                 {
-                    //var teacher = new User().Login<Teacher>("Teachers",text_KullaniciAdi.Text, text_Parola.Text);
-                    var teacher = new User().Login<Teacher>("Teachers","hlmi", "hlmi");
+                    var teacher = new User().Login<Teacher>("Teachers", text_KullaniciAdi.Text, text_Parola.Text);
                     if (teacher != null)
                     {
                         var teacherDashboard = new TeacherDashboardForm(teacher);
@@ -54,11 +53,18 @@ namespace Question_Answer.user.UserForms
                 }
                 else if (rBtn_Admin.Checked)
                 {
-                    AdminDashboardForm adminDashboardForm = new AdminDashboardForm();
-                    adminDashboardForm.Closed += (o, args) => this.Close();
-                    adminDashboardForm.Show();
-                    this.Hide();
-                    //Öğretmenin eklemek istediği soruların onaylanması
+                    if (text_KullaniciAdi.Text == @"admin" && text_Parola.Text == @"admin" )
+                    {
+                        AdminDashboardForm adminDashboardForm = new AdminDashboardForm();
+                        adminDashboardForm.Closed += (o, args) => this.Close();
+                        adminDashboardForm.Show();
+                        this.Hide();
+                        //Öğretmenin eklemek istediği soruların onaylanması
+                    }
+                    else
+                    {
+                        MessageBox.Show(@"Hatalı Admin Girişi !!!");
+                    }
 
                 }
 
