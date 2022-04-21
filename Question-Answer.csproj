@@ -161,6 +161,7 @@
     <Compile Include="Questions\QuestionClasses\Answers.cs" />
     <Compile Include="Questions\QuestionClasses\Question.cs" />
     <Compile Include="Questions\QuestionClasses\IsaretlenenCevaplarListesi.cs" />
+    <Compile Include="Questions\QuestionClasses\QuestionDaySetting.cs" />
     <Compile Include="Questions\QuestionForms\QuestionAddForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +173,12 @@
     </Compile>
     <Compile Include="Questions\QuestionForms\QuizFrom.Designer.cs">
       <DependentUpon>QuizFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Questions\QuestionForms\SetQuestionDayForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Questions\QuestionForms\SetQuestionDayForm.Designer.cs">
+      <DependentUpon>SetQuestionDayForm.cs</DependentUpon>
     </Compile>
     <Compile Include="user\AdminForm\AdminDashboardForm.cs">
       <SubType>Form</SubType>
@@ -235,6 +242,9 @@
     <EmbeddedResource Include="Questions\QuestionForms\QuizFrom.resx">
       <DependentUpon>QuizFrom.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Questions\QuestionForms\SetQuestionDayForm.resx">
+      <DependentUpon>SetQuestionDayForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="user\AdminForm\AdminDashboardForm.resx">
       <DependentUpon>AdminDashboardForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -286,6 +296,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\QuestionImagesUpload\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\MongoDB.Libmongocrypt.1.3.0\build\MongoDB.Libmongocrypt.targets" Condition="Exists('packages\MongoDB.Libmongocrypt.1.3.0\build\MongoDB.Libmongocrypt.targets')" />
