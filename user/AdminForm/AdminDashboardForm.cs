@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using ComponentFactory.Krypton.Toolkit;
 using Question_Answer.Questions;
+using Question_Answer.Questions.QuestionForms;
 using Question_Answer.user.UserClasses;
 using Question_Answer.user.UserForms;
 
@@ -110,6 +111,12 @@ namespace Question_Answer.user.AdminForm
             userLoginForm.Closed += (o, args) => this.Close();
             userLoginForm.Show();
             this.Hide();
+        }
+
+        private void btn_QuestionDaySetting_Click(object sender, EventArgs e)
+        {
+            SetQuestionDayForm dayForm = new SetQuestionDayForm();
+            dayForm.Show();
         }
     }
 }

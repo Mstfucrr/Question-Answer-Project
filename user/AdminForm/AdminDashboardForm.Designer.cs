@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminDashboardForm));
             this.Pnd_TeacherInfo = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.Btn_Teachers = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.Btn_Students = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.Btn_Logout = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.Lbl_Ad_Soyad = new System.Windows.Forms.Label();
             this.Lbl_Eposta = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
@@ -43,12 +45,11 @@
             this.Eposta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Test_Sayisi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.Btn_UnconfirmedQuestions = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.Btn_ConfirmedQuestions = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.Btn_Students = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.Btn_Teachers = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.Btn_back = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.Btn_UnconfirmedQuestions = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.Btn_next = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.Btn_ConfirmedQuestions = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btn_QuestionDaySetting = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.Pnd_TeacherInfo)).BeginInit();
             this.Pnd_TeacherInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -61,6 +62,7 @@
             // 
             // Pnd_TeacherInfo
             // 
+            this.Pnd_TeacherInfo.Controls.Add(this.btn_QuestionDaySetting);
             this.Pnd_TeacherInfo.Controls.Add(this.Btn_Teachers);
             this.Pnd_TeacherInfo.Controls.Add(this.Btn_Students);
             this.Pnd_TeacherInfo.Controls.Add(this.Btn_Logout);
@@ -70,25 +72,132 @@
             this.Pnd_TeacherInfo.Controls.Add(this.pictureBox1);
             this.Pnd_TeacherInfo.Dock = System.Windows.Forms.DockStyle.Left;
             this.Pnd_TeacherInfo.Location = new System.Drawing.Point(0, 0);
-            this.Pnd_TeacherInfo.MinimumSize = new System.Drawing.Size(317, 615);
+            this.Pnd_TeacherInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Pnd_TeacherInfo.MinimumSize = new System.Drawing.Size(238, 500);
             this.Pnd_TeacherInfo.Name = "Pnd_TeacherInfo";
             this.Pnd_TeacherInfo.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             this.Pnd_TeacherInfo.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlToolTip;
-            this.Pnd_TeacherInfo.Size = new System.Drawing.Size(317, 695);
+            this.Pnd_TeacherInfo.Size = new System.Drawing.Size(238, 574);
             this.Pnd_TeacherInfo.StateCommon.Color1 = System.Drawing.SystemColors.HotTrack;
             this.Pnd_TeacherInfo.StateCommon.Color2 = System.Drawing.Color.Black;
             this.Pnd_TeacherInfo.TabIndex = 3;
             // 
+            // Btn_Teachers
+            // 
+            this.Btn_Teachers.Location = new System.Drawing.Point(22, 369);
+            this.Btn_Teachers.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Btn_Teachers.Name = "Btn_Teachers";
+            this.Btn_Teachers.OverrideDefault.Back.Color1 = System.Drawing.Color.MediumVioletRed;
+            this.Btn_Teachers.OverrideDefault.Back.Color2 = System.Drawing.Color.MediumVioletRed;
+            this.Btn_Teachers.OverrideDefault.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.Btn_Teachers.OverrideDefault.Content.ShortText.Color2 = System.Drawing.Color.White;
+            this.Btn_Teachers.Size = new System.Drawing.Size(130, 33);
+            this.Btn_Teachers.StateCommon.Back.Color1 = System.Drawing.Color.MediumVioletRed;
+            this.Btn_Teachers.StateCommon.Back.Color2 = System.Drawing.Color.MediumVioletRed;
+            this.Btn_Teachers.StateCommon.Border.Color1 = System.Drawing.Color.MediumVioletRed;
+            this.Btn_Teachers.StateCommon.Border.Color2 = System.Drawing.Color.MediumVioletRed;
+            this.Btn_Teachers.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.Btn_Teachers.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.Btn_Teachers.StateCommon.Border.Rounding = 10;
+            this.Btn_Teachers.StateCommon.Border.Width = 2;
+            this.Btn_Teachers.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.Btn_Teachers.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
+            this.Btn_Teachers.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Btn_Teachers.StatePressed.Back.Color1 = System.Drawing.Color.HotPink;
+            this.Btn_Teachers.StatePressed.Back.Color2 = System.Drawing.Color.HotPink;
+            this.Btn_Teachers.StatePressed.Border.Color1 = System.Drawing.Color.HotPink;
+            this.Btn_Teachers.StatePressed.Border.Color2 = System.Drawing.Color.HotPink;
+            this.Btn_Teachers.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.Btn_Teachers.StatePressed.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.Btn_Teachers.StatePressed.Border.Rounding = 10;
+            this.Btn_Teachers.StatePressed.Border.Width = 2;
+            this.Btn_Teachers.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.Btn_Teachers.StatePressed.Content.ShortText.Color2 = System.Drawing.Color.White;
+            this.Btn_Teachers.StatePressed.Content.ShortText.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Btn_Teachers.StateTracking.Back.Color1 = System.Drawing.Color.DeepPink;
+            this.Btn_Teachers.StateTracking.Back.Color2 = System.Drawing.Color.DeepPink;
+            this.Btn_Teachers.StateTracking.Border.Color1 = System.Drawing.Color.DeepPink;
+            this.Btn_Teachers.StateTracking.Border.Color2 = System.Drawing.Color.DeepPink;
+            this.Btn_Teachers.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.Btn_Teachers.StateTracking.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.Btn_Teachers.StateTracking.Border.Rounding = 10;
+            this.Btn_Teachers.StateTracking.Border.Width = 2;
+            this.Btn_Teachers.StateTracking.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.Btn_Teachers.StateTracking.Content.ShortText.Color2 = System.Drawing.Color.White;
+            this.Btn_Teachers.TabIndex = 0;
+            this.Btn_Teachers.Values.Text = "ÖĞRETMENLER";
+            this.Btn_Teachers.Click += new System.EventHandler(this.Btn_Teachers_Click);
+            // 
+            // Btn_Students
+            // 
+            this.Btn_Students.AutoSize = true;
+            this.Btn_Students.Location = new System.Drawing.Point(22, 318);
+            this.Btn_Students.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Btn_Students.Name = "Btn_Students";
+            this.Btn_Students.OverrideDefault.Back.Color1 = System.Drawing.Color.MediumVioletRed;
+            this.Btn_Students.OverrideDefault.Back.Color2 = System.Drawing.Color.MediumVioletRed;
+            this.Btn_Students.OverrideDefault.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.Btn_Students.OverrideDefault.Content.ShortText.Color2 = System.Drawing.Color.White;
+            this.Btn_Students.Size = new System.Drawing.Size(119, 33);
+            this.Btn_Students.StateCommon.Back.Color1 = System.Drawing.Color.MediumVioletRed;
+            this.Btn_Students.StateCommon.Back.Color2 = System.Drawing.Color.MediumVioletRed;
+            this.Btn_Students.StateCommon.Border.Color1 = System.Drawing.Color.MediumVioletRed;
+            this.Btn_Students.StateCommon.Border.Color2 = System.Drawing.Color.MediumVioletRed;
+            this.Btn_Students.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.Btn_Students.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.Btn_Students.StateCommon.Border.Rounding = 10;
+            this.Btn_Students.StateCommon.Border.Width = 2;
+            this.Btn_Students.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.Btn_Students.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
+            this.Btn_Students.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Btn_Students.StatePressed.Back.Color1 = System.Drawing.Color.HotPink;
+            this.Btn_Students.StatePressed.Back.Color2 = System.Drawing.Color.HotPink;
+            this.Btn_Students.StatePressed.Border.Color1 = System.Drawing.Color.HotPink;
+            this.Btn_Students.StatePressed.Border.Color2 = System.Drawing.Color.HotPink;
+            this.Btn_Students.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.Btn_Students.StatePressed.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.Btn_Students.StatePressed.Border.Rounding = 10;
+            this.Btn_Students.StatePressed.Border.Width = 2;
+            this.Btn_Students.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.Btn_Students.StatePressed.Content.ShortText.Color2 = System.Drawing.Color.White;
+            this.Btn_Students.StatePressed.Content.ShortText.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Btn_Students.StateTracking.Back.Color1 = System.Drawing.Color.DeepPink;
+            this.Btn_Students.StateTracking.Back.Color2 = System.Drawing.Color.DeepPink;
+            this.Btn_Students.StateTracking.Border.Color1 = System.Drawing.Color.DeepPink;
+            this.Btn_Students.StateTracking.Border.Color2 = System.Drawing.Color.DeepPink;
+            this.Btn_Students.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.Btn_Students.StateTracking.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.Btn_Students.StateTracking.Border.Rounding = 10;
+            this.Btn_Students.StateTracking.Border.Width = 2;
+            this.Btn_Students.StateTracking.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.Btn_Students.StateTracking.Content.ShortText.Color2 = System.Drawing.Color.White;
+            this.Btn_Students.TabIndex = 3;
+            this.Btn_Students.Values.Text = "ÖĞRENCİLER";
+            this.Btn_Students.Click += new System.EventHandler(this.Btn_Students_Click);
+            // 
             // Btn_Logout
             // 
             this.Btn_Logout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Btn_Logout.Location = new System.Drawing.Point(12, 642);
+            this.Btn_Logout.Location = new System.Drawing.Point(9, 531);
+            this.Btn_Logout.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Btn_Logout.Name = "Btn_Logout";
             this.Btn_Logout.OverrideDefault.Back.Color1 = System.Drawing.Color.Red;
             this.Btn_Logout.OverrideDefault.Back.Color2 = System.Drawing.Color.Red;
             this.Btn_Logout.OverrideDefault.Content.ShortText.Color1 = System.Drawing.Color.White;
             this.Btn_Logout.OverrideDefault.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.Btn_Logout.Size = new System.Drawing.Size(143, 41);
+            this.Btn_Logout.Size = new System.Drawing.Size(107, 33);
             this.Btn_Logout.StateCommon.Back.Color1 = System.Drawing.Color.Firebrick;
             this.Btn_Logout.StateCommon.Back.Color2 = System.Drawing.Color.Firebrick;
             this.Btn_Logout.StateCommon.Border.Color1 = System.Drawing.Color.Firebrick;
@@ -136,9 +245,10 @@
             this.Lbl_Ad_Soyad.BackColor = System.Drawing.Color.Transparent;
             this.Lbl_Ad_Soyad.Font = new System.Drawing.Font("Comic Sans MS", 16F, System.Drawing.FontStyle.Bold);
             this.Lbl_Ad_Soyad.ForeColor = System.Drawing.Color.White;
-            this.Lbl_Ad_Soyad.Location = new System.Drawing.Point(12, 223);
+            this.Lbl_Ad_Soyad.Location = new System.Drawing.Point(9, 181);
+            this.Lbl_Ad_Soyad.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Lbl_Ad_Soyad.Name = "Lbl_Ad_Soyad";
-            this.Lbl_Ad_Soyad.Size = new System.Drawing.Size(299, 45);
+            this.Lbl_Ad_Soyad.Size = new System.Drawing.Size(224, 37);
             this.Lbl_Ad_Soyad.TabIndex = 6;
             this.Lbl_Ad_Soyad.Text = "Ad_Soyad";
             this.Lbl_Ad_Soyad.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -146,9 +256,10 @@
             // Lbl_Eposta
             // 
             this.Lbl_Eposta.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitleControl;
-            this.Lbl_Eposta.Location = new System.Drawing.Point(30, 340);
+            this.Lbl_Eposta.Location = new System.Drawing.Point(22, 276);
+            this.Lbl_Eposta.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Lbl_Eposta.Name = "Lbl_Eposta";
-            this.Lbl_Eposta.Size = new System.Drawing.Size(72, 30);
+            this.Lbl_Eposta.Size = new System.Drawing.Size(59, 24);
             this.Lbl_Eposta.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.Lbl_Eposta.StateCommon.ShortText.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_Eposta.TabIndex = 3;
@@ -157,9 +268,10 @@
             // Lbl_KullaniciAdi
             // 
             this.Lbl_KullaniciAdi.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitleControl;
-            this.Lbl_KullaniciAdi.Location = new System.Drawing.Point(30, 288);
+            this.Lbl_KullaniciAdi.Location = new System.Drawing.Point(22, 234);
+            this.Lbl_KullaniciAdi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Lbl_KullaniciAdi.Name = "Lbl_KullaniciAdi";
-            this.Lbl_KullaniciAdi.Size = new System.Drawing.Size(125, 30);
+            this.Lbl_KullaniciAdi.Size = new System.Drawing.Size(101, 24);
             this.Lbl_KullaniciAdi.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
             this.Lbl_KullaniciAdi.StateCommon.ShortText.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_KullaniciAdi.TabIndex = 2;
@@ -169,9 +281,10 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(52, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(39, 10);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(200, 194);
+            this.pictureBox1.Size = new System.Drawing.Size(150, 158);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -183,10 +296,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Pnl_1.AutoScroll = true;
             this.Pnl_1.Controls.Add(this.gridViewUsersInfo);
-            this.Pnl_1.Location = new System.Drawing.Point(317, 0);
+            this.Pnl_1.Location = new System.Drawing.Point(238, 0);
+            this.Pnl_1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Pnl_1.Name = "Pnl_1";
             this.Pnl_1.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonAlternate;
-            this.Pnl_1.Size = new System.Drawing.Size(739, 635);
+            this.Pnl_1.Size = new System.Drawing.Size(571, 525);
             this.Pnl_1.StateCommon.Color1 = System.Drawing.Color.White;
             this.Pnl_1.StateCommon.Color2 = System.Drawing.SystemColors.HotTrack;
             this.Pnl_1.TabIndex = 4;
@@ -209,7 +323,8 @@
             this.gridViewUsersInfo.GridStyles.StyleDataCells = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
             this.gridViewUsersInfo.GridStyles.StyleRow = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
             this.gridViewUsersInfo.HideOuterBorders = true;
-            this.gridViewUsersInfo.Location = new System.Drawing.Point(22, 47);
+            this.gridViewUsersInfo.Location = new System.Drawing.Point(16, 38);
+            this.gridViewUsersInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gridViewUsersInfo.MultiSelect = false;
             this.gridViewUsersInfo.Name = "gridViewUsersInfo";
             this.gridViewUsersInfo.ReadOnly = true;
@@ -217,7 +332,7 @@
             this.gridViewUsersInfo.RowHeadersWidth = 51;
             this.gridViewUsersInfo.RowTemplate.Height = 24;
             this.gridViewUsersInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridViewUsersInfo.Size = new System.Drawing.Size(694, 517);
+            this.gridViewUsersInfo.Size = new System.Drawing.Size(520, 420);
             this.gridViewUsersInfo.StateCommon.Background.Color1 = System.Drawing.Color.Transparent;
             this.gridViewUsersInfo.StateCommon.Background.Color2 = System.Drawing.Color.Transparent;
             this.gridViewUsersInfo.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundSheet;
@@ -249,7 +364,7 @@
             this.Kullanıcı_Adi.MinimumWidth = 6;
             this.Kullanıcı_Adi.Name = "Kullanıcı_Adi";
             this.Kullanıcı_Adi.ReadOnly = true;
-            this.Kullanıcı_Adi.Width = 128;
+            this.Kullanıcı_Adi.Width = 103;
             // 
             // Adi
             // 
@@ -259,7 +374,7 @@
             this.Adi.MinimumWidth = 6;
             this.Adi.Name = "Adi";
             this.Adi.ReadOnly = true;
-            this.Adi.Width = 61;
+            this.Adi.Width = 51;
             // 
             // Soyad
             // 
@@ -269,7 +384,7 @@
             this.Soyad.MinimumWidth = 6;
             this.Soyad.Name = "Soyad";
             this.Soyad.ReadOnly = true;
-            this.Soyad.Width = 83;
+            this.Soyad.Width = 69;
             // 
             // Eposta
             // 
@@ -279,7 +394,7 @@
             this.Eposta.MinimumWidth = 6;
             this.Eposta.Name = "Eposta";
             this.Eposta.ReadOnly = true;
-            this.Eposta.Width = 87;
+            this.Eposta.Width = 71;
             // 
             // Test_Sayisi
             // 
@@ -289,7 +404,7 @@
             this.Test_Sayisi.MinimumWidth = 6;
             this.Test_Sayisi.Name = "Test_Sayisi";
             this.Test_Sayisi.ReadOnly = true;
-            this.Test_Sayisi.Width = 111;
+            this.Test_Sayisi.Width = 91;
             // 
             // kryptonPanel2
             // 
@@ -299,229 +414,24 @@
             this.kryptonPanel2.Controls.Add(this.Btn_UnconfirmedQuestions);
             this.kryptonPanel2.Controls.Add(this.Btn_next);
             this.kryptonPanel2.Controls.Add(this.Btn_ConfirmedQuestions);
-            this.kryptonPanel2.Location = new System.Drawing.Point(317, 632);
+            this.kryptonPanel2.Location = new System.Drawing.Point(238, 523);
+            this.kryptonPanel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.kryptonPanel2.Name = "kryptonPanel2";
-            this.kryptonPanel2.Size = new System.Drawing.Size(739, 63);
+            this.kryptonPanel2.Size = new System.Drawing.Size(571, 51);
             this.kryptonPanel2.StateCommon.Color1 = System.Drawing.SystemColors.HotTrack;
             this.kryptonPanel2.StateCommon.Color2 = System.Drawing.Color.Transparent;
             this.kryptonPanel2.TabIndex = 5;
             // 
-            // Btn_UnconfirmedQuestions
-            // 
-            this.Btn_UnconfirmedQuestions.Location = new System.Drawing.Point(455, 12);
-            this.Btn_UnconfirmedQuestions.MinimumSize = new System.Drawing.Size(208, 41);
-            this.Btn_UnconfirmedQuestions.Name = "Btn_UnconfirmedQuestions";
-            this.Btn_UnconfirmedQuestions.OverrideDefault.Back.Color1 = System.Drawing.Color.MediumVioletRed;
-            this.Btn_UnconfirmedQuestions.OverrideDefault.Back.Color2 = System.Drawing.Color.MediumVioletRed;
-            this.Btn_UnconfirmedQuestions.OverrideDefault.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.Btn_UnconfirmedQuestions.OverrideDefault.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.Btn_UnconfirmedQuestions.Size = new System.Drawing.Size(244, 41);
-            this.Btn_UnconfirmedQuestions.StateCommon.Back.Color1 = System.Drawing.Color.MediumVioletRed;
-            this.Btn_UnconfirmedQuestions.StateCommon.Back.Color2 = System.Drawing.Color.MediumVioletRed;
-            this.Btn_UnconfirmedQuestions.StateCommon.Border.Color1 = System.Drawing.Color.MediumVioletRed;
-            this.Btn_UnconfirmedQuestions.StateCommon.Border.Color2 = System.Drawing.Color.MediumVioletRed;
-            this.Btn_UnconfirmedQuestions.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.Btn_UnconfirmedQuestions.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.Btn_UnconfirmedQuestions.StateCommon.Border.Rounding = 10;
-            this.Btn_UnconfirmedQuestions.StateCommon.Border.Width = 2;
-            this.Btn_UnconfirmedQuestions.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.Btn_UnconfirmedQuestions.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.Btn_UnconfirmedQuestions.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Btn_UnconfirmedQuestions.StatePressed.Back.Color1 = System.Drawing.Color.HotPink;
-            this.Btn_UnconfirmedQuestions.StatePressed.Back.Color2 = System.Drawing.Color.HotPink;
-            this.Btn_UnconfirmedQuestions.StatePressed.Border.Color1 = System.Drawing.Color.HotPink;
-            this.Btn_UnconfirmedQuestions.StatePressed.Border.Color2 = System.Drawing.Color.HotPink;
-            this.Btn_UnconfirmedQuestions.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.Btn_UnconfirmedQuestions.StatePressed.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.Btn_UnconfirmedQuestions.StatePressed.Border.Rounding = 10;
-            this.Btn_UnconfirmedQuestions.StatePressed.Border.Width = 2;
-            this.Btn_UnconfirmedQuestions.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.Btn_UnconfirmedQuestions.StatePressed.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.Btn_UnconfirmedQuestions.StatePressed.Content.ShortText.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Btn_UnconfirmedQuestions.StateTracking.Back.Color1 = System.Drawing.Color.DeepPink;
-            this.Btn_UnconfirmedQuestions.StateTracking.Back.Color2 = System.Drawing.Color.DeepPink;
-            this.Btn_UnconfirmedQuestions.StateTracking.Border.Color1 = System.Drawing.Color.DeepPink;
-            this.Btn_UnconfirmedQuestions.StateTracking.Border.Color2 = System.Drawing.Color.DeepPink;
-            this.Btn_UnconfirmedQuestions.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.Btn_UnconfirmedQuestions.StateTracking.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.Btn_UnconfirmedQuestions.StateTracking.Border.Rounding = 10;
-            this.Btn_UnconfirmedQuestions.StateTracking.Border.Width = 2;
-            this.Btn_UnconfirmedQuestions.StateTracking.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.Btn_UnconfirmedQuestions.StateTracking.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.Btn_UnconfirmedQuestions.TabIndex = 6;
-            this.Btn_UnconfirmedQuestions.Values.Text = "ONAYSIZ SORULAR";
-            this.Btn_UnconfirmedQuestions.Click += new System.EventHandler(this.Btn_UnconfirmedQuestions_Click);
-            // 
-            // Btn_ConfirmedQuestions
-            // 
-            this.Btn_ConfirmedQuestions.Location = new System.Drawing.Point(22, 12);
-            this.Btn_ConfirmedQuestions.MinimumSize = new System.Drawing.Size(195, 41);
-            this.Btn_ConfirmedQuestions.Name = "Btn_ConfirmedQuestions";
-            this.Btn_ConfirmedQuestions.OverrideDefault.Back.Color1 = System.Drawing.Color.MediumVioletRed;
-            this.Btn_ConfirmedQuestions.OverrideDefault.Back.Color2 = System.Drawing.Color.MediumVioletRed;
-            this.Btn_ConfirmedQuestions.OverrideDefault.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.Btn_ConfirmedQuestions.OverrideDefault.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.Btn_ConfirmedQuestions.Size = new System.Drawing.Size(251, 41);
-            this.Btn_ConfirmedQuestions.StateCommon.Back.Color1 = System.Drawing.Color.MediumVioletRed;
-            this.Btn_ConfirmedQuestions.StateCommon.Back.Color2 = System.Drawing.Color.MediumVioletRed;
-            this.Btn_ConfirmedQuestions.StateCommon.Border.Color1 = System.Drawing.Color.MediumVioletRed;
-            this.Btn_ConfirmedQuestions.StateCommon.Border.Color2 = System.Drawing.Color.MediumVioletRed;
-            this.Btn_ConfirmedQuestions.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.Btn_ConfirmedQuestions.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.Btn_ConfirmedQuestions.StateCommon.Border.Rounding = 10;
-            this.Btn_ConfirmedQuestions.StateCommon.Border.Width = 2;
-            this.Btn_ConfirmedQuestions.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.Btn_ConfirmedQuestions.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.Btn_ConfirmedQuestions.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Btn_ConfirmedQuestions.StatePressed.Back.Color1 = System.Drawing.Color.HotPink;
-            this.Btn_ConfirmedQuestions.StatePressed.Back.Color2 = System.Drawing.Color.HotPink;
-            this.Btn_ConfirmedQuestions.StatePressed.Border.Color1 = System.Drawing.Color.HotPink;
-            this.Btn_ConfirmedQuestions.StatePressed.Border.Color2 = System.Drawing.Color.HotPink;
-            this.Btn_ConfirmedQuestions.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.Btn_ConfirmedQuestions.StatePressed.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.Btn_ConfirmedQuestions.StatePressed.Border.Rounding = 10;
-            this.Btn_ConfirmedQuestions.StatePressed.Border.Width = 2;
-            this.Btn_ConfirmedQuestions.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.Btn_ConfirmedQuestions.StatePressed.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.Btn_ConfirmedQuestions.StatePressed.Content.ShortText.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Btn_ConfirmedQuestions.StateTracking.Back.Color1 = System.Drawing.Color.DeepPink;
-            this.Btn_ConfirmedQuestions.StateTracking.Back.Color2 = System.Drawing.Color.DeepPink;
-            this.Btn_ConfirmedQuestions.StateTracking.Border.Color1 = System.Drawing.Color.DeepPink;
-            this.Btn_ConfirmedQuestions.StateTracking.Border.Color2 = System.Drawing.Color.DeepPink;
-            this.Btn_ConfirmedQuestions.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.Btn_ConfirmedQuestions.StateTracking.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.Btn_ConfirmedQuestions.StateTracking.Border.Rounding = 10;
-            this.Btn_ConfirmedQuestions.StateTracking.Border.Width = 2;
-            this.Btn_ConfirmedQuestions.StateTracking.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.Btn_ConfirmedQuestions.StateTracking.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.Btn_ConfirmedQuestions.TabIndex = 5;
-            this.Btn_ConfirmedQuestions.Values.Text = "ONAYLI SORULAR";
-            this.Btn_ConfirmedQuestions.Click += new System.EventHandler(this.Btn_ConfirmedQuestions_Click);
-            // 
-            // Btn_Students
-            // 
-            this.Btn_Students.AutoSize = true;
-            this.Btn_Students.Location = new System.Drawing.Point(30, 391);
-            this.Btn_Students.Name = "Btn_Students";
-            this.Btn_Students.OverrideDefault.Back.Color1 = System.Drawing.Color.MediumVioletRed;
-            this.Btn_Students.OverrideDefault.Back.Color2 = System.Drawing.Color.MediumVioletRed;
-            this.Btn_Students.OverrideDefault.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.Btn_Students.OverrideDefault.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.Btn_Students.Size = new System.Drawing.Size(159, 41);
-            this.Btn_Students.StateCommon.Back.Color1 = System.Drawing.Color.MediumVioletRed;
-            this.Btn_Students.StateCommon.Back.Color2 = System.Drawing.Color.MediumVioletRed;
-            this.Btn_Students.StateCommon.Border.Color1 = System.Drawing.Color.MediumVioletRed;
-            this.Btn_Students.StateCommon.Border.Color2 = System.Drawing.Color.MediumVioletRed;
-            this.Btn_Students.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.Btn_Students.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.Btn_Students.StateCommon.Border.Rounding = 10;
-            this.Btn_Students.StateCommon.Border.Width = 2;
-            this.Btn_Students.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.Btn_Students.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.Btn_Students.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Btn_Students.StatePressed.Back.Color1 = System.Drawing.Color.HotPink;
-            this.Btn_Students.StatePressed.Back.Color2 = System.Drawing.Color.HotPink;
-            this.Btn_Students.StatePressed.Border.Color1 = System.Drawing.Color.HotPink;
-            this.Btn_Students.StatePressed.Border.Color2 = System.Drawing.Color.HotPink;
-            this.Btn_Students.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.Btn_Students.StatePressed.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.Btn_Students.StatePressed.Border.Rounding = 10;
-            this.Btn_Students.StatePressed.Border.Width = 2;
-            this.Btn_Students.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.Btn_Students.StatePressed.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.Btn_Students.StatePressed.Content.ShortText.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Btn_Students.StateTracking.Back.Color1 = System.Drawing.Color.DeepPink;
-            this.Btn_Students.StateTracking.Back.Color2 = System.Drawing.Color.DeepPink;
-            this.Btn_Students.StateTracking.Border.Color1 = System.Drawing.Color.DeepPink;
-            this.Btn_Students.StateTracking.Border.Color2 = System.Drawing.Color.DeepPink;
-            this.Btn_Students.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.Btn_Students.StateTracking.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.Btn_Students.StateTracking.Border.Rounding = 10;
-            this.Btn_Students.StateTracking.Border.Width = 2;
-            this.Btn_Students.StateTracking.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.Btn_Students.StateTracking.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.Btn_Students.TabIndex = 3;
-            this.Btn_Students.Values.Text = "ÖĞRENCİLER";
-            this.Btn_Students.Click += new System.EventHandler(this.Btn_Students_Click);
-            // 
-            // Btn_Teachers
-            // 
-            this.Btn_Teachers.Location = new System.Drawing.Point(30, 454);
-            this.Btn_Teachers.Name = "Btn_Teachers";
-            this.Btn_Teachers.OverrideDefault.Back.Color1 = System.Drawing.Color.MediumVioletRed;
-            this.Btn_Teachers.OverrideDefault.Back.Color2 = System.Drawing.Color.MediumVioletRed;
-            this.Btn_Teachers.OverrideDefault.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.Btn_Teachers.OverrideDefault.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.Btn_Teachers.Size = new System.Drawing.Size(173, 41);
-            this.Btn_Teachers.StateCommon.Back.Color1 = System.Drawing.Color.MediumVioletRed;
-            this.Btn_Teachers.StateCommon.Back.Color2 = System.Drawing.Color.MediumVioletRed;
-            this.Btn_Teachers.StateCommon.Border.Color1 = System.Drawing.Color.MediumVioletRed;
-            this.Btn_Teachers.StateCommon.Border.Color2 = System.Drawing.Color.MediumVioletRed;
-            this.Btn_Teachers.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.Btn_Teachers.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.Btn_Teachers.StateCommon.Border.Rounding = 10;
-            this.Btn_Teachers.StateCommon.Border.Width = 2;
-            this.Btn_Teachers.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.Btn_Teachers.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.Btn_Teachers.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Btn_Teachers.StatePressed.Back.Color1 = System.Drawing.Color.HotPink;
-            this.Btn_Teachers.StatePressed.Back.Color2 = System.Drawing.Color.HotPink;
-            this.Btn_Teachers.StatePressed.Border.Color1 = System.Drawing.Color.HotPink;
-            this.Btn_Teachers.StatePressed.Border.Color2 = System.Drawing.Color.HotPink;
-            this.Btn_Teachers.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.Btn_Teachers.StatePressed.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.Btn_Teachers.StatePressed.Border.Rounding = 10;
-            this.Btn_Teachers.StatePressed.Border.Width = 2;
-            this.Btn_Teachers.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.Btn_Teachers.StatePressed.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.Btn_Teachers.StatePressed.Content.ShortText.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Btn_Teachers.StateTracking.Back.Color1 = System.Drawing.Color.DeepPink;
-            this.Btn_Teachers.StateTracking.Back.Color2 = System.Drawing.Color.DeepPink;
-            this.Btn_Teachers.StateTracking.Border.Color1 = System.Drawing.Color.DeepPink;
-            this.Btn_Teachers.StateTracking.Border.Color2 = System.Drawing.Color.DeepPink;
-            this.Btn_Teachers.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.Btn_Teachers.StateTracking.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.Btn_Teachers.StateTracking.Border.Rounding = 10;
-            this.Btn_Teachers.StateTracking.Border.Width = 2;
-            this.Btn_Teachers.StateTracking.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.Btn_Teachers.StateTracking.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.Btn_Teachers.TabIndex = 0;
-            this.Btn_Teachers.Values.Text = "ÖĞRETMENLER";
-            this.Btn_Teachers.Click += new System.EventHandler(this.Btn_Teachers_Click);
-            // 
             // Btn_back
             // 
-            this.Btn_back.Location = new System.Drawing.Point(326, 12);
+            this.Btn_back.Location = new System.Drawing.Point(244, 10);
+            this.Btn_back.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Btn_back.Name = "Btn_back";
             this.Btn_back.OverrideDefault.Back.Color1 = System.Drawing.Color.MediumVioletRed;
             this.Btn_back.OverrideDefault.Back.Color2 = System.Drawing.Color.MediumVioletRed;
             this.Btn_back.OverrideDefault.Content.ShortText.Color1 = System.Drawing.Color.White;
             this.Btn_back.OverrideDefault.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.Btn_back.Size = new System.Drawing.Size(36, 41);
+            this.Btn_back.Size = new System.Drawing.Size(27, 33);
             this.Btn_back.StateCommon.Back.Color1 = System.Drawing.Color.MediumVioletRed;
             this.Btn_back.StateCommon.Back.Color2 = System.Drawing.Color.MediumVioletRed;
             this.Btn_back.StateCommon.Border.Color1 = System.Drawing.Color.MediumVioletRed;
@@ -565,15 +475,69 @@
             this.Btn_back.Visible = false;
             this.Btn_back.Click += new System.EventHandler(this.Btn_back_Click);
             // 
+            // Btn_UnconfirmedQuestions
+            // 
+            this.Btn_UnconfirmedQuestions.Location = new System.Drawing.Point(341, 10);
+            this.Btn_UnconfirmedQuestions.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Btn_UnconfirmedQuestions.MinimumSize = new System.Drawing.Size(156, 33);
+            this.Btn_UnconfirmedQuestions.Name = "Btn_UnconfirmedQuestions";
+            this.Btn_UnconfirmedQuestions.OverrideDefault.Back.Color1 = System.Drawing.Color.MediumVioletRed;
+            this.Btn_UnconfirmedQuestions.OverrideDefault.Back.Color2 = System.Drawing.Color.MediumVioletRed;
+            this.Btn_UnconfirmedQuestions.OverrideDefault.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.Btn_UnconfirmedQuestions.OverrideDefault.Content.ShortText.Color2 = System.Drawing.Color.White;
+            this.Btn_UnconfirmedQuestions.Size = new System.Drawing.Size(183, 33);
+            this.Btn_UnconfirmedQuestions.StateCommon.Back.Color1 = System.Drawing.Color.MediumVioletRed;
+            this.Btn_UnconfirmedQuestions.StateCommon.Back.Color2 = System.Drawing.Color.MediumVioletRed;
+            this.Btn_UnconfirmedQuestions.StateCommon.Border.Color1 = System.Drawing.Color.MediumVioletRed;
+            this.Btn_UnconfirmedQuestions.StateCommon.Border.Color2 = System.Drawing.Color.MediumVioletRed;
+            this.Btn_UnconfirmedQuestions.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.Btn_UnconfirmedQuestions.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.Btn_UnconfirmedQuestions.StateCommon.Border.Rounding = 10;
+            this.Btn_UnconfirmedQuestions.StateCommon.Border.Width = 2;
+            this.Btn_UnconfirmedQuestions.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.Btn_UnconfirmedQuestions.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
+            this.Btn_UnconfirmedQuestions.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Btn_UnconfirmedQuestions.StatePressed.Back.Color1 = System.Drawing.Color.HotPink;
+            this.Btn_UnconfirmedQuestions.StatePressed.Back.Color2 = System.Drawing.Color.HotPink;
+            this.Btn_UnconfirmedQuestions.StatePressed.Border.Color1 = System.Drawing.Color.HotPink;
+            this.Btn_UnconfirmedQuestions.StatePressed.Border.Color2 = System.Drawing.Color.HotPink;
+            this.Btn_UnconfirmedQuestions.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.Btn_UnconfirmedQuestions.StatePressed.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.Btn_UnconfirmedQuestions.StatePressed.Border.Rounding = 10;
+            this.Btn_UnconfirmedQuestions.StatePressed.Border.Width = 2;
+            this.Btn_UnconfirmedQuestions.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.Btn_UnconfirmedQuestions.StatePressed.Content.ShortText.Color2 = System.Drawing.Color.White;
+            this.Btn_UnconfirmedQuestions.StatePressed.Content.ShortText.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Btn_UnconfirmedQuestions.StateTracking.Back.Color1 = System.Drawing.Color.DeepPink;
+            this.Btn_UnconfirmedQuestions.StateTracking.Back.Color2 = System.Drawing.Color.DeepPink;
+            this.Btn_UnconfirmedQuestions.StateTracking.Border.Color1 = System.Drawing.Color.DeepPink;
+            this.Btn_UnconfirmedQuestions.StateTracking.Border.Color2 = System.Drawing.Color.DeepPink;
+            this.Btn_UnconfirmedQuestions.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.Btn_UnconfirmedQuestions.StateTracking.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.Btn_UnconfirmedQuestions.StateTracking.Border.Rounding = 10;
+            this.Btn_UnconfirmedQuestions.StateTracking.Border.Width = 2;
+            this.Btn_UnconfirmedQuestions.StateTracking.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.Btn_UnconfirmedQuestions.StateTracking.Content.ShortText.Color2 = System.Drawing.Color.White;
+            this.Btn_UnconfirmedQuestions.TabIndex = 6;
+            this.Btn_UnconfirmedQuestions.Values.Text = "ONAYSIZ SORULAR";
+            this.Btn_UnconfirmedQuestions.Click += new System.EventHandler(this.Btn_UnconfirmedQuestions_Click);
+            // 
             // Btn_next
             // 
-            this.Btn_next.Location = new System.Drawing.Point(368, 12);
+            this.Btn_next.Location = new System.Drawing.Point(276, 10);
+            this.Btn_next.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Btn_next.Name = "Btn_next";
             this.Btn_next.OverrideDefault.Back.Color1 = System.Drawing.Color.MediumVioletRed;
             this.Btn_next.OverrideDefault.Back.Color2 = System.Drawing.Color.MediumVioletRed;
             this.Btn_next.OverrideDefault.Content.ShortText.Color1 = System.Drawing.Color.White;
             this.Btn_next.OverrideDefault.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.Btn_next.Size = new System.Drawing.Size(36, 41);
+            this.Btn_next.Size = new System.Drawing.Size(27, 33);
             this.Btn_next.StateCommon.Back.Color1 = System.Drawing.Color.MediumVioletRed;
             this.Btn_next.StateCommon.Back.Color2 = System.Drawing.Color.MediumVioletRed;
             this.Btn_next.StateCommon.Border.Color1 = System.Drawing.Color.MediumVioletRed;
@@ -617,15 +581,122 @@
             this.Btn_next.Visible = false;
             this.Btn_next.Click += new System.EventHandler(this.Btn_next_Click);
             // 
+            // Btn_ConfirmedQuestions
+            // 
+            this.Btn_ConfirmedQuestions.Location = new System.Drawing.Point(16, 10);
+            this.Btn_ConfirmedQuestions.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Btn_ConfirmedQuestions.MinimumSize = new System.Drawing.Size(146, 33);
+            this.Btn_ConfirmedQuestions.Name = "Btn_ConfirmedQuestions";
+            this.Btn_ConfirmedQuestions.OverrideDefault.Back.Color1 = System.Drawing.Color.MediumVioletRed;
+            this.Btn_ConfirmedQuestions.OverrideDefault.Back.Color2 = System.Drawing.Color.MediumVioletRed;
+            this.Btn_ConfirmedQuestions.OverrideDefault.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.Btn_ConfirmedQuestions.OverrideDefault.Content.ShortText.Color2 = System.Drawing.Color.White;
+            this.Btn_ConfirmedQuestions.Size = new System.Drawing.Size(188, 33);
+            this.Btn_ConfirmedQuestions.StateCommon.Back.Color1 = System.Drawing.Color.MediumVioletRed;
+            this.Btn_ConfirmedQuestions.StateCommon.Back.Color2 = System.Drawing.Color.MediumVioletRed;
+            this.Btn_ConfirmedQuestions.StateCommon.Border.Color1 = System.Drawing.Color.MediumVioletRed;
+            this.Btn_ConfirmedQuestions.StateCommon.Border.Color2 = System.Drawing.Color.MediumVioletRed;
+            this.Btn_ConfirmedQuestions.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.Btn_ConfirmedQuestions.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.Btn_ConfirmedQuestions.StateCommon.Border.Rounding = 10;
+            this.Btn_ConfirmedQuestions.StateCommon.Border.Width = 2;
+            this.Btn_ConfirmedQuestions.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.Btn_ConfirmedQuestions.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
+            this.Btn_ConfirmedQuestions.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Btn_ConfirmedQuestions.StatePressed.Back.Color1 = System.Drawing.Color.HotPink;
+            this.Btn_ConfirmedQuestions.StatePressed.Back.Color2 = System.Drawing.Color.HotPink;
+            this.Btn_ConfirmedQuestions.StatePressed.Border.Color1 = System.Drawing.Color.HotPink;
+            this.Btn_ConfirmedQuestions.StatePressed.Border.Color2 = System.Drawing.Color.HotPink;
+            this.Btn_ConfirmedQuestions.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.Btn_ConfirmedQuestions.StatePressed.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.Btn_ConfirmedQuestions.StatePressed.Border.Rounding = 10;
+            this.Btn_ConfirmedQuestions.StatePressed.Border.Width = 2;
+            this.Btn_ConfirmedQuestions.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.Btn_ConfirmedQuestions.StatePressed.Content.ShortText.Color2 = System.Drawing.Color.White;
+            this.Btn_ConfirmedQuestions.StatePressed.Content.ShortText.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Btn_ConfirmedQuestions.StateTracking.Back.Color1 = System.Drawing.Color.DeepPink;
+            this.Btn_ConfirmedQuestions.StateTracking.Back.Color2 = System.Drawing.Color.DeepPink;
+            this.Btn_ConfirmedQuestions.StateTracking.Border.Color1 = System.Drawing.Color.DeepPink;
+            this.Btn_ConfirmedQuestions.StateTracking.Border.Color2 = System.Drawing.Color.DeepPink;
+            this.Btn_ConfirmedQuestions.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.Btn_ConfirmedQuestions.StateTracking.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.Btn_ConfirmedQuestions.StateTracking.Border.Rounding = 10;
+            this.Btn_ConfirmedQuestions.StateTracking.Border.Width = 2;
+            this.Btn_ConfirmedQuestions.StateTracking.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.Btn_ConfirmedQuestions.StateTracking.Content.ShortText.Color2 = System.Drawing.Color.White;
+            this.Btn_ConfirmedQuestions.TabIndex = 5;
+            this.Btn_ConfirmedQuestions.Values.Text = "ONAYLI SORULAR";
+            this.Btn_ConfirmedQuestions.Click += new System.EventHandler(this.Btn_ConfirmedQuestions_Click);
+            // 
+            // btn_QuestionDaySetting
+            // 
+            this.btn_QuestionDaySetting.AutoSize = true;
+            this.btn_QuestionDaySetting.Location = new System.Drawing.Point(2, 425);
+            this.btn_QuestionDaySetting.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_QuestionDaySetting.Name = "btn_QuestionDaySetting";
+            this.btn_QuestionDaySetting.OverrideDefault.Back.Color1 = System.Drawing.Color.MediumVioletRed;
+            this.btn_QuestionDaySetting.OverrideDefault.Back.Color2 = System.Drawing.Color.MediumVioletRed;
+            this.btn_QuestionDaySetting.OverrideDefault.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.btn_QuestionDaySetting.OverrideDefault.Content.ShortText.Color2 = System.Drawing.Color.White;
+            this.btn_QuestionDaySetting.Size = new System.Drawing.Size(238, 33);
+            this.btn_QuestionDaySetting.StateCommon.Back.Color1 = System.Drawing.Color.LightSeaGreen;
+            this.btn_QuestionDaySetting.StateCommon.Back.Color2 = System.Drawing.Color.LightSeaGreen;
+            this.btn_QuestionDaySetting.StateCommon.Border.Color1 = System.Drawing.Color.LightSeaGreen;
+            this.btn_QuestionDaySetting.StateCommon.Border.Color2 = System.Drawing.Color.LightSeaGreen;
+            this.btn_QuestionDaySetting.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_QuestionDaySetting.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.btn_QuestionDaySetting.StateCommon.Border.Rounding = 10;
+            this.btn_QuestionDaySetting.StateCommon.Border.Width = 2;
+            this.btn_QuestionDaySetting.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.btn_QuestionDaySetting.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
+            this.btn_QuestionDaySetting.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btn_QuestionDaySetting.StatePressed.Back.Color1 = System.Drawing.Color.Turquoise;
+            this.btn_QuestionDaySetting.StatePressed.Back.Color2 = System.Drawing.Color.Turquoise;
+            this.btn_QuestionDaySetting.StatePressed.Border.Color1 = System.Drawing.Color.Turquoise;
+            this.btn_QuestionDaySetting.StatePressed.Border.Color2 = System.Drawing.Color.Turquoise;
+            this.btn_QuestionDaySetting.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_QuestionDaySetting.StatePressed.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.btn_QuestionDaySetting.StatePressed.Border.Rounding = 10;
+            this.btn_QuestionDaySetting.StatePressed.Border.Width = 2;
+            this.btn_QuestionDaySetting.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.btn_QuestionDaySetting.StatePressed.Content.ShortText.Color2 = System.Drawing.Color.White;
+            this.btn_QuestionDaySetting.StatePressed.Content.ShortText.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btn_QuestionDaySetting.StateTracking.Back.Color1 = System.Drawing.Color.DarkTurquoise;
+            this.btn_QuestionDaySetting.StateTracking.Back.Color2 = System.Drawing.Color.DarkTurquoise;
+            this.btn_QuestionDaySetting.StateTracking.Border.Color1 = System.Drawing.Color.DarkTurquoise;
+            this.btn_QuestionDaySetting.StateTracking.Border.Color2 = System.Drawing.Color.DarkTurquoise;
+            this.btn_QuestionDaySetting.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_QuestionDaySetting.StateTracking.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.btn_QuestionDaySetting.StateTracking.Border.Rounding = 10;
+            this.btn_QuestionDaySetting.StateTracking.Border.Width = 2;
+            this.btn_QuestionDaySetting.StateTracking.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.btn_QuestionDaySetting.StateTracking.Content.ShortText.Color2 = System.Drawing.Color.White;
+            this.btn_QuestionDaySetting.TabIndex = 7;
+            this.btn_QuestionDaySetting.Values.Text = "Doğru soru sorma sıklığını ayarla";
+            this.btn_QuestionDaySetting.Click += new System.EventHandler(this.btn_QuestionDaySetting_Click);
+            // 
             // AdminDashboardForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1056, 695);
+            this.ClientSize = new System.Drawing.Size(809, 574);
             this.Controls.Add(this.kryptonPanel2);
             this.Controls.Add(this.Pnd_TeacherInfo);
             this.Controls.Add(this.Pnl_1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "AdminDashboardForm";
             this.Text = "AdminDashboardForm";
             ((System.ComponentModel.ISupportInitialize)(this.Pnd_TeacherInfo)).EndInit();
@@ -663,5 +734,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Test_Sayisi;
         private ComponentFactory.Krypton.Toolkit.KryptonButton Btn_back;
         private ComponentFactory.Krypton.Toolkit.KryptonButton Btn_next;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btn_QuestionDaySetting;
     }
 }

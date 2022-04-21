@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows.Forms;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using Question_Answer.Questions.QuestionClasses;
 using Question_Answer.user.UserClasses;
 
 namespace Question_Answer.Questions
@@ -93,7 +94,10 @@ namespace Question_Answer.Questions
                 if (answeredQuestion.TrueOrFalse)
                 {
                     var day = (DateTime.Now - answeredQuestion.AnsweredQuestionDate).Days;
-                    if (day is 1 or 7 or 30 or 180 or 365)
+
+                    var questionDayList = new QuestionDaySetting().GetQuestionDays();
+
+                    if (questionDayList.Contains(day))
                     {
                         
                         QuestionbyDay.Add(mongoDB.LoadRecordByFilter<Question>("Questions",new BsonDocument

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 using Question_Answer.Questions;
@@ -97,6 +96,12 @@ namespace Question_Answer.user.TeacherForm
             userLoginForm.Closed += (o, args) => this.Close();
             userLoginForm.Show();
             this.Hide();
+        }
+
+        private void btn_QuestionDaySetting_Click(object sender, EventArgs e)
+        {
+            SetQuestionDayForm dayForm = new SetQuestionDayForm();
+            dayForm.Show();
         }
     }
 }
