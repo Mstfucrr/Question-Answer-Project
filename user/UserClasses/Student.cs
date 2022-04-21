@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using Question_Answer.Questions;
 using Question_Answer.user.UserClass;
 
 namespace Question_Answer.user.UserClasses
@@ -35,5 +36,24 @@ namespace Question_Answer.user.UserClasses
             }
         }
 
+        public class SubjectClass
+        {
+            public string QuestionSubject { get; set; }
+            public bool TrueOrFalse { get; set; }
+        }
+
+        public List<SubjectClass> GetQuestionSubjects()
+        {
+            var questionSubjectList = new List<SubjectClass>();
+            foreach (var answeredQuestion in AnsweredQuestionsList)
+            {
+                questionSubjectList.Add(new SubjectClass()
+                {
+                    QuestionSubject = mongoDB.LoadRecordById<Question>("Questions",answeredQuestion.AnsweredQuestionIds).QuestionSubject,
+                    TrueOrFalse = answeredQuestion.TrueOrFalse
+                });
+            }
+            return questionSubjectList;
+        }
     }
 }
