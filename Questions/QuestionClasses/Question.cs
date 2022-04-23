@@ -61,12 +61,12 @@ namespace Question_Answer.Questions
             mongoDB.UpdateRecord("Questions", this.QuestionId, this);
         }
 
-        public bool SameQuestionControl(List<Question> list1,List<Question> list2)
+        public bool SameQuestionControl(List<Question> list1, List<Question> list2)
         {
             var AllGetQuestionList = new List<Question>();
             foreach (var random10Qeustion in list1)
             {
-                AllGetQuestionList.Add(random10Qeustion);   
+                AllGetQuestionList.Add(random10Qeustion);
             }
 
             foreach (var question in list2)
@@ -75,7 +75,7 @@ namespace Question_Answer.Questions
             }
 
             AllGetQuestionList.Distinct();
-            return AllGetQuestionList.Count == list1.Count + list2.Count; 
+            return AllGetQuestionList.Count == list1.Count + list2.Count;
             // tüm sorulucak sorular == daha önce doğru cevapladığı sorular + rastgele 10 soru TRUE döndürür
         }
 
@@ -95,12 +95,11 @@ namespace Question_Answer.Questions
                 {
                     var day = (DateTime.Now - answeredQuestion.AnsweredQuestionDate).Days;
 
-                    var questionDayList = new QuestionDaySetting().GetQuestionDays();
-
+                    var questionDayList = new QuestionDaySetting().GetQuestionDays(student.UserId);
                     if (questionDayList.Contains(day))
                     {
-                        
-                        QuestionbyDay.Add(mongoDB.LoadRecordByFilter<Question>("Questions",new BsonDocument
+
+                        QuestionbyDay.Add(mongoDB.LoadRecordByFilter<Question>("Questions", new BsonDocument
                         {
                             { "AdminAccept", true },
                             { "id" , answeredQuestion.AnsweredQuestionIds}

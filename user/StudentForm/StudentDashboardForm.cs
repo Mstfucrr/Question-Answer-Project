@@ -93,5 +93,11 @@ namespace Question_Answer.user.StudentUserForm
         {
             chart2.Printing.PrintPreview();
         }
+
+        private void btn_QuestionDaySetting_Click(object sender, EventArgs e)
+        {
+            SetQuestionDayForm dayForm = new SetQuestionDayForm(student.UserId);
+            dayForm.Show();
+        }
     }
 }

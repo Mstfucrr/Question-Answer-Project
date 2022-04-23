@@ -2,26 +2,28 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
+using MongoDB.Bson;
 using Question_Answer.Questions.QuestionClasses;
 
 namespace Question_Answer.Questions.QuestionForms
 {
     public partial class SetQuestionDayForm : KryptonForm
     {
-        public QuestionDaySetting questionDaySetting = new QuestionDaySetting();
-
-        public SetQuestionDayForm()
+        public QuestionDaySetting questionDaySetting;
+        private ObjectId StudentId;
+        public SetQuestionDayForm(ObjectId StudentId)
         {
             InitializeComponent();
+            this.StudentId = StudentId;
+            questionDaySetting = new QuestionDaySetting();
         }
 
         private void SetQuestionDayForm_Load(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
-            foreach (var questionDay in questionDaySetting.GetQuestionDays())
+            foreach (var questionDay in questionDaySetting.GetQuestionDays(StudentId))
                 listBox1.Items.Add(questionDay.ToString());
-
-
+            
         }
 
         private void btn_DaysUpdate_Click(object sender, EventArgs e)
@@ -49,7 +51,7 @@ namespace Question_Answer.Questions.QuestionForms
                     return;
                 }
             }
-            questionDaySetting.SetQuestionDays(days);
+            questionDaySetting.SetQuestionDays(days,StudentId);
             MessageBox.Show(@"Süreler güncellendi");
 
         }
