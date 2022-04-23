@@ -113,10 +113,5 @@ namespace Question_Answer.user.AdminForm
             this.Hide();
         }
 
-        private void btn_QuestionDaySetting_Click(object sender, EventArgs e)
-        {
-            SetQuestionDayForm dayForm = new SetQuestionDayForm();
-            dayForm.Show();
-        }
     }
 }
