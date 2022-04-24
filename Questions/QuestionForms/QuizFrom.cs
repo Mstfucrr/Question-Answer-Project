@@ -59,8 +59,8 @@ namespace Question_Answer.Questions.QuestionForms
         {
             _timer = new Timer();
             _timer.Interval = 1000;
-            //_timer.Tick += TimerOnTick;
-            //_timer.Start();
+            _timer.Tick += TimerOnTick;
+            _timer.Start();
             this.Size = new Size(1000, 760);
             // Random quesiton listesi için panel yan optikleri
             for (var i = 0; i < RandomQuestionList.Count; i++)
@@ -70,9 +70,7 @@ namespace Question_Answer.Questions.QuestionForms
                 for (var j = 0; j < RandomQuestionList[i].Answers.Count; j++) // soru cevap sayısı
                 {
                     if (RandomQuestionList[i].Answers[j].AnswerText.Length != 0)
-                    {
                         questionpanel.Controls.Add(CreateRadioButtonForOpticPanel(RandomQuestionList[i].Answers[j], j));
-                    }
 
                 }
 
@@ -157,27 +155,25 @@ namespace Question_Answer.Questions.QuestionForms
         private List<MaterialRadioButton> CreateOtionsforAnswers(List<Answers> answersList)
         {
             var RadioButtonList = new List<MaterialRadioButton>();
-            foreach (var answer in answersList)
+            foreach (var answer in answersList
+                         .Where(answer => answer.AnswerText.Length != 0))
             {
-                if (answer.AnswerText.Length != 0)
-                {
-                    _radioCevap = new MaterialRadioButton();
-                    _radioCevap.BackColor = Color.White;
-                    _radioCevap.Dock = DockStyle.Bottom;
-                    _radioCevap.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(162)));
-                    _radioCevap.Location = new Point(0, 6);
-                    _radioCevap.Margin = new Padding(0);
-                    _radioCevap.MaximumSize = new Size(700, 123);
-                    _radioCevap.Name = answer.AnswerId.ToString();
-                    _radioCevap.Size = new Size(700, 50);
-                    _radioCevap.Text = answer.AnswerText;
-                    _radioCevap.TabIndex = 2;
-                    _radioCevap.UseVisualStyleBackColor = false;
+                _radioCevap = new MaterialRadioButton();
+                _radioCevap.BackColor = Color.White;
+                _radioCevap.Dock = DockStyle.Bottom;
+                _radioCevap.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(162)));
+                _radioCevap.Location = new Point(0, 6);
+                _radioCevap.Margin = new Padding(0);
+                _radioCevap.MaximumSize = new Size(700, 123);
+                _radioCevap.Name = answer.AnswerId.ToString();
+                _radioCevap.Size = new Size(700, 50);
+                _radioCevap.Text = answer.AnswerText;
+                _radioCevap.TabIndex = 2;
+                _radioCevap.UseVisualStyleBackColor = false;
 
-                    _radioCevap.CheckedChanged += radioBtnsCheckedChanged;
-                    OptionsPanel.Controls.Add(_radioCevap);
-                    RadioButtonList.Add(_radioCevap);
-                }
+                _radioCevap.CheckedChanged += radioBtnsCheckedChanged;
+                OptionsPanel.Controls.Add(_radioCevap);
+                RadioButtonList.Add(_radioCevap);
             }
 
             return RadioButtonList;
@@ -244,12 +240,10 @@ namespace Question_Answer.Questions.QuestionForms
             ///////////////////////////
             foreach (var radioButton in OptionsPanel.Controls.OfType<MaterialRadioButton>())
             {
-                foreach (var randomQuestionAnswer in _studentAnswerlist.SelectedAnswerIdList)
+                foreach (var randomQuestionAnswer in _studentAnswerlist.SelectedAnswerIdList
+                             .Where(randomQuestionAnswer => randomQuestionAnswer.ToString() == radioButton.Name && !radioButton.Checked))
                 {
-                    if (randomQuestionAnswer.ToString() == radioButton.Name && !radioButton.Checked)
-                    {
-                        radioButton.Checked = true;
-                    }
+                    radioButton.Checked = true;
                 }
             }
             ///////////////////////////

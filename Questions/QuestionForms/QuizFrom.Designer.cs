@@ -60,9 +60,9 @@
             this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(798, 303);
+            this.pictureBox1.Size = new System.Drawing.Size(598, 246);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -74,9 +74,9 @@
             this.radioA.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.radioA.Location = new System.Drawing.Point(0, 10);
             this.radioA.Margin = new System.Windows.Forms.Padding(0);
-            this.radioA.MaximumSize = new System.Drawing.Size(700, 123);
+            this.radioA.MaximumSize = new System.Drawing.Size(525, 100);
             this.radioA.Name = "radioA";
-            this.radioA.Size = new System.Drawing.Size(700, 62);
+            this.radioA.Size = new System.Drawing.Size(525, 50);
             this.radioA.TabIndex = 2;
             this.radioA.Text = "s";
             this.radioA.UseVisualStyleBackColor = false;
@@ -88,11 +88,11 @@
             this.radioB.BackColor = System.Drawing.Color.White;
             this.radioB.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.radioB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.radioB.Location = new System.Drawing.Point(0, 258);
+            this.radioB.Location = new System.Drawing.Point(0, 210);
             this.radioB.Margin = new System.Windows.Forms.Padding(0);
-            this.radioB.MaximumSize = new System.Drawing.Size(700, 123);
+            this.radioB.MaximumSize = new System.Drawing.Size(525, 100);
             this.radioB.Name = "radioB";
-            this.radioB.Size = new System.Drawing.Size(700, 62);
+            this.radioB.Size = new System.Drawing.Size(525, 50);
             this.radioB.TabIndex = 3;
             this.radioB.Text = "s";
             this.radioB.UseVisualStyleBackColor = false;
@@ -103,11 +103,11 @@
             this.radioC.BackColor = System.Drawing.Color.White;
             this.radioC.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.radioC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.radioC.Location = new System.Drawing.Point(0, 196);
+            this.radioC.Location = new System.Drawing.Point(0, 160);
             this.radioC.Margin = new System.Windows.Forms.Padding(0);
-            this.radioC.MaximumSize = new System.Drawing.Size(700, 123);
+            this.radioC.MaximumSize = new System.Drawing.Size(525, 100);
             this.radioC.Name = "radioC";
-            this.radioC.Size = new System.Drawing.Size(700, 62);
+            this.radioC.Size = new System.Drawing.Size(525, 50);
             this.radioC.TabIndex = 4;
             this.radioC.Text = "s";
             this.radioC.UseVisualStyleBackColor = false;
@@ -118,11 +118,11 @@
             this.radioD.BackColor = System.Drawing.Color.White;
             this.radioD.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.radioD.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.radioD.Location = new System.Drawing.Point(0, 134);
+            this.radioD.Location = new System.Drawing.Point(0, 110);
             this.radioD.Margin = new System.Windows.Forms.Padding(0);
-            this.radioD.MaximumSize = new System.Drawing.Size(700, 123);
+            this.radioD.MaximumSize = new System.Drawing.Size(525, 100);
             this.radioD.Name = "radioD";
-            this.radioD.Size = new System.Drawing.Size(700, 62);
+            this.radioD.Size = new System.Drawing.Size(525, 50);
             this.radioD.TabIndex = 5;
             this.radioD.Text = "s";
             this.radioD.UseVisualStyleBackColor = false;
@@ -133,11 +133,11 @@
             this.radioE.BackColor = System.Drawing.Color.White;
             this.radioE.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.radioE.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.radioE.Location = new System.Drawing.Point(0, 72);
+            this.radioE.Location = new System.Drawing.Point(0, 60);
             this.radioE.Margin = new System.Windows.Forms.Padding(0);
-            this.radioE.MaximumSize = new System.Drawing.Size(700, 123);
+            this.radioE.MaximumSize = new System.Drawing.Size(525, 100);
             this.radioE.Name = "radioE";
-            this.radioE.Size = new System.Drawing.Size(700, 62);
+            this.radioE.Size = new System.Drawing.Size(525, 50);
             this.radioE.TabIndex = 6;
             this.radioE.Text = "s";
             this.radioE.UseVisualStyleBackColor = false;
@@ -148,10 +148,10 @@
             this.btn_DigerSoru.BackColor = System.Drawing.Color.White;
             this.btn_DigerSoru.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_DigerSoru.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btn_DigerSoru.Location = new System.Drawing.Point(739, 16);
-            this.btn_DigerSoru.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_DigerSoru.Location = new System.Drawing.Point(554, 13);
+            this.btn_DigerSoru.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_DigerSoru.Name = "btn_DigerSoru";
-            this.btn_DigerSoru.Size = new System.Drawing.Size(45, 38);
+            this.btn_DigerSoru.Size = new System.Drawing.Size(34, 31);
             this.btn_DigerSoru.TabIndex = 12;
             this.btn_DigerSoru.Text = ">";
             this.btn_DigerSoru.UseVisualStyleBackColor = false;
@@ -166,9 +166,9 @@
             this.btn_Onayla.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btn_Onayla.ForeColor = System.Drawing.Color.White;
             this.btn_Onayla.Location = new System.Drawing.Point(0, 0);
-            this.btn_Onayla.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_Onayla.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_Onayla.Name = "btn_Onayla";
-            this.btn_Onayla.Size = new System.Drawing.Size(374, 64);
+            this.btn_Onayla.Size = new System.Drawing.Size(301, 52);
             this.btn_Onayla.TabIndex = 13;
             this.btn_Onayla.Text = "Testi bitir";
             this.btn_Onayla.UseVisualStyleBackColor = true;
@@ -179,10 +179,10 @@
             this.btn_OncekiSoru.BackColor = System.Drawing.Color.White;
             this.btn_OncekiSoru.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_OncekiSoru.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btn_OncekiSoru.Location = new System.Drawing.Point(679, 16);
-            this.btn_OncekiSoru.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_OncekiSoru.Location = new System.Drawing.Point(509, 13);
+            this.btn_OncekiSoru.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_OncekiSoru.Name = "btn_OncekiSoru";
-            this.btn_OncekiSoru.Size = new System.Drawing.Size(45, 38);
+            this.btn_OncekiSoru.Size = new System.Drawing.Size(34, 31);
             this.btn_OncekiSoru.TabIndex = 14;
             this.btn_OncekiSoru.Text = "<";
             this.btn_OncekiSoru.UseVisualStyleBackColor = false;
@@ -197,16 +197,18 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(798, 937);
+            this.panel1.Size = new System.Drawing.Size(598, 761);
             this.panel1.TabIndex = 15;
             // 
             // Lbl_Soru
             // 
             this.Lbl_Soru.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.Lbl_Soru.Location = new System.Drawing.Point(13, 330);
+            this.Lbl_Soru.Location = new System.Drawing.Point(10, 268);
+            this.Lbl_Soru.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Lbl_Soru.Name = "Lbl_Soru";
-            this.Lbl_Soru.Size = new System.Drawing.Size(771, 163);
+            this.Lbl_Soru.Size = new System.Drawing.Size(579, 133);
             this.Lbl_Soru.TabIndex = 17;
             this.Lbl_Soru.Text = "";
             // 
@@ -216,18 +218,20 @@
             this.panel2.Controls.Add(this.btn_OncekiSoru);
             this.panel2.Controls.Add(this.btn_DigerSoru);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 872);
+            this.panel2.Location = new System.Drawing.Point(0, 708);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(798, 65);
+            this.panel2.Size = new System.Drawing.Size(598, 53);
             this.panel2.TabIndex = 16;
             // 
             // txtTime
             // 
             this.txtTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtTime.Location = new System.Drawing.Point(29, 21);
+            this.txtTime.Location = new System.Drawing.Point(22, 17);
+            this.txtTime.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtTime.Name = "txtTime";
             this.txtTime.ReadOnly = true;
-            this.txtTime.Size = new System.Drawing.Size(153, 28);
+            this.txtTime.Size = new System.Drawing.Size(116, 24);
             this.txtTime.TabIndex = 15;
             this.txtTime.Text = "00:00:00";
             this.txtTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -242,11 +246,12 @@
             this.OptionsPanel.Controls.Add(this.radioD);
             this.OptionsPanel.Controls.Add(this.radioC);
             this.OptionsPanel.Controls.Add(this.radioB);
-            this.OptionsPanel.Location = new System.Drawing.Point(12, 518);
-            this.OptionsPanel.MaximumSize = new System.Drawing.Size(783, 320);
-            this.OptionsPanel.MinimumSize = new System.Drawing.Size(783, 320);
+            this.OptionsPanel.Location = new System.Drawing.Point(9, 421);
+            this.OptionsPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.OptionsPanel.MaximumSize = new System.Drawing.Size(587, 260);
+            this.OptionsPanel.MinimumSize = new System.Drawing.Size(587, 260);
             this.OptionsPanel.Name = "OptionsPanel";
-            this.OptionsPanel.Size = new System.Drawing.Size(783, 320);
+            this.OptionsPanel.Size = new System.Drawing.Size(587, 260);
             this.OptionsPanel.TabIndex = 15;
             this.OptionsPanel.Visible = false;
             // 
@@ -259,8 +264,9 @@
             this.optikPanel.Cursor = System.Windows.Forms.Cursors.Default;
             this.optikPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.optikPanel.Location = new System.Drawing.Point(0, 0);
+            this.optikPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.optikPanel.Name = "optikPanel";
-            this.optikPanel.Size = new System.Drawing.Size(376, 937);
+            this.optikPanel.Size = new System.Drawing.Size(303, 761);
             this.optikPanel.TabIndex = 16;
             // 
             // panel3
@@ -268,32 +274,34 @@
             this.panel3.Controls.Add(this.btn_Onayla);
             this.panel3.Cursor = System.Windows.Forms.Cursors.Default;
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 871);
+            this.panel3.Location = new System.Drawing.Point(0, 707);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(374, 64);
+            this.panel3.Size = new System.Drawing.Size(301, 52);
             this.panel3.TabIndex = 14;
             // 
             // kryptonPanel1
             // 
             this.kryptonPanel1.Controls.Add(this.optikPanel);
             this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.kryptonPanel1.Location = new System.Drawing.Point(804, 0);
+            this.kryptonPanel1.Location = new System.Drawing.Point(600, 0);
+            this.kryptonPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.kryptonPanel1.Name = "kryptonPanel1";
             this.kryptonPanel1.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.SeparatorHighProfile;
-            this.kryptonPanel1.Size = new System.Drawing.Size(376, 937);
+            this.kryptonPanel1.Size = new System.Drawing.Size(303, 761);
             this.kryptonPanel1.StateCommon.Color1 = System.Drawing.Color.SlateBlue;
             this.kryptonPanel1.StateCommon.Color2 = System.Drawing.Color.Aquamarine;
             this.kryptonPanel1.TabIndex = 17;
             // 
             // QuizFrom
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1180, 937);
+            this.ClientSize = new System.Drawing.Size(903, 761);
             this.Controls.Add(this.kryptonPanel1);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "QuizFrom";
             this.Text = "QuestionGetForm";
             this.Load += new System.EventHandler(this.QuizFrom_Load);
