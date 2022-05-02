@@ -19,7 +19,7 @@ namespace Question_Answer.user.StudentUserForm
         }
 
 
-        private void StudentDashboardForm_Load(object sender, System.EventArgs e)
+        private void StudentDashboardForm_Load(object sender, EventArgs e)
         {
 
             chart1.Series["DogruYanlis"].Points[0].Label = student.TrueCount.ToString();
@@ -61,26 +61,26 @@ namespace Question_Answer.user.StudentUserForm
             Lbl_TestSayisi.Text = student.NumberOfQuiz.ToString();
         }
 
-        private void btn_SinavOl_Click(object sender, System.EventArgs e)
+        private void btn_SinavOl_Click(object sender, EventArgs e)
         {
             QuizFrom quizFrom = new QuizFrom(student);
             quizFrom.Closed += (o, args) =>
             {
                 var newdashboardfrom = new StudentDashboardForm(student);
-                newdashboardfrom.Closed += (sender1, eventArgs) => this.Close();
+                newdashboardfrom.Closed += (sender1, eventArgs) => Close();
                 newdashboardfrom.Show();
                 quizFrom.Hide();
             };
             quizFrom.Show();
-            this.Hide();
+            Hide();
         }
 
-        private void Btn_Logout_Click(object sender, System.EventArgs e)
+        private void Btn_Logout_Click(object sender, EventArgs e)
         {
             UserLoginForm userLoginForm = new UserLoginForm();
-            userLoginForm.Closed += (o, args) => this.Close();
+            userLoginForm.Closed += (o, args) => Close();
             userLoginForm.Show();
-            this.Hide();
+            Hide();
         }
         protected void btn_Yazdir_Click(object sender, EventArgs e)
         {
