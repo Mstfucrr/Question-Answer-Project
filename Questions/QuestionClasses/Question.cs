@@ -88,27 +88,19 @@ namespace Question_Answer.Questions
 
         public List<Question> GetQuestionsbyDay(Student student)
         {
-            var QuestionbyDay = new List<Question>();
-            foreach (var answeredQuestion in student.AnsweredQuestionsList)
-            {
-                if (answeredQuestion.TrueOrFalse)
-                {
-                    var day = (DateTime.Now - answeredQuestion.AnsweredQuestionDate).Days;
-
-                    var questionDayList = new QuestionDaySetting().GetQuestionDays(student.UserId);
-                    if (questionDayList.Contains(day))
-                    {
-
-                        QuestionbyDay.Add(mongoDB.LoadRecordByFilter<Question>("Questions", new BsonDocument
-                        {
-                            { "AdminAccept", true },
-                            { "id" , answeredQuestion.AnsweredQuestionIds}
-                        }).First());
-                    }
-                }
-            }
-
-            return QuestionbyDay;
+            return (
+                from answeredQuestion in student.AnsweredQuestionsList 
+                where answeredQuestion.TrueOrFalse 
+                    let day = (DateTime.Now - answeredQuestion.AnsweredQuestionDate).Days 
+                    let questionDayList = new QuestionDaySetting().GetQuestionDays(student.UserId) 
+                    where questionDayList.Contains(day) 
+                        select mongoDB.LoadRecordByFilter<Question>("Questions",
+                             new BsonDocument 
+                                {
+                                    {"AdminAccept", true}, 
+                                    {"id", answeredQuestion.AnsweredQuestionIds}}
+                                )
+                                    .First()).ToList();
         }
 
     }
