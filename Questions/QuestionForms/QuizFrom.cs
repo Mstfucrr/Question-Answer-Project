@@ -134,10 +134,10 @@ namespace Question_Answer.Questions.QuestionForms
                 AutoSize = true,
                 Font = new Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162))),
                 Location = new Point(2, 0),
-                Name = "label1",
+                Name = "label"+question_count,
                 Size = new Size(24, 17),
                 TabIndex = 0,
-                Text = question_count.ToString(),
+                Text = question_count+ " )",
             };
 
             pnl.Top += (optikPanel.Controls.Count - 1) * 84;
@@ -278,7 +278,10 @@ namespace Question_Answer.Questions.QuestionForms
             MessageBox.Show("Bu testin " +
                             $"\nDoğru cevap sayısı : {_thisQuestionTrueAnswerCount}" +
                             $"\nYanlış cevap sayısı : {_thisQuestionFalseAnswerCount}");
-            optikPanel.Enabled = false;
+            foreach (Control optikPanelControl in optikPanel.Controls)
+            {
+                optikPanelControl.Enabled = false;
+            }
             OptionsPanel.Enabled = false;
 
         }
