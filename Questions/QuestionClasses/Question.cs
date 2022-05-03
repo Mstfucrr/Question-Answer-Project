@@ -80,16 +80,16 @@ namespace Question_Answer.Questions
         public List<Question> GetQuestionsbyDay(Student student)
         {
             return (
-                from answeredQuestion in student.AnsweredQuestionsList 
-                where answeredQuestion.TrueOrFalse 
-                    let day = (DateTime.Now - answeredQuestion.AnsweredQuestionDate).Days 
-                    let questionDayList = new QuestionDaySetting().GetQuestionDays(student.UserId) 
-                    where questionDayList.Contains(day) 
-                        select mongoDB.LoadRecordByFilter<Question>("Questions",
-                             new BsonDocument 
+                from answeredQuestion in student.AnsweredQuestionsList
+                where answeredQuestion.TrueOrFalse
+                    let day = (DateTime.Now - answeredQuestion.AnsweredQuestionDate).Days
+                    let questionDayList = new QuestionDaySetting().GetQuestionDays(student.UserId)
+                    where questionDayList.Contains(day)
+                        select mongoDB.LoadRecordByFilter<Question>("Questions", 
+                            new BsonDocument 
                                 {
-                                    {"AdminAccept", true}, 
-                                    {"id", answeredQuestion.AnsweredQuestionIds}}
+                                    {"AdminAccept", true},
+                                    {"_id", answeredQuestion.AnsweredQuestionIds}}
                                 )
                                     .First()).ToList();
         }
