@@ -255,6 +255,7 @@ namespace Question_Answer.Questions.QuestionForms
         {
             QuizFinished(CorrectlySolvedQuestionList, false);
             QuizFinished(RandomQuestionList, true);
+            _timer.Stop();
             StudentQuizInfoUpdate();
         }
 
