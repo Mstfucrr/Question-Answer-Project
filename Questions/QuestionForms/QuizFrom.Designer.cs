@@ -226,6 +226,7 @@
             // 
             // txtTime
             // 
+            this.txtTime.BackColor = System.Drawing.Color.White;
             this.txtTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtTime.Location = new System.Drawing.Point(22, 17);
             this.txtTime.Margin = new System.Windows.Forms.Padding(2);

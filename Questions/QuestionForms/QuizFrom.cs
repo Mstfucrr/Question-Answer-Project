@@ -35,8 +35,8 @@ namespace Question_Answer.Questions.QuestionForms
             RandomQuestionList = getQuestion.GetRandom10Qeustions();
             CorrectlySolvedQuestionList = getQuestion.GetQuestionsbyDay(student);
 
-            while (!getQuestion.SameQuestionControl(RandomQuestionList, CorrectlySolvedQuestionList)) 
-                // RandomQuestionList ile CorrectlySolvedQuestionList içindeki sorular çakışmayana kadar tekardan random 10 soru çeker
+            while (!getQuestion.SameQuestionControl(RandomQuestionList, CorrectlySolvedQuestionList))
+            // RandomQuestionList ile CorrectlySolvedQuestionList içindeki sorular çakışmayana kadar tekardan random 10 soru çeker
             {
                 RandomQuestionList = getQuestion.GetRandom10Qeustions();
             }
@@ -49,7 +49,7 @@ namespace Question_Answer.Questions.QuestionForms
             _thisQuestionFalseAnswerCount = 0;
 
             _studentAnswerlist = new IsaretlenenCevaplarListesi();
-            GetQuestion(RandomQuestionNum,true);
+            GetQuestion(RandomQuestionNum, true);
             OptionsPanel.Visible = true;
             this.Student = student;
             student.NumberOfQuiz += 1;
@@ -66,7 +66,7 @@ namespace Question_Answer.Questions.QuestionForms
             for (var i = 0; i < RandomQuestionList.Count; i++)
             {
                 var questionpanel = CreatePanelForOptic(RandomQuestionList[i].QuestionId, i % 2 == 1
-                    ? Color.Turquoise : Color.Aquamarine);
+                    ? Color.Turquoise : Color.Aquamarine, i + 1);
                 for (var j = 0; j < RandomQuestionList[i].Answers.Count; j++) // soru cevap sayısı
                 {
                     if (RandomQuestionList[i].Answers[j].AnswerText.Length != 0)
@@ -81,7 +81,7 @@ namespace Question_Answer.Questions.QuestionForms
             for (var i = 0; i < CorrectlySolvedQuestionList.Count; i++)
             {
                 var questionpanel = CreatePanelForOptic(CorrectlySolvedQuestionList[i].QuestionId, i % 2 == 1
-                    ? Color.Turquoise : Color.Aquamarine);
+                    ? Color.Turquoise : Color.Aquamarine, RandomQuestionList.Count + i + 1);
                 for (var j = 0; j < CorrectlySolvedQuestionList[i].Answers.Count; j++) // soru cevap sayısı
                 {
                     if (CorrectlySolvedQuestionList[i].Answers[j].AnswerText.Length != 0)
@@ -119,7 +119,7 @@ namespace Question_Answer.Questions.QuestionForms
             }
         }
 
-        private Panel CreatePanelForOptic(ObjectId questionId, Color color)//Optir bar için panel
+        private Panel CreatePanelForOptic(ObjectId questionId, Color color, int question_count)//Optir bar için panel
         {
             var pnl = new Panel
             {
@@ -129,9 +129,20 @@ namespace Question_Answer.Questions.QuestionForms
                 BackColor = color,
                 Name = questionId.ToString()
             };
+            var lbl = new Label
+            {
+                AutoSize = true,
+                Font = new Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162))),
+                Location = new Point(2, 0),
+                Name = "label1",
+                Size = new Size(24, 17),
+                TabIndex = 0,
+                Text = question_count.ToString(),
+            };
 
             pnl.Top += (optikPanel.Controls.Count - 1) * 84;
             optikPanel.Controls.Add(pnl);
+            pnl.Controls.Add(lbl);
             return pnl;
 
         }
@@ -207,7 +218,7 @@ namespace Question_Answer.Questions.QuestionForms
                 GetQuestion(RandomQuestionNum, true);
 
             }
-           
+
 
         }
         private void GetQuestion(int index, bool isRandomQuestionList)
