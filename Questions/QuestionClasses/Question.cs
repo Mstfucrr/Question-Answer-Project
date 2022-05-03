@@ -63,17 +63,8 @@ namespace Question_Answer.Questions
 
         public bool SameQuestionControl(List<Question> list1, List<Question> list2)
         {
-            var AllGetQuestionList = new List<Question>();
-            foreach (var random10Qeustion in list1)
-            {
-                AllGetQuestionList.Add(random10Qeustion);
-            }
-
-            foreach (var question in list2)
-            {
-                AllGetQuestionList.Add(question);
-            }
-
+            var AllGetQuestionList = list1.ToList();
+            AllGetQuestionList.AddRange(list2);
             AllGetQuestionList.Distinct();
             return AllGetQuestionList.Count == list1.Count + list2.Count;
             // tüm sorulucak sorular == daha önce doğru cevapladığı sorular + rastgele 10 soru TRUE döndürür

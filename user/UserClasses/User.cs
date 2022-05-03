@@ -65,17 +65,14 @@ namespace Question_Answer.user.UserClass
 
         public bool UsersUsernameAndEmailCheck(string kullaniciadi)
         {
-            foreach (var kullanici in mongoDB.LoadRecords<Student>("Students"))
+            if (mongoDB.LoadRecords<Student>("Students")
+                .Any(kullanici => kullanici.Username == kullaniciadi))
             {
-                if (kullanici.Username == kullaniciadi) return false;
+                return false;
             }
 
-            foreach (var kullanici in mongoDB.LoadRecords<Teacher>("Teachers"))
-            {
-                if (kullanici.Username == kullaniciadi) return false;
-            }
-
-            return true;
+            return mongoDB.LoadRecords<Teacher>("Teachers")
+                .All(kullanici => kullanici.Username != kullaniciadi);
         }
 
     }

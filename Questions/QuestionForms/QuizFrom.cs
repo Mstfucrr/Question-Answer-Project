@@ -344,7 +344,6 @@ namespace Question_Answer.Questions.QuestionForms
                     }
                 }
             }
-            //btn_Onayla.Enabled = false;
         }
 
         public void radioBtnsCheckedChanged(object sender, EventArgs e)

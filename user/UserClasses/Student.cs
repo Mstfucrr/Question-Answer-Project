@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using Question_Answer.Questions;
@@ -24,15 +25,12 @@ namespace Question_Answer.user.UserClasses
 
         public void QuestionUpdate(ObjectId questionid)
         {
-            foreach (var answeredQuestion in AnsweredQuestionsList)
+            foreach (var answeredQuestion in AnsweredQuestionsList
+                         .Where(answeredQuestion => questionid == answeredQuestion.AnsweredQuestionIds))
             {
-                if (questionid == answeredQuestion.AnsweredQuestionIds)
-                {
-                    answeredQuestion.AnsweredQuestionDate = DateTime.Now;
-                    answeredQuestion.TrueOrFalse = false;
-                    mongoDB.UpdateRecord("Students",this.UserId,this);
-
-                }
+                answeredQuestion.AnsweredQuestionDate = DateTime.Now;
+                answeredQuestion.TrueOrFalse = false;
+                mongoDB.UpdateRecord("Students",this.UserId,this);
             }
         }
 
@@ -44,16 +42,12 @@ namespace Question_Answer.user.UserClasses
 
         public List<SubjectClass> GetQuestionSubjects()
         {
-            var questionSubjectList = new List<SubjectClass>();
-            foreach (var answeredQuestion in AnsweredQuestionsList)
-            {
-                questionSubjectList.Add(new SubjectClass()
+            return AnsweredQuestionsList
+                .Select(answeredQuestion => new SubjectClass()
                 {
-                    QuestionSubject = mongoDB.LoadRecordById<Question>("Questions",answeredQuestion.AnsweredQuestionIds).QuestionSubject,
+                    QuestionSubject = mongoDB.LoadRecordById<Question>("Questions", answeredQuestion.AnsweredQuestionIds).QuestionSubject, 
                     TrueOrFalse = answeredQuestion.TrueOrFalse
-                });
-            }
-            return questionSubjectList;
+                }).ToList();
         }
     }
 }
