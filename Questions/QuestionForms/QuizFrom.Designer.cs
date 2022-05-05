@@ -30,7 +30,6 @@
         {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.radioA = new System.Windows.Forms.RadioButton();
-            this.radioB = new System.Windows.Forms.RadioButton();
             this.radioC = new System.Windows.Forms.RadioButton();
             this.radioD = new System.Windows.Forms.RadioButton();
             this.radioE = new System.Windows.Forms.RadioButton();
@@ -69,41 +68,25 @@
             // 
             // radioA
             // 
-            this.radioA.BackColor = System.Drawing.Color.White;
             this.radioA.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.radioA.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.radioA.Location = new System.Drawing.Point(0, 10);
+            this.radioA.Location = new System.Drawing.Point(0, 60);
             this.radioA.Margin = new System.Windows.Forms.Padding(0);
             this.radioA.MaximumSize = new System.Drawing.Size(525, 100);
             this.radioA.Name = "radioA";
             this.radioA.Size = new System.Drawing.Size(525, 50);
             this.radioA.TabIndex = 2;
-            this.radioA.Text = "s";
+            this.radioA.Text = "sasdasdasdasdasd asdasdasd asdasdasd asdasdas asdasdasd asd asd asdasdsa asd";
             this.radioA.UseVisualStyleBackColor = false;
             this.radioA.Visible = false;
             this.radioA.CheckedChanged += new System.EventHandler(this.radioBtnsCheckedChanged);
-            // 
-            // radioB
-            // 
-            this.radioB.BackColor = System.Drawing.Color.White;
-            this.radioB.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.radioB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.radioB.Location = new System.Drawing.Point(0, 210);
-            this.radioB.Margin = new System.Windows.Forms.Padding(0);
-            this.radioB.MaximumSize = new System.Drawing.Size(525, 100);
-            this.radioB.Name = "radioB";
-            this.radioB.Size = new System.Drawing.Size(525, 50);
-            this.radioB.TabIndex = 3;
-            this.radioB.Text = "s";
-            this.radioB.UseVisualStyleBackColor = false;
-            this.radioB.Visible = false;
             // 
             // radioC
             // 
             this.radioC.BackColor = System.Drawing.Color.White;
             this.radioC.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.radioC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.radioC.Location = new System.Drawing.Point(0, 160);
+            this.radioC.Location = new System.Drawing.Point(0, 210);
             this.radioC.Margin = new System.Windows.Forms.Padding(0);
             this.radioC.MaximumSize = new System.Drawing.Size(525, 100);
             this.radioC.Name = "radioC";
@@ -118,7 +101,7 @@
             this.radioD.BackColor = System.Drawing.Color.White;
             this.radioD.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.radioD.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.radioD.Location = new System.Drawing.Point(0, 110);
+            this.radioD.Location = new System.Drawing.Point(0, 160);
             this.radioD.Margin = new System.Windows.Forms.Padding(0);
             this.radioD.MaximumSize = new System.Drawing.Size(525, 100);
             this.radioD.Name = "radioD";
@@ -133,13 +116,13 @@
             this.radioE.BackColor = System.Drawing.Color.White;
             this.radioE.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.radioE.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.radioE.Location = new System.Drawing.Point(0, 60);
+            this.radioE.Location = new System.Drawing.Point(0, 110);
             this.radioE.Margin = new System.Windows.Forms.Padding(0);
             this.radioE.MaximumSize = new System.Drawing.Size(525, 100);
             this.radioE.Name = "radioE";
             this.radioE.Size = new System.Drawing.Size(525, 50);
             this.radioE.TabIndex = 6;
-            this.radioE.Text = "s";
+            this.radioE.Text = "sasdasdasdasdasd asdasdasd asdasdasd asdasdas asdasdasd asd asd asdasdsa asd";
             this.radioE.UseVisualStyleBackColor = false;
             this.radioE.Visible = false;
             // 
@@ -241,12 +224,13 @@
             // 
             this.OptionsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.OptionsPanel.AutoScroll = true;
+            this.OptionsPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.OptionsPanel.BackColor = System.Drawing.Color.White;
             this.OptionsPanel.Controls.Add(this.radioA);
             this.OptionsPanel.Controls.Add(this.radioE);
             this.OptionsPanel.Controls.Add(this.radioD);
             this.OptionsPanel.Controls.Add(this.radioC);
-            this.OptionsPanel.Controls.Add(this.radioB);
             this.OptionsPanel.Location = new System.Drawing.Point(9, 421);
             this.OptionsPanel.Margin = new System.Windows.Forms.Padding(2);
             this.OptionsPanel.MaximumSize = new System.Drawing.Size(587, 260);
@@ -254,7 +238,6 @@
             this.OptionsPanel.Name = "OptionsPanel";
             this.OptionsPanel.Size = new System.Drawing.Size(587, 260);
             this.OptionsPanel.TabIndex = 15;
-            this.OptionsPanel.Visible = false;
             // 
             // optikPanel
             // 
@@ -322,7 +305,6 @@
         #endregion
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.RadioButton radioA;
-        private System.Windows.Forms.RadioButton radioB;
         private System.Windows.Forms.RadioButton radioC;
         private System.Windows.Forms.RadioButton radioD;
         private System.Windows.Forms.RadioButton radioE;
