@@ -24,7 +24,7 @@ namespace Question_Answer.Questions.QuestionForms
         public int SolvedQuestionNum;
         private int _thisQuestionTrueAnswerCount;
         private int _thisQuestionFalseAnswerCount;
-        private MaterialRadioButton _radioCevap;
+        private RadioButton _radioCevap;
         private readonly IsaretlenenCevaplarListesi _studentAnswerlist;
         private int _quizTime;
         private Timer _timer;
@@ -50,7 +50,6 @@ namespace Question_Answer.Questions.QuestionForms
 
             _studentAnswerlist = new IsaretlenenCevaplarListesi();
             GetQuestion(RandomQuestionNum, true);
-            OptionsPanel.Visible = true;
             this.Student = student;
             student.NumberOfQuiz += 1;
 
@@ -152,7 +151,7 @@ namespace Question_Answer.Questions.QuestionForms
             var rBtn = new MaterialRadioButton();
             rBtn.CheckAlign = ContentAlignment.MiddleCenter;
             rBtn.Dock = DockStyle.Right;
-            rBtn.Location = new Point(j * optikPanel.Width / 5, 0);
+            rBtn.Location = new Point(j * optikPanel.Width / 5-4, 0);
             rBtn.Size = new Size(optikPanel.Width / 5 + 4, 82);
             rBtn.Name = "optik_" + opAnswers.AnswerId;
             rBtn.TabStop = true;
@@ -163,32 +162,34 @@ namespace Question_Answer.Questions.QuestionForms
             return rBtn;
         }
 
-        private List<MaterialRadioButton> CreateOtionsforAnswers(List<Answers> answersList)
-        {
-            var RadioButtonList = new List<MaterialRadioButton>();
+        private void CreateOtionsforAnswers(List<Answers> answersList)
+        { 
+            var RadioButtonList = new List<RadioButton>();
             foreach (var answer in answersList
                          .Where(answer => answer.AnswerText.Length != 0))
             {
-                _radioCevap = new MaterialRadioButton();
+                _radioCevap = new RadioButton();
                 _radioCevap.BackColor = Color.White;
-                _radioCevap.Dock = DockStyle.Bottom;
-                _radioCevap.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(162)));
-                _radioCevap.Location = new Point(0, 6);
+                
+                //_radioCevap.Dock = DockStyle.Bottom;
+                _radioCevap.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(162)));
+                _radioCevap.Location = new Point(0, OptionsPanel.Controls.Count * 50);
                 _radioCevap.Margin = new Padding(0);
-                _radioCevap.MaximumSize = new Size(700, 123);
                 _radioCevap.Name = answer.AnswerId.ToString();
-                _radioCevap.Size = new Size(700, 50);
-                _radioCevap.Text = answer.AnswerText;
+                _radioCevap.Size = new Size(550, 60);
+                _radioCevap.AutoSize = false;
                 _radioCevap.TabIndex = 2;
                 _radioCevap.UseVisualStyleBackColor = false;
-
                 _radioCevap.CheckedChanged += radioBtnsCheckedChanged;
+                _radioCevap.Text = answer.AnswerText;
+                _radioCevap.AutoSize = false;
                 OptionsPanel.Controls.Add(_radioCevap);
                 RadioButtonList.Add(_radioCevap);
+                if (_timer is { Enabled: false } && answer.TrueOrFalse)
+                {
+                    _radioCevap.BackColor = Color.Chartreuse;
+                }
             }
-
-            return RadioButtonList;
-
         }
 
         private void btn_DigerSoru_Click(object sender, EventArgs e)
@@ -227,8 +228,7 @@ namespace Question_Answer.Questions.QuestionForms
             {
                 _randomQuestion = RandomQuestionList[index];
                 OptionsPanel.Controls.Clear();
-                foreach (var materialRadioButton in CreateOtionsforAnswers(_randomQuestion.Answers))
-                    OptionsPanel.Controls.Add(materialRadioButton);
+                CreateOtionsforAnswers(_randomQuestion.Answers);
                 Lbl_Soru.Text = (index + 1) + " ) " + _randomQuestion.QuestionText;
 
                 pictureBox1.ImageLocation = _randomQuestion.QuestionImage != null
@@ -239,8 +239,7 @@ namespace Question_Answer.Questions.QuestionForms
             {
                 _solvedQuestion = CorrectlySolvedQuestionList[index];
                 OptionsPanel.Controls.Clear();
-                foreach (var materialRadioButton in CreateOtionsforAnswers(_solvedQuestion.Answers))
-                    OptionsPanel.Controls.Add(materialRadioButton);
+                CreateOtionsforAnswers(_solvedQuestion.Answers);
                 Lbl_Soru.Text = (10 + index + 1) + " ) " + _solvedQuestion.QuestionText;
 
                 pictureBox1.ImageLocation = _solvedQuestion.QuestionImage != null
@@ -249,7 +248,7 @@ namespace Question_Answer.Questions.QuestionForms
             }
 
             ///////////////////////////
-            foreach (var radioButton in OptionsPanel.Controls.OfType<MaterialRadioButton>())
+            foreach (var radioButton in OptionsPanel.Controls.OfType<RadioButton>())
             {
                 foreach (var randomQuestionAnswer in _studentAnswerlist.SelectedAnswerIdList
                              .Where(randomQuestionAnswer => randomQuestionAnswer.ToString() == radioButton.Name && !radioButton.Checked))
@@ -278,10 +277,7 @@ namespace Question_Answer.Questions.QuestionForms
             MessageBox.Show("Bu testin " +
                             $"\nDoğru cevap sayısı : {_thisQuestionTrueAnswerCount}" +
                             $"\nYanlış cevap sayısı : {_thisQuestionFalseAnswerCount}");
-            foreach (Control optikPanelControl in optikPanel.Controls)
-            {
-                optikPanelControl.Enabled = false;
-            }
+            optikPanel.Enabled = false;
             OptionsPanel.Enabled = false;
 
         }
@@ -351,7 +347,7 @@ namespace Question_Answer.Questions.QuestionForms
 
         public void radioBtnsCheckedChanged(object sender, EventArgs e)
         {
-            var selectedRadioButton = sender as MaterialRadioButton;
+            var selectedRadioButton = sender as RadioButton;
 
             if (selectedRadioButton is { Checked: false })
             {
@@ -380,7 +376,7 @@ namespace Question_Answer.Questions.QuestionForms
                 {
                     if (panel.Name == _randomQuestion.QuestionId.ToString())//optik panel içindeki soru id ile görüntülenen soru id karşılaştırma
                     {
-                        foreach (var radio in panel.Controls.OfType<MaterialRadioButton>()) // optik panel > soru id panel > radiobuttonlar
+                        foreach (var radio in panel.Controls.OfType<RadioButton>()) // optik panel > soru id panel > radiobuttonlar
                         {
                             if (radio.Name == "optik_" + ısaretlenenCevapId)
                             {
