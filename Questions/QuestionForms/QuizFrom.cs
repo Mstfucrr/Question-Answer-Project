@@ -250,10 +250,12 @@ namespace Question_Answer.Questions.QuestionForms
             ///////////////////////////
             foreach (var radioButton in OptionsPanel.Controls.OfType<RadioButton>())
             {
-                foreach (var randomQuestionAnswer in _studentAnswerlist.SelectedAnswerIdList
-                             .Where(randomQuestionAnswer => randomQuestionAnswer.ToString() == radioButton.Name && !radioButton.Checked))
+                foreach (var randomQuestionAnswer in _studentAnswerlist.SelectedAnswerIdList)
                 {
-                    radioButton.Checked = true;
+                    if (randomQuestionAnswer.ToString() == radioButton.Name && !radioButton.Checked)
+                    {
+                        radioButton.Checked = true;
+                    }
                 }
             }
             ///////////////////////////
