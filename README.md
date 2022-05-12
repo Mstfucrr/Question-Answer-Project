@@ -2,7 +2,7 @@
 
 Bu projede kullanılan araçlar ve gereksinimler (Tools and requirements)
 1. Visual stuido 2022
-2. MongoDB2. 
+2. MongoDB. 
 3. c# .Net Framework 4.8
 4. Krypton Toolkit (https://github.com/ComponentFactory/Krypton)
 5. Material Design (MaterialSkin.2 : https://www.nuget.org/packages/MaterialSkin.2/)
