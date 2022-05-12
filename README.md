@@ -30,8 +30,8 @@ Bu projede kullanılan araçlar ve gereksinimler (Tools and requirements)
 
 <div>
   <h4>Öğrenci Sayfaları</h4>
-<img style="width : 35%" src = "https://user-images.githubusercontent.com/76887611/166414425-85b0e95a-474e-488a-aa16-9f2d83a87295.PNG">
-<img style="width : 35%" src = "https://user-images.githubusercontent.com/76887611/166414479-ccc1f30a-8a9e-4f06-919d-1b66c11b17c6.PNG">
+<img style="width : 35%" src = "https://user-images.githubusercontent.com/76887611/168081905-77a39dbf-cab0-424a-80c4-0679c81821c9.PNG">
+<img style="width : 35%" src = "https://user-images.githubusercontent.com/76887611/168081672-77650c0c-0462-4426-99a6-c81693fee47e.PNG">  
 <img style="width : 35%" src = "https://user-images.githubusercontent.com/76887611/166414441-f549ac77-27d4-4849-a5c1-40ac7d4819c5.PNG">
 <img style="width : 20%" src = "https://user-images.githubusercontent.com/76887611/166437046-73233738-1a3d-4cae-b007-621357abddff.PNG">
 </div>
