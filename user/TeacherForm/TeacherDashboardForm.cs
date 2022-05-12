@@ -12,6 +12,8 @@ namespace Question_Answer.user.TeacherForm
     public partial class TeacherDashboardForm : KryptonForm
     {
         private readonly Teacher _teacher;
+        private List<Question> _ownQuestionList;
+        private int _questionNum;
         public TeacherDashboardForm(Teacher teacher)
         {
             InitializeComponent();
@@ -24,6 +26,7 @@ namespace Question_Answer.user.TeacherForm
             Lbl_Eposta.Text = _teacher.Email;
             Lbl_KullaniciAdi.Text = _teacher.Username;
             Lbl_SoruSayisi.Text = _teacher.AddedQuestionCount.ToString();
+
         }
 
         private void Btn_Add_Question_Click(object sender, EventArgs e)
@@ -40,17 +43,20 @@ namespace Question_Answer.user.TeacherForm
             Pnl_Questions.Controls.Add(questionAddForm);
             questionAddForm.Show();
             Lbl_SoruSayisi.Text = _teacher.AddedQuestionCount.ToString();
-
+            
 
         }
 
-        private List<Question> _ownQuestionList;
-        private int _questionNum;
-
         private void Btn_added_question_Click(object sender, EventArgs e)
         {
+
             Pnl_Questions.Controls.Clear();
             _ownQuestionList = _teacher.GetAddedQuestions();
+            if (_ownQuestionList.Count == 0)
+            {
+                MessageBox.Show(@"Lütfen soru ekleyiniz");
+                return;
+            }
             GetQuestion(0);
             Btn_next.Visible = true;
             Btn_back.Visible = true;
