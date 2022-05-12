@@ -58,6 +58,7 @@
             this.text_Parola.Location = new System.Drawing.Point(6, 36);
             this.text_Parola.Margin = new System.Windows.Forms.Padding(2);
             this.text_Parola.Name = "text_Parola";
+            this.text_Parola.PasswordChar = '●';
             this.text_Parola.Size = new System.Drawing.Size(240, 35);
             this.text_Parola.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
@@ -65,6 +66,7 @@
             this.text_Parola.StateCommon.Border.Rounding = 20;
             this.text_Parola.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.text_Parola.TabIndex = 18;
+            this.text_Parola.UseSystemPasswordChar = true;
             // 
             // kryptonLabel6
             // 
@@ -215,8 +217,8 @@
             this.kryptonLabel1.StateCommon.LongText.Color1 = System.Drawing.Color.White;
             this.kryptonLabel1.StateCommon.LongText.Color2 = System.Drawing.Color.White;
             this.kryptonLabel1.StateCommon.LongText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.kryptonLabel1.StateCommon.ShortText.Color1 = System.Drawing.Color.Black;
-            this.kryptonLabel1.StateCommon.ShortText.Color2 = System.Drawing.Color.Black;
+            this.kryptonLabel1.StateCommon.ShortText.Color1 = System.Drawing.Color.White;
+            this.kryptonLabel1.StateCommon.ShortText.Color2 = System.Drawing.Color.White;
             this.kryptonLabel1.TabIndex = 22;
             this.kryptonLabel1.Values.Text = "Eposta";
             // 
