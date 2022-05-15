@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using MongoDB.Bson;
+﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
 namespace Question_Answer.Questions

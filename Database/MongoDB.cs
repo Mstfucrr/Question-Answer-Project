@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Forms;
-using ComponentFactory.Krypton.Ribbon;
+﻿using System.Collections.Generic;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoDB.Driver.Linq;
@@ -51,14 +47,6 @@ namespace Question_Answer.Database
         {
             var collection = db.GetCollection<T>(table);
             return collection.Find(document).ToList();
-        }
-
-        public void DeleteRecord<T>(string table, ObjectId Id)
-        {
-            var collection = db.GetCollection<T>(table);
-            var filter = Builders<T>.Filter.Eq("Id", Id);
-            collection.Find(filter).First();
-            collection.DeleteOne(filter);
         }
 
         public void UpdateRecord<T>(string table, ObjectId Id, T record)
